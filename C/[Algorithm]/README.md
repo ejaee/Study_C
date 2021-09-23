@@ -19,24 +19,24 @@
 * 코드<br>
 
   ```c
-    #include <stdio.h>
-    int main(){
-    int str[]={10, 40, 50, 20, 30};
-    int n = 5;
-    int temp;
-    // loop part
-    	for(int i=0; i< n-1; i++){
-    		for(int j=0; j< n-1-i; j++){
+	#include <stdio.h>
+	int main(){
+	int str[]={10, 40, 50, 20, 30};
+	int n = 5;
+	int temp;
+	// loop part
+		for(int i=0; i< n-1; i++){
+			for(int j=0; j< n-1-i; j++){
 				// 비교 swap
 				if(str[j] > str[j+1]){
 				temp = str[j];
 				str[j] = str[j+1];
 				str[j+1] = temp;
 				}
-  			}
-  		}
+			}
+		}
 		for(int i =0; i< n; i++)
-		    printf("%d ", str[k]);
+			printf("%d ", str[k]);
 			printf("\n");
 	}
   ```
@@ -108,16 +108,16 @@
 * 해결방법<br>
 
   ```c
-    // flag를 정의
-    int flag ; 
+	// flag를 정의
+	int flag ; 
 	
-    // min값이 바뀌었을 때 flag = 1이라는 값을 부여
-    if(str[min]> str[j])
-    min = j;
-    flag = 1;
-				
-    //flag = 1일 경우에만 swap 발동
-    if(flag = 1){
+	// min값이 바뀌었을 때 flag = 1이라는 값을 부여
+	if(str[min]> str[j])
+	min = j;
+	flag = 1;
+
+	//flag = 1일 경우에만 swap 발동
+	if(flag = 1){
 	//swap
 	temp = str[i];
 	str[i] = str[min];
@@ -156,22 +156,22 @@
 	int n = 5;
 	int temp, j;
 	// loop part 맨 왼쪽 고정, 두번째부터 시작
-	    for(int i=1; i<n; i++){
- 	       j = i;
-	        //judgment
-	        //j는 비교 갯수를 의미. 오른쪽에서 왼쪽으로 이동하므로 --
-	        while(j>0 && str[j] < str[j-1]){
-	        //swap 왼쪽것이 오른쪽보다 더 클때 swap해야지
-	        temp = str[j];
-	        str[j] = str[j-1];
-	        str[j-1] = temp;
-	        // j가 --하고 j>0조건을 만족시키지 못하면 오른쪽에서 왼쪽까지 모두 비교 했다는 뜻으로 종료
-	        j--;
-	        }
-	        for(int k =0; k<n; k++)
-	            printf("%d ", str[k]);
-	            printf("\n");
-	    }
+		for(int i=1; i<n; i++){
+			j = i;
+			//judgment
+			//j는 비교 갯수를 의미. 오른쪽에서 왼쪽으로 이동하므로 --
+			while(j>0 && str[j] < str[j-1]){
+			//swap 왼쪽것이 오른쪽보다 더 클때 swap해야지
+			temp = str[j];
+			str[j] = str[j-1];
+			str[j-1] = temp;
+			// j가 --하고 j>0조건을 만족시키지 못하면 오른쪽에서 왼쪽까지 모두 비교 했다는 뜻으로 종료
+			j--;
+			}
+			for(int k =0; k<n; k++)
+				printf("%d ", str[k]);
+				printf("\n");
+		}
 	}
   ```
 
