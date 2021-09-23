@@ -88,9 +88,9 @@
             str[i] = str[min];
             str[min] = temp;
         }
-   	    for(int i =0; i< n; i++)
-	        printf("%d ", str[i]);
-            printf("\n");
+		for(int i =0; i< n; i++)
+			printf("%d ", str[i]);
+			printf("\n");
     }
   ```
   
