@@ -70,24 +70,24 @@
 * 코드<br>
 
   ```c
-    #include <stdio.h>
-    int main(){
-    int str[]={10, 40, 50, 20, 30};
-    int n = 5;
-    int temp, min;
-    // loop part
-        for(int i=0; i<n-1; i++){
-            min = i;
-            for(int j=i+1; j< n; j++){
-			    // 비교
-                if(str[min]> str[j])
-                min = j;
-            }
-            // swap
-            temp = str[i];
-            str[i] = str[min];
-            str[min] = temp;
-        }
+	#include <stdio.h>
+	int main(){
+	int str[]={10, 40, 50, 20, 30};
+	int n = 5;
+	int temp, min;
+	// loop part
+		for(int i=0; i<n-1; i++){
+			min = i;
+			for(int j=i+1; j< n; j++){
+				// 비교
+				if(str[min]> str[j])
+				min = j;
+			}
+			// swap
+			temp = str[i];
+			str[i] = str[min];
+			str[min] = temp;
+		}
 		for(int i =0; i< n; i++)
 			printf("%d ", str[i]);
 			printf("\n");
