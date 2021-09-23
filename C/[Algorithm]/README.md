@@ -168,9 +168,9 @@
 	        // j가 --하고 j>0조건을 만족시키지 못하면 오른쪽에서 왼쪽까지 모두 비교 했다는 뜻으로 종료
 	        j--;
 	        }
-	    	for(int k =0; k<n; k++)
-		    	printf("%d ", str[k]);
-	        	printf("\n");
+	        for(int k =0; k<n; k++)
+	            printf("%d ", str[k]);
+	            printf("\n");
 	    }
 	}
   ```
