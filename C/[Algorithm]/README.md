@@ -83,13 +83,13 @@
                 if(str[min]> str[j])
                 min = j;
             }
-            // swap
-            temp = str[i];
-            str[i] = str[min];
-            str[min] = temp;
+	        // swap
+	        temp = str[i];
+	        str[i] = str[min];
+	        str[min] = temp;
         }
-   	    for(int i =0; i< n; i++)
-	        printf("%d ", str[i]);
+   	for(int i =0; i< n; i++)
+	    printf("%d ", str[i]);
             printf("\n");
     }
   ```
@@ -165,9 +165,9 @@
 	        str[j-1] = temp;
 	        j--;
 	        }
-	    for(int k =0; k<n; k++)
-		printf("%d ", str[k]);
-	        printf("\n");
+	    	for(int k =0; k<n; k++)
+		    printf("%d ", str[k]);
+	            printf("\n");
 	    }
 	}
   ```
