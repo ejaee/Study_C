@@ -1,6 +1,8 @@
 # Algorithm
 ## 1. Bubble sort(버블정렬)
 
+<img src="https://user-images.githubusercontent.com/87407504/134512932-0dd23696-0146-4d3a-a726-ba26768067e2.gif" width="400" height="210">
+
 * 정의<br>
 	* 인접한 두 항목의 값을 비교해서 일정한 기준을 만족하면 서로의 값을 교환하여 정렬하는 방식<br>
 	* 왼쪽을 시작으로 우측방향 순으로 두 짝을 비교하며 왼쪽의 값이 더 클 경우 swap을 반복<br>
@@ -48,6 +50,8 @@
 	* 반복횟수가 증가할 때마다 비교 횟수는 감소한다
 
 ## 2. Selection sort(선택정렬)
+
+<img src="https://user-images.githubusercontent.com/87407504/134513057-a845cf3c-e5bf-40d1-89dc-745820756de5.gif" width="400" height="210">
 
 * 정의<br>
 	* 제일 작은 숫자를 찾아(select) 맨 왼쪽 위치로 이동(swap)하는 방식
@@ -122,6 +126,9 @@
   ``` 
 
 ## 3. Insertion sort(삽입정렬)
+
+<img src="https://user-images.githubusercontent.com/87407504/134513124-5dea28e2-7b97-430b-9f7b-303ac372e6ac.gif" width="400" height="210">
+
 * 정의<br>
 	* 
 * 장점<br>
