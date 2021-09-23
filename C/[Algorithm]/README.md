@@ -1,4 +1,4 @@
-# Algorithm
+# Sorting_ Algorithms
 ## 1. Bubble sort(버블정렬)
 
 <img src="https://user-images.githubusercontent.com/87407504/134512932-0dd23696-0146-4d3a-a726-ba26768067e2.gif" width="400" height="210">
