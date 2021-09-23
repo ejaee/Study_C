@@ -24,10 +24,10 @@
     int str[]={10, 40, 50, 20, 30};
     int n = 5;
     int temp;
-    // loop part
+    	// loop part
     	for(int i=0; i< n-1; i++){
     		for(int j=0; j< n-1-i; j++){
-				// 비교 swap
+				// comparison/swap
 				if(str[j] > str[j+1]){
 				temp = str[j];
 				str[j] = str[j+1];
@@ -75,11 +75,11 @@
     int str[]={10, 40, 50, 20, 30};
     int n = 5;
     int temp, min;
-    // loop part
+    	// loop part
         for(int i=0; i<n-1; i++){
             min = i;
             for(int j=i+1; j< n; j++){
-			    // 비교
+		// comparison/swap
                 if(str[min]> str[j])
                 min = j;
             }
@@ -130,7 +130,7 @@
 <img src="https://user-images.githubusercontent.com/87407504/134513124-5dea28e2-7b97-430b-9f7b-303ac372e6ac.gif" width="400" height="210">
 
 * 정의<br>
-	* 자료 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된 배열 부분과 비교하여 자신의 우치를 찾아 삽입함으로써 정렬을 완성하는 알고리즘
+	* 자료 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된 배열 부분과 비교하여 자신의 위치를 찾아 삽입함으로써 정렬을 완성하는 알고리즘
 	* 두 번째 자료부터 시작하여 그 앞의 자료들과 비교하여 삽입할 위치를 지정한 후 자료를 뒤로 옮기고 지정한 자리에 자료를 삽입하여 정렬하는 알고리즘
 	* 여러장의 카드를 정리된 상태로 가지고 있다가 새로운 카드를 끼워 넣는 것과 유사
 	* 두 번째 자료는 첫 번째, 세 번째 자료는 두 번째와 첫 번째 자료와 비교한 후 자료가 삽입될 위치를 찾음
@@ -155,28 +155,30 @@
 	int str[]={50, 40, 10, 20, 30};
 	int n = 5;
 	int temp, j;
-	// loop part 맨 왼쪽 고정, 두번째부터 시작
+	// loop part
 	    for(int i=1; i<n; i++){
- 	       j = i;
-	        //judgment
-	        //j는 비교 갯수를 의미. 오른쪽에서 왼쪽으로 이동하므로 --
+ 	        j = i;
+	        // comparison/swap
 	        while(j>0 && str[j] < str[j-1]){
-	        //swap 왼쪽것이 오른쪽보다 더 클때 swap해야지
 	        temp = str[j];
 	        str[j] = str[j-1];
 	        str[j-1] = temp;
-	        // j가 --하고 j>0조건을 만족시키지 못하면 오른쪽에서 왼쪽까지 모두 비교 했다는 뜻으로 종료
 	        j--;
 	        }
 	    for(int k =0; k<n; k++)
-		    printf("%d ", str[k]);
+		printf("%d ", str[k]);
 	        printf("\n");
 	    }
 	}
   ```
 
 * 정리<br>
-
+	* Insertion sort는 두개의 loop(outer, inner)와 comparison/swap을 이용
+	* 순서는 왼쪽부터 오른쪽 방향으로 전개
+	* 맨 왼쪽 숫자를 고정하고 두번째 숫자부터 비교/swap
+	* inner loop에서 j의 값은 비교 갯수를 의미
+	* while문 사용 시 비교할 갯수가 남았고(j>0) 왼쪽이 오른쪽 값보다 더 클 경우(str[j] < str[j-1]) swap
+	* 왼쪽보다 오른쪽 값이 더 크다면 while 실행 되지 않으면서 그자리에 본인이 들어감
 
 
 [양식]
