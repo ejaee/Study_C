@@ -140,6 +140,29 @@
 * 코드<br>
 
   ```c
+	#include <stdio.h>
+	int main(){
+	int str[]={50, 40, 10, 20, 30};
+	int n = 5;
+	int temp, j;
+	// loop part 맨 왼쪽 고정, 두번째부터 시작
+	    for(int i=1; i<n; i++){
+ 	       j = i;
+	        //judgment
+	        //j는 비교 갯수를 의미. 오른쪽에서 왼쪽으로 이동하므로 --
+	        while(j>0 && str[j] < str[j-1]){
+	        //swap 왼쪽것이 오른쪽보다 더 클때 swap해야지
+	        temp = str[j];
+	        str[j] = str[j-1];
+	        str[j-1] = temp;
+	        // j가 --하고 j>0조건을 만족시키지 못하면 오른쪽에서 왼쪽까지 모두 비교 했다는 뜻으로 종료
+	        j--;
+	        }
+	    for(int k =0; k<n; k++)
+		    printf("%d ", str[k]);
+	        printf("\n");
+	    }
+	}
   ```
 
 * 정리<br>
