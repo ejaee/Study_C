@@ -212,13 +212,13 @@
 	void merge(int str[], int p, int q, int r);
 	int main(){
 		int str[8]={5,4,1,2,3,8,6,7};
-		// 분할 - 정복 - 정렬
+		
 		mergesort(str, 0, 7);
 		for(int i =0; i< 8; i++)
 			printf("%d ", str[i]);
 		return 0;
 		}
-	// 1개가 될때까지 분할, 반을 쪼개기 위해 q값
+	
 	void mergesort(int str[], int p, int r){
 		int q;
 		if(p < r){
@@ -228,7 +228,7 @@
 			merge(str, p, q, r);
 		}
 	}
-	// 각각 순환적으로 정렬, 이후 tmp그릇에서 str그릇으로 재이동
+	
 	void merge(int str[], int p, int q, int r){
 		int i =p, j=q+1, k=p;
 		int tmp[8];
