@@ -185,7 +185,7 @@
 	* swap이 끝나면 비교 갯수를 줄여야 하므로 j--
 	* 비교 값(오른쪽 값)이 왼쪽 값보다 작을 경우 while을 반복하고 클 경우 비교 종료
 
-## 4. merge sort(합병정렬)
+## 4. Merge sort(합병정렬)
 
 * 정의<br>
 	* 분할정복법
@@ -207,12 +207,63 @@
 * 코드<br>
 
   ```c
+	#include <stdio.h>
+	void mergesort(int str[], int p, int r);
+	void merge(int str[], int p, int q, int r);
+	int main(){
+		int str[8]={5,4,1,2,3,8,6,7};
+		// 분할 - 정복 - 정렬
+		mergesort(str, 0, 7);
+		for(int i =0; i< 8; i++)
+			printf("%d ", str[i]);
+		return 0;
+		}
+	// 1개가 될때까지 분할, 반을 쪼개기 위해 q값
+	void mergesort(int str[], int p, int r){
+		int q;
+		if(p < r){
+			q = (p+r)/2;
+			mergesort(str, p, q);
+			mergesort(str, q+1, r);
+			merge(str, p, q, r);
+		}
+	}
+	// 각각 순환적으로 정렬, 이후 tmp그릇에서 str그릇으로 재이동
+	void merge(int str[], int p, int q, int r){
+		int i =p, j=q+1, k=p;
+		int tmp[8];
+		while(i<=q && j<=r){
+			if(str[i] <= str[j]) tmp[k++] = str[i++];
+			else tmp[k++] = str[j++];
+		}
+		while(i<=q) tmp[k++] = str[i++];
+		while(j<=r) tmp[k++] = str[j++];
+		for(int a = p; a<=r; a++) str[a] = tmp[a];
+	}
   ```
 
 * 정리<br>
-
+	* 두개의 함수를 이용해 정렬
+	* 분할정복법을 사용(분할 - 정복 - 합병)
+	* 함수 1) mergesort
+		* 1개가 될때까지 잘반으로 나눔
+		* 나눌게 있을때까지(if(p < r)) 절반으로 나눔(q = (p+r)/2)
+		* 함수 1안에 함수 2포함
+	* 함수 2) merge
+		* mergesort를 통해 나누어진 상태로 시작
+		* 새로 정렬받을 배열을 설정(tmp[8])
+		* 나누어진 배열 중 두개씩 비교(p~q, q+1~r)
+		* 각각 i와 j를 정의하고 마지막인 q와 r보다 높아지면 끝
+		* 비교 시작은 첫번째인 p와 q+1(i=p, j=q+1)
+		* 오른쪽 배열의 값이 크면 tmp그릇에 왼쪽 값 전달
+		* 왼쪽 배열의 값이 크면 tmp그릇에 오른쪽 값 전달
+		* 어느 한 배열이 비교할 값이 끝나면 while-1 끝
+		* 왼쪽 갯수만 남았을 경우 while-2로 tmp 전달(오른쪽 --> while3)
+		* for문을 통해 새로운 그릇 tmp에서 원래 그릇 str로 전달
+		* i와 k는 같은 p 값을 받는데 i는 나누어진 한 배열의 시작값으로 비교에 사용, k는 tmp의 시작값으로 왼쪽부터 값을 전달받는데 사용
+	
 [양식]
-## 4. merge sort(합병정렬)
+## 5. Quick sort(합병정렬)
 * 정의<br>
 	*
 * 장점<br>
@@ -221,6 +272,38 @@
 * 코드<br>
 
   ```c
+	#include <stdio.h>
+	void mergesort(int str[], int p, int r);
+	void merge(int str[], int p, int q, int r);
+	int main(){
+		int str[8]={5,4,1,2,3,8,6,7};
+		// 분할 - 정복 - 정렬
+		mergesort(str, 0, 7);
+		for(int i =0; i< 8; i++)
+			printf("%d ", str[i]);
+		return 0;
+		}
+	//
+	void mergesort(int str[], int p, int r){
+		int q;
+		if(p < r){
+			q = (p+r)/2;
+			mergesort(str, p, q);
+			mergesort(str, q+1, r);
+			merge(str, p, q, r);
+		}
+	}
+	void merge(int str[], int p, int q, int r){
+		int i =p, j=q+1, k=p;
+		int tmp[8];
+		while(i<=q && j<=r){
+			if(str[i] <= str[j]) tmp[k++] = str[i++];
+			else tmp[k++] = str[j++];
+		}
+		while(i<=q) tmp[k++] = str[i++];
+		while(j<=r) tmp[k++] = str[j++];
+		for(int a = p; a<=r; a++) str[a] = tmp[a];
+	}
   ```
 
 * 정리<br>
