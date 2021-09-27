@@ -189,8 +189,8 @@
 
 * 정의<br>
 	* 분할정복법
-		* 분할 : 데이터가 저장된 배열을 절반으로 나눔
-		* 정복 : 각각을 순환적으로 정렬
+		* 분할(Divide) : 데이터가 저장된 배열을 절반으로 나눔
+		* 정복(Conquer) : 각각을 순환적으로 정렬
 		* 합병 : 정렬된 두개의 배열을 합쳐(merge) 전체를 정렬
 	* 두개의 정렬된 list를 합쳐서 하나의 정렬된 list로 만들어줌
 	* 두개의 정렬된 list는 오(내)름차순으로 정렬된 상태
@@ -208,6 +208,7 @@
 
   ```c
 	#include <stdio.h>
+	// sort(a[], b, c) --> a[b, ..., c]을 정렬한다
 	void mergesort(int str[], int p, int r);
 	void merge(int str[], int p, int q, int r);
 	int main(){
@@ -261,6 +262,73 @@
 		* 왼쪽 갯수만 남았을 경우 while-2로 tmp 전달(오른쪽 --> while3)
 		* for문을 통해 새로운 그릇 tmp에서 원래 그릇 str로 전달
 		* i와 k는 같은 p 값을 받는데 i는 나누어진 한 배열의 시작값으로 비교에 사용, k는 tmp의 시작값으로 왼쪽부터 값을 전달받는데 사용
+
+## 5. Quick sort(빠른정렬)
+* 정의<br>
+	* 합병정렬과 같이 분할정복법
+		* 분할 : 배열을 다음과 같은 조건이 만족되도록 두 부분으로 나눈다
+			특정 조건을 통해 기준 값(pivot)을 설정하고 pivot을 통해
+			작은 값 큰 값을 나눈다
+			
+			>파티션(partition)
+			
+		* 정복 : 각 부분을 수환적으로 정렬한다
+		* 합병 : nothing to do
+		* Pivot 값을 첫번째 값이나 마지막 값으로 선택하는 것은 좋은 방법이 아니다
+			- 현실의 데이터는 랜덤하지 않기 때문
+			- 소프트웨어를 만들때 이미 다른 소프트웨어로 인해 처리되는 경우가 많은데 사전 단계에서 정렬된 상태에서 데이터가 들어오는 경우가 많음 따라서 pivot을 처음이나 마지막 수로 설정할 경우 최소, 최대값이 되어 최악의 경우가 된다
+			- 첫번째 값과 마지막 값, 그리고 그 가운데 값 중에서 중간값을 pivot으로 설정하는 경우가 좋다
+			- Randomized Quicksort도 흔히 쓰인다
+* 장점<br>
+	* 빠르게 정렬하는 방법으로 가장 많이 사용됨
+	*
+* 단점<br>
+* 비교횟수<br>
+	* 파티션하는데 걸리는 시간 : O(n), 데이터의 갯수가 n개일 때 n-1번의 연산
+	* T(n) // 합병정렬처럼 반반으로 나눠지는 것이 아닌, pivot값에 따라 바뀐다
+		* 최악의 경우 : pivot이 최대,최소값이되어 쏠리는 경우 n-1개와 pivot으로 나뉨 --> T(n) = n(n-1)/2 = 0(n* n)
+		* 최선의 경우 : pivot이 항상 절반으로 분할되는 경우 merge sort와 같다 --> T(n) = 2t(n/2)+ 0(n) = 0(nlogn)
+		* Balanced_P : 	
+		
+			>이후에 다시 적을 것 인프런 '40 
+* 코드<br>
+
+  ```c
+	#include <stdio.h>
+	void mergesort(int str[], int p, int r);
+	void merge(int str[], int p, int q, int r);
+	int main(){
+		int str[8]={5,4,1,2,3,8,6,7};
+		// 분할 - 정복 - 정렬
+		mergesort(str, 0, 7);
+		for(int i =0; i< 8; i++)
+			printf("%d ", str[i]);
+		return 0;
+		}
+	//
+	void mergesort(int str[], int p, int r){
+		int q;
+		if(p < r){
+			q = (p+r)/2;
+			mergesort(str, p, q);
+			mergesort(str, q+1, r);
+			merge(str, p, q, r);
+		}
+	}
+	void merge(int str[], int p, int q, int r){
+		int i =p, j=q+1, k=p;
+		int tmp[8];
+		while(i<=q && j<=r){
+			if(str[i] <= str[j]) tmp[k++] = str[i++];
+			else tmp[k++] = str[j++];
+		}
+		while(i<=q) tmp[k++] = str[i++];
+		while(j<=r) tmp[k++] = str[j++];
+		for(int a = p; a<=r; a++) str[a] = tmp[a];
+	}
+  ```
+
+* 정리<br>
 	
 [양식]
 ## 5. Quick sort(합병정렬)
@@ -306,4 +374,4 @@
 	}
   ```
 
-* 정리<br>
+  * 정리<br>
