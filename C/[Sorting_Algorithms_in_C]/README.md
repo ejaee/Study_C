@@ -265,14 +265,14 @@
 
 ## 5. Quick sort(빠른정렬)
 * 정의<br>
-	* 합병정렬과 같이 분할정복법
+	* 합병정렬과 같은 분할정복법
 		* 분할 : 배열을 다음과 같은 조건이 만족되도록 두 부분으로 나눈다
 			특정 조건을 통해 기준 값(pivot)을 설정하고 pivot을 통해
 			작은 값 큰 값을 나눈다
 			
 			>파티션(partition)
 			
-		* 정복 : 각 부분을 수환적으로 정렬한다
+		* 정복 : 각 부분을 순환적으로 정렬한다
 		* 합병 : nothing to do
 		* Pivot 값을 첫번째 값이나 마지막 값으로 선택하는 것은 좋은 방법이 아니다
 			- 현실의 데이터는 랜덤하지 않기 때문
@@ -295,43 +295,67 @@
 
   ```c
 	#include <stdio.h>
-	void mergesort(int str[], int p, int r);
-	void merge(int str[], int p, int q, int r);
-	int main(){
-		int str[8]={5,4,1,2,3,8,6,7};
-		// 분할 - 정복 - 정렬
-		mergesort(str, 0, 7);
-		for(int i =0; i< 8; i++)
-			printf("%d ", str[i]);
+	void QuickSort(int arr[], int left, int right);
+	int main(void) {
+		int data[10] = { 5, 4, 1, 9, 3, 8, 6, 7, 10, 2 };
+		printf(" --정렬 전 순서--\n"); //정렬하기 전 상태 출력.
+		for (int i = 0; i < 10; i++) {
+			printf("%d ", data[i]);
+		}
+		printf("\n\n");
+		QuickSort(data, 0, 9);
+		printf(" --정렬 후 순서--\n"); //정렬한 후 상태 출력.
+		for (int i = 0; i < 10; i++) {
+			printf("%d ", data[i]);
+		}
+		printf("\n");
 		return 0;
-		}
-	//
-	void mergesort(int str[], int p, int r){
-		int q;
-		if(p < r){
-			q = (p+r)/2;
-			mergesort(str, p, q);
-			mergesort(str, q+1, r);
-			merge(str, p, q, r);
-		}
 	}
-	void merge(int str[], int p, int q, int r){
-		int i =p, j=q+1, k=p;
-		int tmp[8];
-		while(i<=q && j<=r){
-			if(str[i] <= str[j]) tmp[k++] = str[i++];
-			else tmp[k++] = str[j++];
+	//함수 정의
+	void QuickSort(int arr[], int left, int right) {
+		int L = left, R = right;
+		int temp;
+		int pivot = arr[(left + right) / 2]; //중간값을 pivot으로 설정
+		printf("L : %d / pivot : %d / R : %d\n", L, (left + right)/2, R); //데이터 확인 부분.
+		//아래의 while문을 통하여 pivot 기준으로 좌, 우 크고 작은 값 나열. = Partition
+		while (L <= R) {
+		//pivot이 중간 값이고, 비교 대상 arr[L], arr[R]은 pivot과 비교하니 중간 지점을 넘어가면 종료.
+			while (arr[L] < pivot) //left부터 증가하며 pivot 이상 값을 찾음.
+			L++;
+			while (arr[R] > pivot) //right부터 감소하며 pivot 이하 값을 찾음.
+			R--;
+			//L, R 모두 최대 pivot 위치까지 이동.
+			if (L <= R) { //현재 L이 R이하면. (이유 : L>R 부분은 이미 정리가 된 상태임).
+			if (L != R) { //같지 않은 경우만.
+				temp = arr[L];
+				arr[L] = arr[R];
+				arr[R] = temp;
+			} //L과 R이 같다면 교환(SWAP)은 필요 없고 한 칸씩 진행만 해주면 됨.
+			L++; R--; //그리고 L,R 한 칸 더 진행.
+			for (int i = 0; i < 10; i++) { //데이터 확인 부분.
+				printf("%d ", arr[i]);
+			}
+			printf("\n");
+			}
 		}
-		while(i<=q) tmp[k++] = str[i++];
-		while(j<=r) tmp[k++] = str[j++];
-		for(int a = p; a<=r; a++) str[a] = tmp[a];
+		printf("\n");
+		//조건 확인하여 재귀함수로.
+		printf("QuickSort 재귀 호출 확인(만족 시 호출)\n1.left : %d < R : %d \n2.right : %d > L : %d\n\n", left, R, right, L); //데이터 확인 부분.
+		if (left < R)
+			QuickSort(arr, left, R);
+		if (L < right)
+			QuickSort(arr, L, right);
 	}
   ```
 
 * 정리<br>
+	* 중간값을 pivot으로 설정하고 진행
+	* 분할정복법을 사용(mergesort와 다르게 합병은 하지않음)
+	* QuickSort 함수를 거치고 재귀함수 사용
+	* 
 	
 [양식]
-## 5. Quick sort(합병정렬)
+## 6. Quick sort(합병정렬)
 * 정의<br>
 	*
 * 장점<br>
