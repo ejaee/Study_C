@@ -173,9 +173,11 @@ dir, file 둘다 설정 가능<br>
 	> ls > file.txt 처럼 리다이렉션 연산자를 통해 dir 내용을 파일에 저장가능
 
 # Ex05
-	1. cat -e(보이지 않는 줄 끝 문자를 표시)
-	
-	//tail을 말하는 것인가?
+	<풀이>
+	git log 하면 commit 기록들이 나온다
+	git log --pretty=format:"%H" -5
+	vim으로 해당 파일을 만들고 pretty 내용을 저장
+	bash로 실행 | cat -e
 	
 # Ex06
 	
