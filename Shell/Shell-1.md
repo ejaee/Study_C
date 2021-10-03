@@ -151,12 +151,17 @@ dir, file 둘다 설정 가능<br>
 
 # Ex03
 
+	https://codecademy.tistory.com/entry/Kerberos-Protocol-%EC%BB%A4%EB%B2%A0%EB%A1%9C%EC%8A%A4%EA%B0%80-%EB%AD%98%EA%B9%8C?category=962621
+	
+	klist 목록보기
+	klist init 초기화하기
+
 # Ex04
 	1. 현재 dir내의 모든 file, dir(숨김 파일은 제외) 생성일 순서로 쉼표로 분리 나열하는 명령어
 	2. 디렉토리 이름 뒤에 슬래시가 추가되어 있는지 확인
 	
 	$ ls -tmp
-	
+	U...?
 * ls -option
 	* -m<br>
 	파일을 쉼표로 구분하여 가로로 출력
@@ -180,6 +185,7 @@ dir, file 둘다 설정 가능<br>
 	bash로 실행 | cat -e
 	
 # Ex06
+	git status
 	
 # Ex07
 	1. file 'b' 생성
@@ -219,7 +225,7 @@ dir, file 둘다 설정 가능<br>
 	2. 이 명령어를 통해 검색한 모든파일 표시, 삭제
 	2. 하나의 명령어만 사용할 것
 	
-	$ find . -type f\(-name'#*#' -o -name'*~'\) -print -delete
+	$ find . -type f \( -name "#*#"" -o -name "*~" \) -print -delete
 	
 * find
 	* 파일, 디렉토리의 모든 옵션을 검색
