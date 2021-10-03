@@ -3,9 +3,9 @@
 	1. z 이름의 파일 만들기
 	2. cat으로 Z와 함께 줄바꿈이 표시되도록 하기
 
-	```
-	echo Z > z
-	```
+	
+	$ echo Z > z
+	
 	
 * echo
 	* 인수로 전달되는 텍스트 / 문자열을 표시하는데 사용
@@ -32,7 +32,7 @@
 	* cat 명령 뒤에 파일 이름을 입력하면 그 파일의 내용을 출력<br>
 	* 여러개의 파일을 전달하여 파일 내용을 연속 출력 가능<br>
 	-> cat file1 file2 file3
-	* >(redirection)기호 : 사용을 통해 입력한 내용으로 새로운 파일을 만든다
+	* '>'(redirection)기호 : 사용을 통해 입력한 내용으로 새로운 파일을 만든다
 	* << 기호 : 직접 입력한 텍스트를 파일에 저장할때 사용한다
 	-> 시작, 종료를 알리는 키워드를 설정하고 끝날때 해당 키워드로 종료한다
 	
@@ -57,15 +57,15 @@
 	* 현재 디렉토리에 위치한 디렉, 파일을 출력
 	* 형읽쓰실, 소유자계정, 그룹계정, 바이트크기 사이즈, 생성|최종수정된 시간, dir|fileName
 
-	>> 그룹계정 : 각 계정들이 속해있는 소속
-	>> 개발 1팀 소속이면 개발 1팀 그룹을 만들어 팀원들을 소속시킬 수 있다
-	>> 별도의 그룹에 포함시키지 않으면 본인 아이디와 동일하게 기재
+	> 그룹계정 : 각 계정들이 속해있는 소속
+	> 개발 1팀 소속이면 개발 1팀 그룹을 만들어 팀원들을 소속시킬 수 있다
+	> 별도의 그룹에 포함시키지 않으면 본인 아이디와 동일하게 기재
 
 * 권한변경	
 	* -(d,|)rwx(user) rwx(group) rxw(other)
 
-	>> -(file), d(dir), |(link)
-	>> r(read), w(write), x(excute)
+	> -(file), d(dir), |(link)<br>
+	> r(read), w(write), x(excute)
 
 	* rwx
 		* 각 1비틕 총 3비트의 공간을 가진다
@@ -92,13 +92,13 @@
 	$truncate -s 0 fileName
 	```
 	
-	>> 그 외 명령어 dd, head 
-	>> 숫자만 적으면 byte로 인식하고 K,M과 같은 단위를 통해 표현이 가능
+	> 그 외 명령어 dd, head 
+	> 숫자만 적으면 byte로 인식하고 K,M과 같은 단위를 통해 표현이 가능
 
 * 생성|최종수정 날짜 변경
 	* touch -t YYYYMMDDhhmm fileName
 	
->> 시간이 안나오고 년도가 나오는 경우가 있던데 무슨차이인가?
+> 시간이 안나오고 년도가 나오는 경우가 있던데 무슨차이인가?
 	
 * tar
 	* 파일을 압축하는 명령어
@@ -120,7 +120,7 @@
 	* 서로 다른 inode값을 가짐
 	* 같은 dir공간에 없을 경우 끊김
 	
-	>> inode값을 확인하는법 : ls-li 의 좌측값
+	> inode값을 확인하는법 : ls-li 의 좌측값
 
 * hard link
 	* hard link 파일을 만드는 명령어
@@ -130,23 +130,186 @@
 	
 
 ### 학습
-linkFile은 다운받았을 때 사람이 알아보기 쉽도록 파일을 저장해놓은 링크파일
-FileSystem은 컴퓨터 연산에 용이한 실제 물리적인 하드디스크 위치에 저장된 파일 시스템
-두개의 테이블을 연결할 수 있는 key = inode
-fileSystem's Ref는 실제 Filesystem을 참조하는 linkFile의 갯수
-파일하나가 생성되면 최초 Ref 값은 1
-Ref가 0이되면 파일 삭제
-<HardLink>
-파일 시스템에 저장된 inode 값을 똑같이 참조하는 linkFile을 또 만드는 것
-이에 따라 Ref+1
-HardLink는 원본이든 복사본이든 어느 파일이라도 수정하면 참조파일이 동시에 수정편집
-HardLink 생성 후 원본과 복사본의 의미가 없음, 원본파일 삭제해도 복사본 영향 없음
-HardLink는 file만 설정 가능(dir 불가)
-
-<SoftLink>
-dir 나 file의 바로가기 기능
-링크파일이 링크파일을 참조하는 방식
-cf) Hard-는 링크파일이 FileSystem의 물리적 위치인 inode를 참조하는 방식
-dir, file 둘다 설정 가능
+linkFile은 다운받았을 때 사람이 알아보기 쉽도록 파일을 저장해놓은 링크파일<br>
+FileSystem은 컴퓨터 연산에 용이한 실제 물리적인 하드디스크 위치에 저장된 파일 시스템<br>
+두개의 테이블을 연결할 수 있는 key = inode<br>
+fileSystem's Ref는 실제 Filesystem을 참조하는 linkFile의 갯수<br>
+파일하나가 생성되면 최초 Ref 값은 1<br>
+Ref가 0이되면 파일 삭제<br>
+<HardLink><br>
+파일 시스템에 저장된 inode 값을 똑같이 참조하는 linkFile을 또 만드는 것<br>
+이에 따라 Ref+1<br>
+HardLink는 원본이든 복사본이든 어느 파일이라도 수정하면 참조파일이 동시에 수정편집<br>
+HardLink 생성 후 원본과 복사본의 의미가 없음, 원본파일 삭제해도 복사본 영향 없음<br>
+HardLink는 file만 설정 가능(dir 불가)<br>
+<br>
+<SoftLink><br>
+dir 나 file의 바로가기 기능<br>
+링크파일이 링크파일을 참조하는 방식<br>
+cf) Hard-는 링크파일이 FileSystem의 물리적 위치인 inode를 참조하는 방식<br>
+dir, file 둘다 설정 가능<br>
 
 # Ex03
+
+# Ex04
+	1. 현재 dir내의 모든 file, dir(숨김 파일은 제외) 생성일 순서로 쉼표로 분리 나열하는 명령어
+	2. 디렉토리 이름 뒤에 슬래시가 추가되어 있는지 확인
+	
+	$ ls -tmp
+	
+* ls -option
+	* -m<br>
+	파일을 쉼표로 구분하여 가로로 출력
+	* -t<br>
+	최근에 만들어진 파일 순서대로 출력
+	* -p<br>
+	dir에 /를 추가
+	* -a<br>
+	dir 내의 숨겨진 모든 파일 출력	
+	
+	> ls -al/home/ 과 같이 출력하고 싶은 dir를 지정할 수 있음
+	> 다양한 조합으로 ls 명령어 사용 가능
+	> ex )ls -alSrh(숨겨진파일(a)까지 포함해서 파일크기(S) 역순(r)으로 보기좋게(h) 자세히(l))
+	> ls > file.txt 처럼 리다이렉션 연산자를 통해 dir 내용을 파일에 저장가능
+
+# Ex05
+	1. cat -e(보이지 않는 줄 끝 문자를 표시)
+	
+	//tail을 말하는 것인가?
+	
+# Ex06
+	
+# Ex07
+	1. file 'b' 생성
+	2. diff a b<br>
+	a 이후 추가해서 b를 만들어 업데이트 된 부분을 알려주는 diff
+	3. diff a b > sw.diff
+	4. 업데이트 된 부분을 합쳐서 최종본을 만들어라<br>
+	patch a sw.diff > b
+	
+* diff
+	* 두 파일 사이의 내용을 비교하는 명령어
+	* cmp 명령어보다 직관적이고 명확
+	* 3개 파일까지 비교 가능
+	```
+	diff [option] [비교파일1][비교파일2]
+	diff3 [option] [비교파일1][비교파일2][비교파일3]
+	```	
+	
+* patch
+	* 두 파일들 간의 차이를 출력해 주는 프로그램인 diff에 의해 생성된 파일
+	* patch 만들기
+	```
+	diff -uNr [원본파일][수정파일]>[패치파일명]
+	ex) a.c를 b.c로 수정한 후 b.patch를 생성
+		diff -uNf a.c b.c > b.patch
+	```
+	* patch 적용하기
+	```
+	patch [option][원본파일][패치파일]
+	ex) a.c를 b.c로 수정한 후 b.patch를 생성
+		diff a.c b.patch
+	```
+	
+# Ex08 
+	1. 현재 dir와 하위 dir에서 파일이름 키워드 검색 찾기<br>
+	-> ~로 끝, #로 시작하거나 끝
+	2. 이 명령어를 통해 검색한 모든파일 표시, 삭제
+	2. 하나의 명령어만 사용할 것
+	
+	$ find . -type f\(-name'#*#' -o -name'*~'\) -print -delete
+	
+* find
+	* 파일, 디렉토리의 모든 옵션을 검색
+	```
+	find [options][path][expression]
+	```	
+	* 찾고자하는 파일이나 디렉토리의 위치를 찾을 때 주로 사용
+
+	```
+	현재 home_dir기준으로 fileName 를 찾고 싶다면
+	$find . -name fileName.txt
+	<결과예시>
+	-> ./fileName.txt (현재 dir에 있고)
+	-> ./backup/fileName.txt (백업 dir에도 있구나)
+	
+	권한이 없는 dir에서 찾고 싶다면 sudo를 입력
+	```
+	
+* expression에는 Tests, Aactions, Operators가 올 수 있음
+	* -type(Tests expression)<br>
+	파일의 유형으로 파일을 찾음<br>
+	f : 일반파일<br>
+	d : 디렉토리<br>
+	
+	* -o<br>
+	or 연산자<br>
+	-연산 -o 연산(맨앞의 - 생략 가능)<br>
+	-o 앞의 연산이나 -o 뒤의 연산조건을 일치하는 것을 찾아줌<br>
+	-o가 없을 경우 모두 만족시키는(and) 것을 찾아줌<br>
+	
+	* -print(Actions expression)<br>
+	action은 찾은 파일에 대해서 실해할 액션으로 생략해도 -print가 됨<br>
+	검색된 파일 화면에 출력 옵션<br>
+	* delete(Actions -)<br>
+	파일 삭제
+	
+	* text로 여러 패턴을 같이 찾고 싶을때<br>
+	```
+	find dir \(-name "*.py" -o -name "*.html"\)
+	```
+	
+* 인용부호 정리
+	* 작은 따옴표, 큰 따옴표, 역 따옴표
+	```
+	$echo hi 와 $echo "hi" 둘다
+	-> hi로 출력
+	```
+	* 큰따옴표 출력하고 싶다면
+	```
+	$echo "\"" #역 슬러시 쓰거나
+	$echo \"
+	$echo '"' #작은 따옴표로 큰 따옴표 감싸기
+	```
+	* 백슬러시 출력하고 싶다면
+	```
+	$echo "\\" #역 슬러시 쓰거나
+	$echo \\
+	$echo '\' #작은 따옴표로 역 슬러시 감싸기
+	```
+
+	공통점 -> 작은 따옴표로 감싸진 문자열은 변화없이 그대로 출력<br>
+	
+	*작은따옴표 출력하고 싶다면
+	```
+	$echo\'
+	$echo"'"
+	```
+	
+	총 정리<br> 
+	작은 따옴표는 작은 따옴표 안에 있는 것을 가급적 그대로 출력<br>
+	변수를 작은 따옴표 내에서 출력하면 변수명 그대로 출력<br>
+	```
+	$echo '$HOME'
+	-> $HOME
+	```
+	<br>
+	큰 따옴표는 큰 따옴표 안에 넣으면 실제 값으로 치환된 후 출력<br>
+	```
+	$echo "$HOME"
+	-> /home/storycompiler
+	```
+	
+
+# Ex09
+	
+* file 명령어
+	* 파일의 종류를 확인할 때 사용
+	```
+	$file fileName
+	```
+	* file 명령어는 확장자가 아닌 파일의 내용을 보고 파일의 종류를 말해줌<br>
+	C source code를 .c가 아닌 .txt로 저장하더라도 c source로 출력
+	* 지정된 파일이 test파일인지 binary파일인지 확인
+	* file 명령어를 통해 파일시스템 테스트 - 매직 테스트 - 언어 테스트의 3가지 단계의 확인작업을 진행한다
+	
