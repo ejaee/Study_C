@@ -160,9 +160,11 @@ dir, file 둘다 설정 가능<br>
 	1. 현재 dir내의 모든 file, dir(숨김 파일은 제외) 생성일 순서로 쉼표로 분리 나열하는 명령어
 	2. 디렉토리 이름 뒤에 슬래시가 추가되어 있는지 확인
 	
-	$ ls -tmp
-	U...?
+	$ ls -Utmp
+	
 * ls -option
+	* -U<br>
+	디스크에 저장된 파일대로 추력
 	* -m<br>
 	파일을 쉼표로 구분하여 가로로 출력
 	* -t<br>
@@ -185,7 +187,8 @@ dir, file 둘다 설정 가능<br>
 	bash로 실행 | cat -e
 	
 # Ex06
-	git status
+	git ls-files --others --ignored --exclude-standard
+	문제에서 보여주는 출력값은 자체 환경에서 사용한 것이므로 본인과 다름
 	
 # Ex07
 	1. file 'b' 생성
@@ -194,6 +197,13 @@ dir, file 둘다 설정 가능<br>
 	3. diff a b > sw.diff
 	4. 업데이트 된 부분을 합쳐서 최종본을 만들어라<br>
 	patch a sw.diff > b
+	
+	다른풀이
+	1. diff는 패치파일을 만듬
+	diff a b > sw.diff 로 a와 b의 차이를 patch 파일로 생성
+	a와 sw.diff로 patch 해서 b 만들자
+	patch -p0 < sw.diff 로 a를 패치하면 된다
+	a를 b로 바꿔서 제출하면 됨
 	
 * diff
 	* 두 파일 사이의 내용을 비교하는 명령어
