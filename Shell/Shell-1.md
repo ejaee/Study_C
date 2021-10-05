@@ -198,6 +198,7 @@ dir, file 둘다 설정 가능<br>
 	4. 업데이트 된 부분을 합쳐서 최종본을 만들어라<br>
 	patch a sw.diff > b
 	
+	
 	다른풀이
 	1. diff는 패치파일을 만듬
 	diff a b > sw.diff 로 a와 b의 차이를 patch 파일로 생성
