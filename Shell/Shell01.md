@@ -118,6 +118,16 @@
 	ifconfig -a 모든 네트워크 인터페이스 구성을 확인
 	https://blog.naver.com/cumulusworld/220102945835
 	
+	ifconfig -a | grep 'ether ' | tr -d '\t' | sed 's/ether //g'
+	Ifconfig -a ether | grep ether | cut -d “ “ -f2
+	
+	ifconfig
+	ip를 확인하는 명령어
+	
+	mac 주소는 ether이라고 함
+	
+	
+	
 # ex05 can you create it?
 	오직 42만 포함하는 파일 작성
 	파일이름 = "\?$*'MaRViN'*$?\"
