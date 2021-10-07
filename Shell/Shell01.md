@@ -1,4 +1,35 @@
-# ex00 들어가기전에 환경변수에 대한 이해
+# ex00 금요일 시험 관련 공지
+	터미널 켜기
+	docs 파일로 이동
+	ls -a 명령어로 Readme.ko.md 확인
+	Readme 파일에 따라서 기본 터미널에 examshell 입력
+	examshell이 켜지면 요구하는대로 kinit '인트라아이디' 입력
+	요구하는대로 터미널에 다시 examshell 입력
+
+	완료하면 왼쪽위에 자기 얼굴이 나타남
+	시험시작 10분안에 자기 사진이 띄워져 있으면 시험응시가능
+	
+	시험시작
+	기본 터미널 홈 디렉토리에 subject, rendum trace 디렉이 생김
+	subject
+	이 디렉에 영어 불어 국어 문제들이 주어짐
+	rendu
+ 	subject에서 요구한 디렉과 파일들을 작성해서 제출하는 디렉
+	평소 과제를 제출하는 것 처럼 git add commit push 하면 됨
+	trace
+	제출한 파일을 시스템에서 적절히 컴파일하고 실행한 후
+	diff 명령어를 통해 testcase와 비교한 로그들이 찍혀있음
+	디버깅할 때 살펴보면 좋음
+	
+	제출방법
+	rendu 디렉에 문제에서 요구한 디렉과 파일만 남긴다
+	rendu 디렉에서 git add, commit, push
+	examshell에 grademe 입력
+	30초정도 지나면 success 또는 fail 이뜸
+	fail 경우 수정제출이 가능하지만 대기시간 패널티 발생
+	success 경우 subject 디렉에 다음문제가 주어짐
+	
+# 환경변수에 대한 이해
 	FT_USER는 환경변수에 포함 된 로그인 그룹 목록을 표시하는 방법
 	환경변수가 무엇인가
 	
