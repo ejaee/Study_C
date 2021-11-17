@@ -47,8 +47,8 @@
     * [DAY16] 보충학습
   ### 관련 개인 Repository
   * [ejchoi](https://github.com/Ejaeda)
-  * [bochoi]
-  * [juji]
-  * [ichoi]
-  * [jnam]
+  * [bochoi](https://github.com/BB-choi)
+  * [juji](https://github.com/ji-junhyuk)
+  * [ichoi](https://github.com/ICCHOI)
+  * [jnam](https://github.com/namzisun)
   * [junbaek]
