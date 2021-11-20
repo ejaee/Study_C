@@ -25,7 +25,7 @@
     * [Day0](#42-스터디) 스터디 개별학습 및 진도 파악
   * 1주차: 11/15~11/21
     * [DAY1](https://github.com/Ejaeda/Go_all_out/blob/master/자료구조/01_자료구조와%20알고리즘의%20이해.md) 자료구조와 알고리즘의 이해
-    * [DAY2] 재귀
+    * [DAY2](https://github.com/Ejaeda/42_study/blob/master/자료구조/02_재귀.md) 재귀
   * 2주차: 11/22~11/28
     * [DAY3] 연결 리스트1
     * [DAY4] 연결 리스트2
