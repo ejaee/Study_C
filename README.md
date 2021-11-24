@@ -2,7 +2,7 @@
 ## 42 스터디
 * 코딩 테스트 대비 [백준](https://www.acmicpc.net/step) 코딩테스트 문제풀이
   * [라이벌 제도](https://solved.ac/ranking/rival)를 통한 그룹 라이벌 진도 확인
-  * 최소 1일 1문제 학습
+  * 최소 1일 1문제 학습 후 [정리](https://github.com/Ejaeda/Coding_Test)
   * [class](https://solved.ac/class)에 선별된 문제를 참고하여 학습
 * 윤성우의 열혈 자료구조 책을 통한 자료구조 학습
   * 2인 1개조 동료평가 진행(1주 2파트 진행)
