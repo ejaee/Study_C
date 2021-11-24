@@ -3,29 +3,29 @@
 
 int main(void)
 {
-	/*** ArrayListÀÇ »ı¼º ¹× ÃÊ±âÈ­ ***/
+	/*** ArrayListì˜ ìƒì„± ë° ì´ˆê¸°í™” ***/
 	List list;
 	int data;
 	ListInit(&list);
 
-	/*** 5°³ÀÇ µ¥ÀÌÅÍ ÀúÀå ***/
+	/*** 5ê°œì˜ ë°ì´í„° ì €ì¥ ***/
 	LInsert(&list, 11);  LInsert(&list, 11);
 	LInsert(&list, 22);  LInsert(&list, 22);
 	LInsert(&list, 33);
 
-	/*** ÀúÀåµÈ µ¥ÀÌÅÍÀÇ ÀüÃ¼ Ãâ·Â ***/
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));
+	/*** ì €ì¥ëœ ë°ì´í„°ì˜ ì „ì²´ ì¶œë ¥ ***/
+	printf("í˜„ì¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));
 
-	if(LFirst(&list, &data))    // Ã¹ ¹øÂ° µ¥ÀÌÅÍ Á¶È¸
+	if(LFirst(&list, &data))    // ì²« ë²ˆì§¸ ë°ì´í„° ì¡°íšŒ
 	{
 		printf("%d ", data);
 		
-		while(LNext(&list, &data))    // µÎ ¹øÂ° ÀÌÈÄÀÇ µ¥ÀÌÅÍ Á¶È¸
+		while(LNext(&list, &data))    // ë‘ ë²ˆì§¸ ì´í›„ì˜ ë°ì´í„° ì¡°íšŒ
 			printf("%d ", data);
 	}
 	printf("\n\n");
 
-	/*** ¼ıÀÚ 22À» Å½»öÇÏ¿© ¸ğµÎ »èÁ¦ ***/
+	/*** ìˆ«ì 22ì„ íƒìƒ‰í•˜ì—¬ ëª¨ë‘ ì‚­ì œ ***/
 	if(LFirst(&list, &data))
 	{
 		if(data == 22)
@@ -38,13 +38,13 @@ int main(void)
 		}
 	}
 
-	/*** »èÁ¦ ÈÄ ÀúÀåµÈ µ¥ÀÌÅÍ ÀüÃ¼ Ãâ·Â ***/
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));
+	/*** ì‚­ì œ í›„ ì €ì¥ëœ ë°ì´í„° ì „ì²´ ì¶œë ¥ ***/
+	printf("í˜„ì¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));
 
 	if(LFirst(&list, &data))
 	{
 		printf("%d ", data);
-		
+
 		while(LNext(&list, &data))
 			printf("%d ", data);
 	}
