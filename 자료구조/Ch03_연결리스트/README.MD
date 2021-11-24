@@ -110,6 +110,7 @@ void	PutMoney(Wallet* pw, int coinNum, int billNum)
 
 
 ### 리스트의 ADT를 기반으로 정의된 main 함수
+[ListMain.c](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03_연결리스트/file/ListMain.c)
 ```.c
 #include <stdio.h>
 #include "ArrayList.h"
@@ -169,7 +170,7 @@ int main(void)
 
 ### 배열 기반으로 리스트 구현하기: ArrayList.h
 
-##### 구조체 [ArrayList.h]()
+##### 구조체 [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03_연결리스트/file/ArrayList.h)
 
 ```.c
 #ifndef __ARRAY_LIST_H__
@@ -303,7 +304,7 @@ LData	LRemove(List * Plist)
 > *	curPosition은 삭제가 되기 전[4]의 값을 인덱스 3을 가리킨 상황에서 가져오는데 [3]이 삭제되었으므로 2를 가리켜야한다 
 
 ### 배열 기반의 리스트 구현 하나로 묶기
-[ArrayList.c](./file/03/ArrayList.c)
+[ArrayList.c](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03_연결리스트/file/ListMain.c)
 ### 배열 리스트의 장단점
 
 장점
