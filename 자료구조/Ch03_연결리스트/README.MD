@@ -321,3 +321,12 @@ LData	LRemove(List * Plist)
 -----
 ### 리스트에 구조체 변수 저장하기1 : 구조체 point와 관련 함수들의 정의
 
+리스트에 정수가 아닌 다른 데이터를 저장하기 위해 정의한 리스트에 `구조체 변수의 주소값`을 저장하기
+```.c
+typedef struct_point
+{
+    int xpos;		// x좌표 정보
+    int ypos;  		// y좌표 정보
+} point;
+```
+학습 후 이어하기
