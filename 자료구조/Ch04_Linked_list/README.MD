@@ -110,9 +110,9 @@ else{
 -  연결 리스트의 ADT를 정의하지 않았다
 -  필요할 때 가져다 쓸수 있도록 삽입, 삭제, 조회의 기능이 별도의 함수로 구분되어야 한다
 -----
-### 단순 연결 리스트의 ADT와 구현
+# :grey_exclamation: 단순 연결 리스트의 ADT와 구현
 
-#### 연결 리스트의 ADT
+### 연결 리스트의 ADT
 
 이전의 배열 리스트에서 정렬 기능이 추가
 -  Void SetSortRule(List * Plist, int (* comp)(LData d1, LData d2));
