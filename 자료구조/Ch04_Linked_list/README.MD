@@ -86,7 +86,7 @@ else{
     node * delNextNode = head -> next;
 ```
 > 바로 삭제를 하면 다음 노드를 가리키지 못하니까 delNextNode에 다음 연결지를 저장
-```
+```.c
     printf("%d을(를) 삭제\n", head -> data);
     free(delNode);                       // 첫 번째 노드 삭제
     
@@ -96,13 +96,12 @@ else{
       delNextNode = delNextNode -> Next;
 ```
 > 한 칸씩 오른쪽으로 이동
-```
+```.c
       
       printf("%d을 삭제                    // delNode -> data);
       free(delNode);
     }
 }
-
 ```
 
 #### 여기까지 학습정리
@@ -278,4 +277,5 @@ LData LRemove(List * plist){
 > 일반적으로main함수는 배열 기반 리스트와 동일하므로 소스코드 변경 없이 서로 대체가 가능
 
 -----
-### 연결 리스트의 정렬 삽입의 구현
+# :grey_exclamation: 연결 리스트의 정렬 삽입의 구현
+### 
