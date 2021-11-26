@@ -28,7 +28,7 @@
     * [DAY2](https://github.com/Ejaeda/42_study/tree/master/자료구조/Ch02_재귀) 재귀
   * 2주차: 11/22~11/28
     * [DAY3](https://github.com/Ejaeda/42_study/tree/master/자료구조/Ch03_연결리스트) 연결 리스트1
-    * [DAY4] 연결 리스트2
+    * [DAY4](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch04_Linked_list/README.MD) 연결 리스트2
   * 3주차: 11/29~12/05
     * [DAY5] 연결 리스트3
     * [DAY6] 스택
