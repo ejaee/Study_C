@@ -23,6 +23,20 @@ typedef struck _node
 필요할 때마다 바구니를 하나씩 마련해서 그곳에 데이터를 저장하고 이들을 배열처럼 서로 연결하는 방식
 > 필요할 때마다 바구니의 역할을 하는 구조체 변수를 하나씩 동적 할당(malloc, free) 해서 이들을 연결
 
+-----
+들어가기 전 내가 만든 핵심
+
+-  head와 tail은 가리키기만 하는 것이지 data를 받는 변수가 아니다
+-  이에 반해 newNode는 가리키기도 하고 data를 저장해야하기도 하므로 두가지 기능이 필요하다
+>  `newNode -> data` 를 통해 데이터를 저장 `newNode -> next`를 통해 가리킴 
+-  즉 head와 tail가 A를 가리키고 싶을때 `head = A` 를 통해서 바로 연결 지으면 되고
+-  newNode 는 `newNode -> next = A` 를 통해 연결 지으면 된다
+여기서의 문제점 : 새 노드 추가할 때 `tail -> next = newNode`
+-  `tail -> next = newNode`는 tail이 newNode를 가리키려고 하는 것이 아니다
+-  newNode가 새로 만들어진 시점에서 이전의 newNode를 tail을 통해서 접근하기 위해 tail을 쓴 것이다
+-  tail은 위의 논리대로 else문을 끝나고 만나는 tail = newNode를 통해 이어진다
+-----
+
 ### 연결 리스트에서의 데이터 삽입
 ```.c
 int main(void)
