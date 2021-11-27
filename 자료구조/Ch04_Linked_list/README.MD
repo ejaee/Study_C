@@ -32,7 +32,7 @@ typedef struck _node
 -  즉 head와 tail가 A를 가리키고 싶을때 `head = A` 를 통해서 바로 연결 지으면 되고
 -  newNode 는 `newNode -> next = A` 를 통해 연결 지으면 된다
 
-여기서의 문제점 : 새 노드 추가할 때 `tail -> next = newNode` 이 나오는데 이건뭐냐?
+여기서의 문제점 : 새 노드 추가할 때 [`tail -> next = newNode`](#노드를-추가하는-과정) 이 나오는데 이건뭐냐?
 -  `tail -> next = newNode`는 tail이 newNode를 가리키려고 하는 것이 아니다
 -  newNode가 새로 만들어진 시점에서 이전의 newNode를 tail을 통해서 접근하기 위해 tail을 쓴 것이다
 -  tail은 위의 논리대로 else문을 끝나고 만나는 tail = newNode를 통해 이어진다
@@ -60,16 +60,17 @@ if(head == Null)                         // 첫 번째 노드라면
     head = newNode;                      // 첫 번째 노드를 head가 가리키게 함
 //else
 //    tail -> next = newNode;
-tail = newNode;                          // 노드의 끝을 tail이 가리키게 함
+tail = newNode;                          // tail 새로 만들어진 노드를 가리키게 함
 ```
+> head와 tail은 첫 번째 노드를 같이 가리키고 있는 상황
 
 #### 노드를 추가하는 과정
 ```.c
 //if(head == Null)
 //    head = newNode;
 else
-    tail -> next = newNode;              // 노드의 끝을 tail이 가리키게 한다
-//tail = newNode;
+    tail -> next = newNode;              // tail이 추가된 노드를 가리키게 한다
+tail = newNode;
 ```
 > 반복문이 끝나면 head는 첫 번째 노드를, tail은 마지막 노드를 가리킨다
 
