@@ -278,4 +278,37 @@ LData LRemove(List * plist){
 
 -----
 # :grey_exclamation: 연결 리스트의 정렬 삽입의 구현
-### 
+### 연결 리스트에서 정렬기준 설정
+핵심
+
+-  연결 리스트의 정렬기준이 되는 함수를 등록하는 SetSortRule 함수
+-  SetSortRule 함수를 통해서 전달된 함수정보를 저장하기 위한 LinkedList의 멤버 comp
+-  comp에 등록된 정렬기준을 근거로 데이터를 저장하는 SInsert 함수
+
+> SetSortRule 함수가 호출되면서 정렬의 기준이 리스트의 멤버 comp에 등록되면, SInsert함수 내에서는 comp에 등록된 정렬의 기준을 근거로 데이터를 정렬하여 저장한다
+
+#### SetSortRule Func
+```.c
+void  SetSortRule(List * plist, int (*comp)(LData d1, LData d2)){
+    plist -> comp = comp;
+}
+```
+
+#### SInsert
+```.c
+void  SInsert(List * plist, LData data){
+    Node * newNode = (Node*)malloc(sizeof(Node));         // 새 노드 생성
+    Node * pred = plist -> head;                          // pred는 더미 노드를 가리킴
+    newNode -> data = data;                               // 새 노드에 데이터 저장
+    
+    /*새 노드가 들어갈 위치를 찾기 위한 반복문*/
+    while(pred -> next != NULL && plist -> comp(data, pred -> next -> data) != 0){
+        pred = pred -> next;                              // 다음 노드로 이동
+    }
+    
+    newNode -> next = pred -> next;                       // 새 노드의 오른쪽을 연결
+    pred -> next = newNode;                               // 새 노드의 왼쪽을 연결
+    
+    (plist -> numOfData)++;                               // 저장된 데이터의 수 하나 증가
+}
+```
