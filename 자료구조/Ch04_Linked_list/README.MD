@@ -117,7 +117,7 @@ else{
 -  Void SetSortRule(List * Plist, int (* comp)(LData d1, LData d2));
 > 리스트에 정렬릐 기준이 되는 함수를 등록
 
-####: ❔새 노드를 추가할 때 리스트의 head와 tail 중 어디에 저장을 할까
+#### ❔새 노드를 추가할 때 리스트의 head와 tail 중 어디에 저장을 할까
 head
 -  장점 : 포인터 변수 tail이 불필요
 -  단점 : 저장된 순서를 유지하지 않음
@@ -237,7 +237,7 @@ int LFirst(List * plist, LData * pdata){
 ```
 > before가 더미 노드를 가리키게 하는 이유는 삭제와 관련이 있음
 > before은 cur보다 하나 앞선 노드를 가리킨 다는 사실을 기억하자
-#### LNest
+#### LNext
 ```.c
 int LNext(List * plist, LData * pdata){
     if(plist -> head -> next == NULL)              // cur이 NULL을 가리킨다면,
