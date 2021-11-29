@@ -1,4 +1,5 @@
 # 2021
+
 ## 42 스터디
 * 코딩 테스트 대비 [백준](https://www.acmicpc.net/step) 코딩테스트 문제풀이
   * [라이벌 제도](https://solved.ac/ranking/rival)를 통한 그룹 라이벌 진도 확인
