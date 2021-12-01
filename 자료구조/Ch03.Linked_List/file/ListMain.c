@@ -4,9 +4,9 @@
 int main(void)
 {
 	/*** ArrayList의 생성 및 초기화 ***/
-	List list;
+	List list;				// 리스트의 생성
 	int data;
-	ListInit(&list);
+	ListInit(&list);			// 리스트 초기화
 
 	/*** 5개의 데이터 저장 ***/
 	LInsert(&list, 11);  LInsert(&list, 11);
