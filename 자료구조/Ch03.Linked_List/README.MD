@@ -197,12 +197,12 @@ LFirst를 먼저 호출하고 LNext이 이어지는 이유
 
 > 모든 데이터의 참조 : LFirst → LNext → LNext → LNext ...
 
-## 문제 03-1
+## 문제 03-1[리스트 라이브러리의 활용]
 
 -    1~9를 저장하고 그 합을 계산하여 출력
 -    저장된 값들 중 2, 3의 배수를 모두 삭제
 -    리스트에 저장된 데이터를 순서대로 출력
-답 : [Q1_Listmain.c]()
+답 : [Q1_Listmain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/Q1_ListMain.c)
 
 ## ADT를 근거로 배열 리스트 구현1 헤더파일 정의
 [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.h)
@@ -403,6 +403,5 @@ Typedef 선언변경
 
 -  소스파일 3개를 컴파일하면 성공
 
-## 문제 03-1[리스트의 활용]
+## 문제 03-2[리스트의 활용]
 2회독에 완료하기
--    초기화
