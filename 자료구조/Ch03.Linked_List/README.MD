@@ -1,11 +1,11 @@
 ### [목차]
-### [03-1. 추상 자료형](#03-1-추상-자료형)<br>
-### [03-2. Array List](#03-2-배열을-이용한-리스트-구현)<br>
+-  [03-1. 추상 자료형](#03-1-추상-자료형)<br>
+-  [03-2. Array List](#03-2-배열을-이용한-리스트-구현)<br>
 
 # 03-1. 추상 자료형
 > Abstract Data Type
 ### [학습 흐름]
-[1. 자료구조 공부 이전에 추성 자료형에 대해 이헤하자](#자료구조에서의-추상-자료형)<br>
+[1. 자료구조 공부 이전에 추성 자료형에 대해 이하자](#자료구조에서의-추상-자료형)<br>
 [2. 자료구조의 학습 순서를 알아보자](#리스트-자료구조의-학습순서)
 
 
@@ -79,162 +79,130 @@ int main(void){
 1.  리스트 자료구조의 ADT 정의
 2.  ADT를 근거로 리스트 자료구조를 활용하는 main 함수 정의
 3.  ADT를 근거로 리스트 구현
+> ADT에 정의된 함수들이 어떻게 구성되어있는지도 모르고 ADT만보고 main함수를 배운다? 왜?
+> 리스트 사용자는 사용방법만 알면되지 어떻게 구성되어있는지까지 알 필요없다
+> 즉, 그냥 받아들여도 된다는 뜻
+> 예를들어 LInsert로 입력을 받는데 왜 첫번째 인자로 &list가 똑같이 들어가는지 그냥 쓰기만 할줄 알면 된다
+> 모든걸 만들어서 하려고 
 
 # 03-2. 배열을 이용한 리스트 구현
-> 리스트 != 연결 리스트 by 구현방법
+> Array List(순차 리스트)
 
+### [학습 흐름]
+[0. 리스트의 이해](#리스트의-이해)<br>
+[1. 리스트 ADT를 정의](#리스트의-adt-정의)<br>
+[2. ADT를 근거로 리스트 자료구조를 활용하는 main 함수 정의](#adt를-근거로-리스트-자료구조를-활용하는-main-함수-정의)<br>
+[3-1. ADT를 근거로 배열 기반의 리스트 구현하기1/ 헤더파일](#adt를-근거로-배열-기반의-리스트-구현하기1/-헤더파일-정의)<br>
+[3-2. ADT를 근거로 배열 기반의 리스트 구현하기2/ 삽입과 조회](#adt를-근거로-배열-기반의-리스트-구현하기2/-삽입과-조회)<br>
+[3-3. ADT를 근거로 배열 기반의 리스트 구현하기3/ 삭제](#adt를-근거로-배열-기반의-리스트-구현하기3/-삭제)<br>
+[3-4. ADT를 근거로 배열 기반의 리스트 하나로 묶기](#adt를-근거로-배열-기반의-리스트-하나로-묶기)<br>
 ### 리스트의 이해
+> 리스트는 연결리스트가 아니다
+
+리스트 특성
+
+-  데이터를 나란히 저장
+-  중복된 데이터의 저장을 막지 않음
+
+리스트 종류 (by 구현방법)
 -   순차 리스트
 
     배열을 기반으로 구현된 리스트
+
 -   연결 리스트
 
     메모리의 동적 할당을 기반으로 구현된 리스트
     
--   리스트 자료구조의 특성
-
-    `데이터를 나란히 저장한다`<br>
-    `중복된 데이터의 저장을 막지않는다`
-    
-### 리스트의 ADT
+### 리스트의 ADT 정의
 > 리스트 자료구조가 제공해야할 기능들
 
 `void ListInit(List* plist);`
 
+-   리스트 초기화하는 기능(출발지점을 처음으로 설정)
 -   초기화할 리스트의 주소 값을 인자로 전달
 -   리스트 생성 후 제일먼저 호출되어야 하는 함수
 
 `void LInsert(List* plist, LData data);`
 
--   리스트에 데이터를 저장
--   매개변수 data에 전달된 값을 저장
+-   리스트에 데이터를 저장하는 기능
+-   두번째 매개변수 data에 전달된 값을 저장
 
 `int LFirst(List* plist, LData* pdata);`
 
--   첫번째 데이터가 pdata가 가리키는 메모리에 저장
+-   맨처음 들어오는 데이터를 pdata가 가리키는 메모리에 저장하는 기능
 -   데이터 참조를 위한 초기화 진행
--   성공 시 TRUE(1), 실패 시 FALSE(0) 반환
+-   참조 성공 시 TRUE(1), 실패 시 FALSE(0) 반환
+
+`int LNext(List* plist, LData* pdata);`
+-   참조된 데이터의 다음 데이터를 pdata가 가리키는 메모리에 저장하는 기능
+-   순차적인 참조를 위해 반복 호출이 가능
+-   참조를 새로 시작하려면 LFirst함수를 호출해야함
+-   참조 성공 시 TRUE(1), 실패 시 FALSE(0) 반환
 
 `LData LRemove(List* plist);`
 
+-   가장 최근에 저장한 데이터를 삭제하는 기능
 -   LFirst 또는 LNext 함수의 마지막 반환 데이터를 삭제
--   삭제된 데이터를 반환
+-   삭제된 데이터는 반환됨
 -   마지막 반환 데이터를 삭제하므로 연이은 반복호출을 허용하지 않음
 
 `int LCount(List\* plist);`
 
--   리스트에 저장되어 있는 데이터의 수를 반환
+-   리스트에 저장되어 있는 데이터의 수를 반환하는 기능
+> 위 정보만 가지고도 리스트 자료구조가 제공하는 기능을 어느정도 예측할 수 있어야 한다
 
+### ADT를 근거로 리스트 자료구조를 활용하는 main 함수 정의
+> 위에서 언급된 리스트의 ADT를 활용하여 main함수가 어떻게 구성되는지 보자
+[ListMain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ListMain.c)
 
-### 리스트의 ADT를 기반으로 정의된 main 함수
-[ListMain.c](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03_연결리스트/file/ListMain.c)
-```.c
-#include <stdio.h>
-#include "ArrayList.h"
+#### main 함수 분석
+> 자세한 세부 설명은 [헤더파일 정의](#adt를-근거로-배열-기반의-리스트-구현하기1/-헤더파일-정의)에서 진행
 
-int main(void)
-{
-    // ArrayList의 생성 및 초기화
-    List list;				// 리스트의 생성
-    int data;
-    Listinit(&list);			// 리스트 초기화
+`List list;`
 
-    // 5개의 데이터 저장
-    LInsert(&list, 11);
-    LInsert(&list, 11);
-    LInsert(&list, 22);
-    LInsert(&list, 22);
-    LInsert(&list, 33);
+-    list는 이동역할
 
-    // 저장된 데이터의 전체 출력
-    printf("현재 데이터의 수 : %d\n", LCount(&list));
+`ListInit(&list);`
+-    이동역할을 하는 list가 처음부터 움직이기 위해 위치를 초기화
 
-    if(LFirst(&list, &data))    // 첫 번째 데이터를 변수 data에 저장
-    {
-        printf("%d", data);
-        
-        while(LNext(&list, &data))  // 두번째 이후의 데이터를 변수 data에 저장
-        {
-            printf("%d", data);
-        }	
-    }
-    Printf("\n\n");
+`LInsert(&list, number);`
+-    첫번째 인자 &list가 똑같이 들어가는 것을 볼 수 있다<br>
+     [이유보기](#설명)
+
+LFirst를 먼저 호출하고 LNext이 이어지는 이유
+
+-    LFirst와 LNext은 리스트 내에서 데이터의 참조위치를 기록함
     
-    /* 숫자 22를 탐색하여 모두 삭제 */
-    if (LFirst(&list, &data))
-    {
-        if (data == 22)  
-            LRemove(&list);			    // 앞서 LFirst함수가 참조한 데이터 삭제
-	
-        while(LNext(&list, &data))
-        {
-            if (data == 22)
-                LRemove(&list); 		    // 앞서 LNext함수가 참조한 데이터 삭제
-        }
-     }
-}
-```
-
--   LFirst를 먼저 호출하고 LNext이 이어지는 이유
-
-    이들은 리스트 내에서 데이터의 참조위치를 기록함
+-    참조를 새롭게 시작하기 위해서는 데이터 참조위치를 초기화 해야함
     
-    참조를 새롭게 시작하기 위해서는 데이터 참조위치를 초기화 해야함
-    
-    이를 위해 `LFirst`를 먼저 호출 후 `LNext`호출하여 다음에 저장된 데이터를 이어서 획득
+-    이를 위해 `LFirst`를 먼저 호출 후 `LNext`호출하여 다음에 저장된 데이터를 이어서 획득
 
 > 모든 데이터의 참조 : LFirst → LNext → LNext → LNext ...
 
-### 배열 기반으로 리스트 구현하기: ArrayList.h
+## 문제 03-1
 
-##### 구조체 [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03_연결리스트/file/ArrayList.h)
+-    1~9를 저장하고 그 합을 계산하여 출력
+-    저장된 값들 중 2, 3의 배수를 모두 삭제
+-    리스트에 저장된 데이터를 순서대로 출력
+답 : [Q1_Listmain.c]()
 
-```.c
-#ifndef __ARRAY_LIST_H__
-#define __ARRAY_LIST_H__
+### ADT를 근거로 배열 기반의 리스트 구현하기1/ 헤더파일 정의
+[ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.h)
 
-#define TRUE	1
-#define FALSE	0
+### ADT를 근거로 배열 기반의 리스트 구현하기2/ 삽입과 조회
+> 좀더 구체적으로 살펴보자
 
-#define LIST_LEN	100
-typedef int LData;	 		    // 리스트에 int형 데이터의 저장을 위한 선언
-
-typedef struct __ArrayList
-{
-	LData arr[LIST_LEN];                // 데이터의 저장공간이 배열로 선언
-	int numOfData;                      // 저장된 데이터의 수 기록
-	int curPosition;                    // 데이터 참조위치 기록
-} ArrayList;
-
-typedef ArrayList List;       	  	    // List는 배열 기반 리스트임을 선언
-					    // LinkedList List로 변경하면 리스트 종류가 바
-
-void ListInit(List * plist);           	    // 초기화
-void LInsert(List * plist, LData data);     // 데이터를 저장
-
-int LFirst(List * plist, LData * pdata);    // 첫 데이터 참조
-int LNext(List * plist, LData * pdata);     // 두번째 이후 데이터 참조
-
-LData LRemove(List * plist);                // 참조한 데이터 삭제
-int LCount(List * plist);                   // 저장된 데이터 수 반환
-
-#endif
-```
-
-### 삽입과 조회
-
--   `ListInit(List* Plist)` 초기화 작업 
-
+ListInit(List* Plist)
 ```.c
 void	ListInit(List* Plist){
 	(plist -> numOfData) = 0;	    // 리스트에 저장된 데이터의 수는 0
 	(plist -> curPosition) = -1; 	    // 현재 아무 위치도 가리키지 않는다는 뜻
 }
 ```
-> `curPosition`가 0 이면 배열의 첫번째를 뜻하므로 -1로 초기화
+-    초기화하는 함수
+>    `curPosition`가 0 이면 배열의 첫번째를 뜻하므로 -1로 초기화
 
--   `void LInsert(List* plist, LData data)` 데이터의 수가 배열의 길이를 초과했는지 검사
-
+void LInsert(List* plist, LData data)
 ```.c
 void	LInsert(List * plist, LData data) {
     if	(plist->numOfData >= LIST_LEN) {    // 더 이상 저장할 공간이 없다면
@@ -246,9 +214,21 @@ void	LInsert(List * plist, LData data) {
     (plist->numOfData)++;		    // 저장된 데이터의 수 증가
 }
 ```
+-    데이터의 수가 배열의 길이를 초과하기 전까지 저장한다
 
--   `int LFirst(List * plist, LData * pdata)` `int LNext(List * plist, LData * pdata)` 조회
+##### 설명
+-    왜 같은 list가 게속 들어가는가
 
+     -    void LInsert는 ArratList.c에 정의
+
+     -    LInsert의 &list는 List * plist에게 전달
+
+     -    첫번째 인자 `List * plist`는 
+          plist -> arr[plist -> numOfData] = 두번째 인자 `data` 방식으로 데이터를 저장
+
+     -    데이터 저장 이후 (plist -> numOfData)++; 해주므로 같은 list처럼 보이지만 변하고 았음
+
+int LFirst(List * plist, LData * pdata), int LNext(List * plist, LData * pdata)
 ```.c
 int LFirst(List * plist, LData * pdata) {   // 첫번째 조회
     if (plist->numOfData == 0)		    // 저장된 데이터가 하나도 없다면
@@ -268,15 +248,17 @@ int LNext(List * plist, LData * pdata) {
     return TRUE;
 }
 ```
-> ☑️ `LFirst : (plist -> curPosition)=0;`
-> curPosition에 저장된 값을 0으로 재설정하여 데이터의 참조가 앞에서부터 다시 진행되게 한다
-> ☑️ `LNext : (plist->curPosition)++;`
-> curPosition 값을 증가시켜 순서대로 데이터를 참조할 수 있도록 한다
+-    LFirst에서 (plist -> curPosition) = 0;
 
-### 삭제
+-    ☑️  curPosition에 저장된 값을 0으로 재설정하여 데이터의 참조가 앞에서부터 다시 진행되게 한다
 
-- ListMain.c에서 `LData LRemove`가 언급되었던 부분
+-    LNext에서 (plist->curPosition)++;
 
+-    ☑️  urPosition 값을 증가시켜 순서대로 데이터를 참조할 수 있도록 한다
+
+### ADT를 근거로 배열 기반의 리스트 구현하기3/ 삭제
+
+main함수에서의 LData LRemove
 ```.c
 if (LFirst(&list, &data))
 {
@@ -290,13 +272,14 @@ if (LFirst(&list, &data))
     }
 }
 ```
-> `LRemove`함수는 `LFirst`함수나 `LNext`함수의 호출을 통해 바로 직전에 참조가 이뤄진 데이터를 삭제한다<br>
+-    `LRemove`함수는 `LFirst`함수나 `LNext`함수의 호출을 통해 바로 직전에 참조가 이뤄진 데이터를 삭제한다<br>
 <img width="352" alt="스크린샷 2021-11-23 오후 8 39 38" src="https://user-images.githubusercontent.com/87407504/143017864-e4c4a4ed-b842-4a2f-9ed7-60bd40757856.png"><br>
-> `LRemove`함수가 호출되면 리스트의 멤버 `curPosition`을 확인해서, 조회가 이뤄진 데이터의 위치를 확인한 후에, 그 데이터를 삭제한다
-> 중간에 데이터가 삭제되면, 뒤에 저장된 데이터를 한 칸씩 앞으로 이동시켜 빈 공간을 메워야 한다
 
--  `LData LRemove(List* plist)` 최근 조회가 이루어진 데이터 삭제
+-    `LRemove`함수가 호출되면 리스트의 멤버 `curPosition`을 확인해서, 조회가 이뤄진 데이터의 위치를 확인한 후에, 그 데이터를 삭제한다
 
+-    중간에 데이터가 삭제되면, 뒤에 저장된 데이터를 한 칸씩 앞으로 이동시켜 빈 공간을 메워야 한다
+
+LData LRemove(List* plist)
 ```.c
 LData	LRemove(List * Plist)
 {
@@ -314,26 +297,31 @@ LData	LRemove(List * Plist)
 	return rdata;				// 삭제된 데이터 반환
 }
 ```
-> 참조위치(curPosition)를 되돌리는 이유
-> *	curPosition은 최근 참조가 이루어진 데이터의 인덱스 정보를 담는다
-> *	삭제로 인해 데이터를 한 칸씩 앞으로 이동시키면 curPosition도 같이 앞으로 이동시켜줘야한다
-> *	예로 arr[3]의 값을 지웠다면 arr[4]이후의 값은 [3]부터 저장될 것이다
-> *	curPosition은 삭제가 되기 전[4]의 값을 인덱스 3을 가리킨 상황에서 가져오는데 [3]이 삭제되었으므로 2를 가리켜야한다 
+-	참조위치(curPosition)를 되돌리는 이유
 
-### 배열 기반의 리스트 구현 하나로 묶기
-[ArrayList.c](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03_연결리스트/file/ListMain.c)
+	-	curPosition은 최근 참조가 이루어진 데이터의 인덱스 정보를 담는다
+
+	-	삭제로 인해 데이터를 한 칸씩 앞으로 이동시키면 curPosition도 같이 앞으로 이동시켜줘야한다
+
+	-	예로 arr[3]의 값을 지웠다면 arr[4]이후의 값은 [3]부터 저장될 것이다
+	-	curPosition은 삭제가 되기 전[4]의 값을 인덱스 3을 가리킨 상황에서 가져오는데 [3]이 삭제되었으므로 2를 가리켜야한다 
+
+### ADT를 근거로 배열 기반의 리스트 하나로 묶기
+[ArrayList.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.c)
 ### 배열 리스트의 장단점
 
 장점
 
 -  데이터의 참조가 비교적 쉽다
-- 인덱스 값을 기준으로 어디든 한 번에 참조가 가능하다
+
+-  인덱스 값을 기준으로 어디든 한 번에 참조가 가능하다
 
 단점
 
 -  배열의 길이가 초기에 결정된다 (변경 불가능)
--  삭제를 하면 데이터이동이 빈번하게 발생한다
+   [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.h)의 8번째줄에서 배열의 길이를 100으로 고정
 
+-  삭제를 하면 데이터 이동이 빈번하게 발생한다
 
 -----
 ### 리스트에 구조체 변수 저장하기1 : 구조체 point와 관련 함수들의 정의
