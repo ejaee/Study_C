@@ -20,10 +20,10 @@
 #### 예시(구조체 Wallet과 Wallet의 ADT의 비교)
 -  구조체 Wallet
 ```.c
-typedef struct_wallet  					    // 동전 및 지폐 일부만을 대상으로 표현한 지갑
+typedef struct_wallet  			  // 동전 및 지폐 일부만을 대상으로 표현한 지갑
 {
-    int coin100Num;     				    // 100원짜리 동전의 수
-    int bill5000Num;  					    // 5,000원짜리 지폐의 수
+    int coin100Num;     		  // 100원짜리 동전의 수
+    int bill5000Num;  			  // 5,000원짜리 지폐의 수
 } Wallet;
 ```
 > 구조체를 기반으로 지갑을 의미하는 Wallet 이라는 자료형을 정의<br>
