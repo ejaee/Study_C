@@ -114,7 +114,7 @@ int main(void){
 
      5를 통해 리스트에 정수만 저장하지 않고 구조체 변수의 주소 값을 저장해보자
      
-### 리스트의 이해
+## 리스트의 이해
 > 리스트는 연결리스트가 아니다
 
 리스트 특성
@@ -131,7 +131,7 @@ int main(void){
 
     메모리의 동적 할당을 기반으로 구현된 리스트
     
-### 리스트의 ADT 정의
+## 리스트의 ADT 정의
 > 리스트 자료구조가 제공해야할 기능들
 
 `void ListInit(List* plist);`
@@ -169,7 +169,7 @@ int main(void){
 -   리스트에 저장되어 있는 데이터의 수를 반환하는 기능
 > 위 정보만 가지고도 리스트 자료구조가 제공하는 기능을 어느정도 예측할 수 있어야 한다
 
-### ADT를 근거로 리스트 자료구조를 활용하는 main 함수 정의
+## ADT를 근거로 리스트 자료구조를 활용하는 main 함수 정의
 > 위에서 언급된 리스트의 ADT를 활용하여 main함수가 어떻게 구성되는지 보자
 [ListMain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ListMain.c)
 
@@ -204,10 +204,10 @@ LFirst를 먼저 호출하고 LNext이 이어지는 이유
 -    리스트에 저장된 데이터를 순서대로 출력
 답 : [Q1_Listmain.c]()
 
-### ADT를 근거로 배열 리스트 구현1 헤더파일 정의
+## ADT를 근거로 배열 리스트 구현1 헤더파일 정의
 [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.h)
 
-### ADT를 근거로 배열 리스트 구현2 삽입과 조회
+## ADT를 근거로 배열 리스트 구현2 삽입과 조회
 > 좀더 구체적으로 살펴보자
 
 ListInit(List* Plist)
@@ -274,7 +274,7 @@ int LNext(List * plist, LData * pdata) {
 
 -    ☑️  urPosition 값을 증가시켜 순서대로 데이터를 참조할 수 있도록 한다
 
-### ADT를 근거로 배열 리스트 구현3 삭제
+## ADT를 근거로 배열 리스트 구현3 삭제
 
 main함수에서의 LData LRemove
 ```.c
@@ -324,7 +324,7 @@ LData	LRemove(List * Plist)
 	-	예로 arr[3]의 값을 지웠다면 arr[4]이후의 값은 [3]부터 저장될 것이다
 	-	curPosition은 삭제가 되기 전[4]의 값을 인덱스 3을 가리킨 상황에서 가져오는데 [3]이 삭제되었으므로 2를 가리켜야한다 
 
-### ADT를 근거로 배열 리스트 하나로 묶기
+## ADT를 근거로 배열 리스트 하나로 묶기
 [ArrayList.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.c)
 ### 배열 리스트의 장단점
 
@@ -342,13 +342,14 @@ LData	LRemove(List * Plist)
 -  인덱스 값을 기준으로 어디든 한 번에 참조가 가능해 데이터의 참조가 쉽다
 
 
-### 리스트에 구조체 변수 저장하기 
+## 리스트에 구조체 변수 저장하기 
 > 앞의 설명에서는 리스트에 단순히 정수가 저장되었다
 > 실제로는 다양한 데이터들이 저장되므로 구조체 변수의 주소값을 저장해보자
+> 기존에 만들었던 배열 리스트의 헤더파일과 소스파일을 활용한다
 
-구조체 point와 관련 함수들의 정의
+1. 구조체 point와 관련 함수들 정의하기
 
--    구조체 정의
+-    구조체 변수의 주소값을 저장하기 위한 새 구조체 정의
 ```.c
 typedef struct_point
 {
@@ -358,7 +359,7 @@ typedef struct_point
 ```
 -    구조체 관련 함수 정의
 ```.c
-void SetPointPos(Point * ppos, int xpos, int ypos);	// 구조체 변수에값을 저장
+void SetPointPos(Point * ppos, int xpos, int ypos);	// 구조체 변수에 값을 저장
 
 void ShowPointPos(Point * ppos);			// 저장된 정보 출력
 
@@ -368,8 +369,40 @@ int PointComp(Point * pos1, Point * pos2);		// 두 구조체 변수에 저장된
     * 둘다 같으면 0 반환
     * 모두 다르면 -1 반환
 ```
--    [point.h]()	// 위 구조체 정의와 구조체 관련 함수들을 모은 헤더파일
+-    [point.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/Point.h)	// 위 구조체 정의와 구조체 관련 함수들을 모은 헤더파일
 
--    [point.c]()	// 헤더파일에 선언된 함수들의 정의
+-    [point.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/Point.c)	// 헤더파일에 선언된 함수들의 정의
 
-학습 후 이어하기
+2. 1.에 맞게 앞의 ArrayList 코드 변경 [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/ArrayList.h)
+
+Point 구조체 변수의 주소값을 저장하기 위해 변경하기
+> 소스파일 .c은 변경하지 않아도 된다
+> 헤더파일 .h만 바꾸자
+
+Typedef 선언변경
+
+-  기존의 ArrayList.h에서 Typedef int LData; -> Point * LData;로 변경
+> 구조체 정의에서 Point라는 구조체 이름을 썻으니 이에 맞게 변경하는 것
+
+헤더파일 추가
+
+-  #include "Point.h"
+
+#### 정리
+-  구조체 변수의 주소 값을 저장하기 위해 새로운 구조체를 정의한다
+
+-  이로인해 ArrayList.h에서의 Typedef 선언이 변경되어야한다
+
+-  새로 정의된 구조체에 맞게 구조체 관련 함수들을 정의한다
+
+-  point 헤더파일에 구조체 정의와 함수들을 선언하고
+
+-  point 소스파일에 헤더파일을 명시하고 함수들을 정의한다
+
+-  위를 바탕으로 새로운 main함수를 만든다 [PointListMain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/PointListMain.c)
+
+-  소스파일 3개를 컴파일하면 성공
+
+## 문제 03-1[리스트의 활용]
+2회독에 완료하기
+-    초기화
