@@ -268,11 +268,11 @@ int LNext(List * plist, LData * pdata) {
 ```
 -    LFirst에서 (plist -> curPosition) = 0;
 
--    ☑️  curPosition에 저장된 값을 0으로 재설정하여 데이터의 참조가 앞에서부터 다시 진행되게 한다
+     ☑️  curPosition에 저장된 값을 0으로 재설정하여 데이터의 참조가 앞에서부터 다시 진행되게 한다
 
 -    LNext에서 (plist->curPosition)++;
 
--    ☑️  urPosition 값을 증가시켜 순서대로 데이터를 참조할 수 있도록 한다
+     ☑️  urPosition 값을 증가시켜 순서대로 데이터를 참조할 수 있도록 한다
 
 ## ADT를 근거로 배열 리스트 구현3 삭제
 
