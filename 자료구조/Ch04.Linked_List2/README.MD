@@ -1,13 +1,27 @@
-# :grey_exclamation: 연결 리스트의 개념적인 이해
-### 연결 리스트(Linked List)
+### [목차]
+-  [04-1. 연결 리스트의 개념적 이해](#04-1-연결-리스트의-개념적-이해)<br>
+-  [04-2. 단순 연결 의 ADT와 구현](#04-2-단순-연결-리스트의-ADT와-구현)<br>
+
+# 04-1. 연결 리스트의 개념적 이해
+> Linked list
+### [학습 흐름]
+-  [04-1-1. 연결 기반의 리스트를 이해하자](#연결-리스트)<br>
+-  [04-1-2. 연결 리스트에서의 데이터 삽입](#연결-리스트에서의-데이터-삽입)<br>
+-  [04-1-3. 연결 리스트에서의 데이터 조회](#연결-리스트에서의-데이터-조회)<br>
+-  [04-1-4. 연결 리스트에서의 데이터 삽입](#연결-리스트에서의-데이터-삭제)<br>
+
+## 연결 리스트
 
 -  배열은 메모리의 특성이 정적이어서 메모리의 길이를 변경할 수 없다
 
--  이를 유연하게 대처하기 위한것이 연결 리스트
+-  이를 유연하게 대처하기 위한 것이 연결 리스트
 
 -  malloc과 free를 통한 동적 메모리 구성
 
 [LinkedRead.c]()<br>
+> 해당 예시 main함수는 ArrayRead.c와 비교를 위한 소스코드이다
+> 삽입, 삭제, 조회의 기능이 별도의 함수로 구분되어있지 않아 가져다 쓸 수 있는 형태가 아니다
+> 연결 리스트와 관련된 코드에 익숙해지는데 주안을 두자
 
 #### 구조체 정의
 ```.c
@@ -17,28 +31,33 @@ typedef struck _node
   struct _node * next                    //  연결의 도구
 } Node;
 ```
-> 멤버 next : Node형 구조체 변수의 주소값을 저장할 수 있는 포인터 변수
-> 구조체 Node 변수를 노드라고 하는데 연결이 가능한 개체라는 사실에 중점을 둔 작명
+멤버 next
+-    Node형 구조체 변수의 주소값을 저장할 수 있는 포인터 변수
+
+-    구조체 Node 변수를 노드라고 하는데 연결이 가능한 개체라는 사실에 중점을 둔 작명
 
 필요할 때마다 바구니를 하나씩 마련해서 그곳에 데이터를 저장하고 이들을 배열처럼 서로 연결하는 방식
-> 필요할 때마다 바구니의 역할을 하는 구조체 변수를 하나씩 동적 할당(malloc, free) 해서 이들을 연결
+
+-    필요할 때마다 바구니의 역할을 하는 구조체 변수를 하나씩 동적 할당(malloc, free)하여 이들을 연결
 
 -----
-들어가기 전 내가 만든 핵심
+⭐ 들어가기 전 내가 만든 핵심
 
 -  head와 tail은 가리키기만 하는 것이지 data를 받는 변수가 아니다
 -  이에 반해 newNode는 가리키기도 하고 data를 저장해야하기도 하므로 두가지 기능이 필요하다
 >  `newNode -> data` 를 통해 데이터를 저장 `newNode -> next`를 통해 가리킴 
--  즉 head와 tail가 A를 가리키고 싶을때 `head = A` 를 통해서 바로 연결 지으면 되고
+-  즉 head와 tail이 A를 가리키고 싶을때 `head = A` 를 통해서 바로 연결 지으면 되고
 -  newNode 는 `newNode -> next = A` 를 통해 연결 지으면 된다
 
-여기서의 문제점 : 새 노드 추가할 때 [`tail -> next = newNode`](#노드를-추가하는-과정) 이 나오는데 이건뭐냐?
+여기서의 의문점 : 새 노드 추가할 때 [`tail -> next = newNode`](#노드를-추가하는-과정) 이 나오는데 이건뭐냐?
 -  `tail -> next = newNode`는 tail이 newNode를 가리키려고 하는 것이 아니다
 -  newNode가 새로 만들어진 시점에서 이전의 newNode를 tail을 통해서 접근하기 위해 tail을 쓴 것이다
 -  tail은 위의 논리대로 else문을 끝나고 만나는 tail = newNode를 통해 이어진다
 -----
 
-### 연결 리스트에서의 데이터 삽입
+## 연결 리스트에서의 데이터 삽입
+
+#### 핵심 포인터 변수 선언 과정
 ```.c
 int main(void)
 {
@@ -46,12 +65,14 @@ int main(void)
   Node * tail = NULL;                    // 리스트의 꼬리를 가리키는 포인터 변수
   Node * cur = NULL;                     // 저장된 데이터의 조회에 사용되는 포인터 변수
 ```
-> 해당 포인터들로 인해 연결이 이루어짐
-#### 노드가 생성되고 초기화되는 과정(반복문이 처음 실행되는 상황)
+-    해당 포인터들로 인해 연결이 이루어짐
+#### 노드가 생성되고 초기화되는 과정
 ```.c
-newNode = (Node*)malloc(sizeof(Node));   // 노드의 생성
-newNode -> data = readData;              // 노드에 데이터 저장
-newNode -> next = Null;                  // 노드의 next를 Null로 초기화
+while(1){
+    ...
+    newNode = (Node*)malloc(sizeof(Node));   // 노드의 생성
+    newNode -> data = readData;              // 노드에 데이터 저장
+    newNode -> next = Null;                  // 노드의 next를 Null로 초기화
 ```
 
 #### head가 Null에서 첫번째 노드를 추가하고 가리키는 과정
@@ -62,7 +83,7 @@ if(head == Null)                         // 첫 번째 노드라면
 //    tail -> next = newNode;
 tail = newNode;                          // tail 새로 만들어진 노드를 가리키게 함
 ```
-> head와 tail은 첫 번째 노드를 같이 가리키고 있는 상황
+-    head와 tail은 첫 번째 노드를 같이 가리키고 있는 상황
 
 #### 노드를 추가하는 과정
 ```.c
@@ -72,28 +93,39 @@ else
     tail -> next = newNode;              // tail이 추가된 노드를 가리키게 한다
 tail = newNode;
 ```
-> 반복문이 끝나면 head는 첫 번째 노드를, tail은 마지막 노드를 가리킨다
+-    반복문이 끝나면 head는 첫 번째 노드를, tail은 마지막 노드를 가리킨다
 
-### 연결 리스트에서의 데이터 조회
+-    삽입순서 : 값 입력받기(readData) -> 노드추가(newNode) -> head와 tail 각각 노드 가리키기
+## 연결 리스트에서의 데이터 조회
+
+#### 포인터 변수를 통해 가리키는 노드가 이동하는 과정
 ```.c
 if(head == NULL)
    printf(" 저장된 자연수 없음 \n");
 
 else{
-   cur = head;                           // cur이 리스트의 첫 번째 노드를 가리킨다
+   cur = head;                           // 입력값이 있다면 head는 첫번째 노드를 가리키고 있다
+                                         // head가 가리키고 있는것을 cur이 가리키게 한다는 뜻이다
+                                         // 즉, cur이 리스트의 첫 번째 노드를 가리킨다
    printf("%d ", cur -> data);           // 첫 번째 데이터 출력
    
-   while(cur -> next != NULL)            // 연결된 노드가 존재한다면
+   while(cur -> next != NULL)            // 두 번째 이후의 데이터 출력
    {
-      cur = cur -> next;                 // cur이 다음 노드를 가리키게 한다
-      printf("%d ", cur -> data);        // cur이 가리키는 노드를 출력한다
+      cur = cur -> next;                 // cur이 가리키고 있는 것을 cur에게 준다는 것은
+                                         // cur이 가리키는 노드 다음의 노드를 가리키게 한다
+      printf("%d ", cur -> data);        // cur이 data로 접근해 값을 출력한다
    }
 }
 ```
-> `cur = cur -> next;`를 통해 cur이 모든 노드를 가리키며 이동 가능
-> `cur`은 리스트 안을 돌아다닐 때 사용
+-    `cur = cur -> next;`를 통해 cur이 그 다음 노드를 가리키며 이동 가능
 
-### 연결 리스트에서의 데이터 삭제
+-    `cur`은 -> data를 통해 값에도 접근
+
+-    `cur`은 리스트 안을 돌아다닐 때 사용
+
+## 연결 리스트에서의 데이터 삭제
+
+#### delNode와 delNextNode를 통한 데이터 삭제 과정
 ```.c
 if(head == NULL)
     return 0;                            // 삭제할 노드가 존재하지 않음
@@ -101,7 +133,7 @@ else{
     node * delNode = head;
     node * delNextNode = head -> next;
 ```
-> 바로 삭제를 하면 다음 노드를 가리키지 못하니까 delNextNode에 다음 연결지를 저장
+-    바로 삭제를 하면 다음 노드를 가리키지 못하니까 delNextNode에 다음 연결지를 저장
 ```.c
     printf("%d을(를) 삭제\n", head -> data);
     free(delNode);                       // 첫 번째 노드 삭제
@@ -111,7 +143,7 @@ else{
       delNode = delNextNode;
       delNextNode = delNextNode -> Next;
 ```
-> 한 칸씩 오른쪽으로 이동
+-    한 칸씩 오른쪽으로 이동
 ```.c
       
       printf("%d을 삭제                    // delNode -> data);
@@ -120,14 +152,30 @@ else{
 }
 ```
 
-#### 여기까지 학습정리
+### 여기까지 학습정리
 
--  연결 리스트의 ADT를 정의하지 않았다
+전체적인 흐름
+
+-  아직 연결 리스트의 ADT를 정의하지 않았다
+
+-  앞서 제시한 main 함수는 연결 리스트 관련 코드를 모두 집어 넣었기에 필요할 때 가져다 쓸 수 없다
+
 -  필요할 때 가져다 쓸수 있도록 삽입, 삭제, 조회의 기능이 별도의 함수로 구분되어야 한다
------
-# :grey_exclamation: 단순 연결 리스트의 ADT와 구현
 
-### 연결 리스트의 ADT
+`->` 관련 이해 정립
+
+-  cur -> Next 가 의미하는 것은 cur -> data 처럼 `->` 을 통해 데이터에 접근 하듯이
+
+   `->`을 통해 가리키는 것에 접근하는 것이다
+
+-  cur = cur -> next 또는 delNextNode = delNextNode -> Next 가 의미하는 것은
+
+   현재 가리키고 있는 노드 다음의 노드를 가리키는 것을 의미한다
+-----
+# 단순 연결 리스트의 ADT와 구현
+> Single Linked List
+
+## 연결 리스트의 ADT
 
 이전의 배열 리스트에서 정렬 기능이 추가
 -  Void SetSortRule(List * Plist, int (* comp)(LData d1, LData d2));
