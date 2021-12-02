@@ -17,7 +17,7 @@ typedef struct __ArrayList
 
 /*** ArrayList와 관련된 연산들 ***/
 typedef ArrayList List;       	  	    // List는 배열 기반 리스트임을 선언
-					    // LinkedList List로 변경하면 리스트 종류가 바
+					    // LinkedList List로 변경하면 리스트 종류가 바뀌도록 만든 
 
 void ListInit(List * plist);           	    // 초기화
 void LInsert(List * plist, LData data);     // 데이터를 저장
