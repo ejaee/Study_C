@@ -28,7 +28,7 @@
     * [DAY1](https://github.com/Ejaeda/42_study/tree/master/자료구조/Ch01_자료구조와%20알고리즘의%20이해) 자료구조와 알고리즘의 이해
     * [DAY2](https://github.com/Ejaeda/42_study/tree/master/자료구조/Ch02_재귀) 재귀
   * 2주차: 11/22~11/28
-    * [DAY3](https://github.com/Ejaeda/42_study/tree/master/자료구조/Ch03_연결리스트) 연결 리스트1
+    * [DAY3](https://github.com/Ejaeda/42_study/tree/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List) 연결 리스트1
     * [DAY4](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch04_Linked_list/README.MD) 연결 리스트2
   * 3주차: 11/29~12/05
     * [DAY5] 연결 리스트3
