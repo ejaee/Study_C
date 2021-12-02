@@ -174,7 +174,7 @@ int main(void){
 [ListMain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ListMain.c)
 
 #### main 함수 분석
-> 자세한 세부 설명은 [헤더파일 정의](#adt를-근거로-배열-기반의-리스트-구현하기1/-헤더파일-정의)에서 진행
+> 자세한 세부 설명은 [헤더파일 정의](#adt를-근거로-배열-리스트-구현1-헤더파일-정의)에서 진행
 
 `List list;`
 
