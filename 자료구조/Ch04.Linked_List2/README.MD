@@ -87,6 +87,8 @@ if(head == Null)                         // 첫 번째 노드라면
 //    tail -> next = newNode;
 tail = newNode;                          // tail 새로 만들어진 노드를 가리키게 함
 ```
+<img width="450" alt="스크린샷 2021-12-03 오후 5 46 54" src="https://user-images.githubusercontent.com/87407504/144572988-b2cc22e2-a2d7-4011-b338-7ca94a3ddfc7.png"><br>
+
 -    head와 tail은 첫 번째 노드를 같이 가리키고 있는 상황
 
 #### 노드를 추가하는 과정
@@ -97,6 +99,8 @@ else
     tail -> next = newNode;              // tail이 추가된 노드를 가리키게 한다
 tail = newNode;
 ```
+<img width="450" alt="스크린샷 2021-12-03 오후 5 47 56" src="https://user-images.githubusercontent.com/87407504/144573123-ee31cb77-a6a4-4451-a213-511eb5e2a676.png"><br>
+
 -    반복문이 끝나면 head는 첫 번째 노드를, tail은 마지막 노드를 가리킨다
 
 -    삽입순서 : 값 입력받기(readData) -> 노드추가(newNode) -> head와 tail 각각 노드 가리키기
@@ -197,9 +201,6 @@ else{
 -  [04-2-6. 단순 연결 리스트의 데이터 삭제](#단순-연결-리스트의-데이터-삽입)<br>
 -  [04-2-7. 단순 연결 리스트 하나로 묶기](#단순-연결-리스트-하나로-묶기)<br>
 
-> main함수가 배열 기반의 리스트 ListMain.c와 완전히 동일하다
-> 이에따라 자료구조 학습순서에 맞게 진행하지 않는다
-
 단순 연결 리스트(Single Linked List)
 
 -  연결의 형태가 한쪽 방향으로 전개되고 시작과 끝이 분명히 존재함
@@ -212,7 +213,7 @@ Void SetSortRule(List * Plist, int (* comp)(LData d1, LData d2));
 
 -  리스트에 정렬의 기준이 되는 함수를 등록
 
-#### ❔새 노드를 추가할 때 리스트의 head와 tail 중 어디에 저장을 할까
+### ❔새 노드를 추가할 때 리스트의 head와 tail 중 어디에 저장을 할까
 head
 -  장점 : 포인터 변수 tail이 불필요
 -  단점 : 저장된 순서를 유지하지 않음
@@ -221,8 +222,8 @@ tail
 -  장점 : 저장된 순서를 유지
 -  단점 : 포인터 변수 tail이 필요
 
-> 통상 head에 추가하는 방법을 선호
-> 자료구조는 저장된 순서를 유지해야 하는 자료구조가 아니다
+> 통상 head에 추가하는 방법을 선호<br>
+> 자료구조는 저장된 순서를 유지해야 하는 자료구조가 아니다<br>
 
 ## 더미 노드 기반의 단순 연결 리스트
 > Dummy Node
@@ -291,6 +292,8 @@ void  ListInit(List * plist){
     plist -> comp = NULL;
     plist -> numOfData = 0;
 ```
+<img width="300" alt="스크린샷 2021-12-03 오후 5 40 00" src="https://user-images.githubusercontent.com/87407504/144571937-8349fed2-33c6-456e-9067-6f04952e359b.png"><br>
+
 > 초기화를 하면 head가 아무것도 들어있지 않은 더미노드를 가리키고 있다
 
 #### 노드의 추가를 위해 호출되는 함수
@@ -317,17 +320,19 @@ void  FInsert(List * plist, LData data){
     (plist -> numOfData)++;                        // 저장된 노드의 수를 하나 증가시킴
 }
 ```
-> 처음에 head는 NULL이 아닌 더미 노드를 가리키고 있다
-> if else 구문이 필요없다
-> 4와 6이 저장된 상태에서 FInsert(plist, 2);가 호출되었다고 가정하면
-> head DMY 2 4 6 NULL 순으로 저장된다
+<img width="450" alt="스크린샷 2021-12-03 오후 5 53 23" src="https://user-images.githubusercontent.com/87407504/144573872-ce34e262-3b8d-45fb-b735-a4bbfbbb82c2.png"><br>
+
+> 처음에 head는 NULL이 아닌 더미 노드를 가리키고 있다<br>
+> if else 구문이 필요없다<br>
+> 4와 6이 저장된 상태에서 FInsert(plist, 2);가 호출되었다고 가정하면<br>
+> head DMY 2 4 6 NULL 순으로 저장된다<br>
 
 SInsert 함수는 이후 다시 설명
 
 ## 단순 연결 리스트의 데이터 조회
-ADT 기준으로 `조회`하면 떠오르는 두 함수 LFirst와 LNext는 배열 리스트와 기능이 동일
+-  ADT 기준으로 `조회`하면 떠오르는 두 함수 LFirst와 LNext는 배열 리스트와 기능이 동일
 
--  더미 노드 기반의 단순 연결 리스트에서 첫번째 노드는 더미 노드 다음의 노드임을 재고
+-  다시 말하지만 더미 노드 기반의 단순 연결 리스트에서 첫번째 노드는 더미 노드 다음의 노드임
 
 #### LFirst
 ```.c
@@ -342,8 +347,8 @@ int LFirst(List * plist, LData * pdata){
     return TRUE;                                   // 데이터 반환 성공
 }
 ```
-> before가 더미 노드를 가리키게 하는 이유는 삭제와 관련이 있음
-> before은 cur보다 하나 앞선 노드를 가리킨 다는 사실을 기억하자
+> before가 더미 노드를 가리키게 하는 이유는 삭제와 관련이 있음<br>
+> before은 cur보다 하나 앞선 노드를 가리킨 다는 사실을 기억하자<br>
 #### LNext
 ```.c
 int LNext(List * plist, LData * pdata){
@@ -357,9 +362,10 @@ int LNext(List * plist, LData * pdata){
     return TRUE;                                   // 데이터 반환 성공
 }
 ```
-> cur이 가리키던 것을 before가 가리키게 하고 cur은 그 다음 노드를 가리키는 것이 핵심
+> cur이 가리키던 것을 before가 가리키게 하고 cur은 그 다음 노드를 가리키는 것이 핵심<br>
 
 ## 단순 연결 리스트의 데이터 삭제
+
 > 바로 이전에 호출된 LFirst 혹은 LNext 함수가 반환한 데이터를 삭제한다
 > cur이 가리키는 바구니의 데이터를 삭제하고 before의 도움을 받아 앞으로 한칸 이동한다
 > LFirst 또는 LNext 함수에서 before는 cur바로 왼쪽의 노드를 가리키게 하므로 삭제 과정에서 둘이 가리키는게 같아져도 상관없다
@@ -369,14 +375,26 @@ LData LRemove(List * plist){
     Node * rpos = plist -> cur;                     // 소멸 대상의 주소 값을 rpos에 저장
     LData rdata = rpos -> data;                     // 소멸 대상의 데이터를 rdata에 저장
                                                     // cur와 rpos는 같은 곳을 가리키는 중    
+```
+<img width="450" alt="스크린샷 2021-12-03 오후 5 58 03" src="https://user-images.githubusercontent.com/87407504/144574533-4ea3d9d4-7227-4055-a524-d340c58c4abe.png">
+
+```.c
     plist -> before -> next = plist -> cur -> next; // 소멸 대상을 리스트에서 제거
     plist -> cur = plist -> before;                 // cur이 가리키는 위치를 재조정
-    
+```
+
+<img width="450" alt="스크린샷 2021-12-03 오후 5 58 18" src="https://user-images.githubusercontent.com/87407504/144574573-8b00d8e5-37a0-4e2c-ae80-b123696fa5c0.png">
+
+```.c
     free(rpos):                                     // 리스트에서 제거된 노드 소멸
     (plist -> numOfData)--;                         // 저장된 데이터의 수 하나 감소
     return rdata;                                   // 제거된 노드의 데이터 반환
 }
 ```
+<img width="450" alt="스크린샷 2021-12-03 오후 5 58 28" src="https://user-images.githubusercontent.com/87407504/144574601-445311ea-1001-48ee-a1c7-fee6a58249fd.png">
+
+
+
  ## 단순 연결 리스트 하나로 묶기
 [DLinkedList.h]()<br>
 [DLinkedList.c]()<br>
@@ -407,15 +425,22 @@ void  SInsert(List * plist, LData data){
     Node * newNode = (Node*)malloc(sizeof(Node));         // 새 노드 생성
     Node * pred = plist -> head;                          // pred는 더미 노드를 가리킴
     newNode -> data = data;                               // 새 노드에 데이터 저장
-    
+```
+<img width="450" alt="스크린샷 2021-12-03 오후 6 10 21" src="https://user-images.githubusercontent.com/87407504/144576359-4333eeb3-938f-4b30-ad3d-ffefa1509d2b.png"><br>
+
+```.c
     /*새 노드가 들어갈 위치를 찾기 위한 반복문*/
     while(pred -> next != NULL && plist -> comp(data, pred -> next -> data) != 0){
         pred = pred -> next;                              // 다음 노드로 이동
     }
-    
+```
+<img width="450" alt="스크린샷 2021-12-03 오후 6 10 52" src="https://user-images.githubusercontent.com/87407504/144576448-607dbf67-bef3-4005-83c8-a8be440ae2a1.png"><br>
+
+```.c
     newNode -> next = pred -> next;                       // 새 노드의 오른쪽을 연결
     pred -> next = newNode;                               // 새 노드의 왼쪽을 연결
     
     (plist -> numOfData)++;                               // 저장된 데이터의 수 하나 증가
 }
 ```
+<img width="450" alt="스크린샷 2021-12-03 오후 6 11 11" src="https://user-images.githubusercontent.com/87407504/144576487-95002376-1afb-4db3-b06d-bf90d4cf4352.png"><br>
