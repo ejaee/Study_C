@@ -6,9 +6,13 @@
 > Linked list
 ### [학습 흐름]
 -  [04-1-1. 연결 기반의 리스트를 이해하자](#연결-리스트)<br>
--  [04-1-2. 연결 리스트에서의 데이터 삽입](#연결-리스트에서의-데이터-삽입)<br>
--  [04-1-3. 연결 리스트에서의 데이터 조회](#연결-리스트에서의-데이터-조회)<br>
--  [04-1-4. 연결 리스트에서의 데이터 삽입](#연결-리스트에서의-데이터-삭제)<br>
+-  [04-1-2. 연결 리스트의 데이터 삽입](#연결-리스트의-데이터-삽입)<br>
+-  [04-1-3. 연결 리스트의 데이터 조회](#연결-리스트의-데이터-조회)<br>
+-  [04-1-4. 연결 리스트의 데이터 삽입](#연결-리스트의-데이터-삭제)<br>
+
+> 04-1에서는 head와 tail을 모두 사용하는 연결리스트를 구현<br>
+> 04-2에서 실직적으로 더 많이 쓰는 더미 연결 리스트를 자료구조 공부 순서에 맞게 구현할 예정<br>
+> 연결리스트가 무엇인지 이해하려는데 중점을 두자<br>
 
 ## 연결 리스트
 
@@ -18,10 +22,10 @@
 
 -  malloc과 free를 통한 동적 메모리 구성
 
-[LinkedRead.c]()<br>
-> 해당 예시 main함수는 ArrayRead.c와 비교를 위한 소스코드이다
-> 삽입, 삭제, 조회의 기능이 별도의 함수로 구분되어있지 않아 가져다 쓸 수 있는 형태가 아니다
-> 연결 리스트와 관련된 코드에 익숙해지는데 주안을 두자
+[LinkedRead.c](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch04.Linked_List2/File/LinkedRead.c)<br>
+> 해당 예시 main함수는 ArrayRead.c와 비교를 위한 소스코드이다<br>
+> 삽입, 삭제, 조회의 기능이 별도의 함수로 구분되어있지 않아 가져다 쓸 수 있는 형태가 아니다<br>
+> 연결 리스트와 관련된 코드에 익숙해지는데 주안을 두자<br>
 
 #### 구조체 정의
 ```.c
@@ -55,7 +59,7 @@ typedef struck _node
 -  tail은 위의 논리대로 else문을 끝나고 만나는 tail = newNode를 통해 이어진다
 -----
 
-## 연결 리스트에서의 데이터 삽입
+## 연결 리스트의 데이터 삽입
 
 #### 핵심 포인터 변수 선언 과정
 ```.c
@@ -96,7 +100,7 @@ tail = newNode;
 -    반복문이 끝나면 head는 첫 번째 노드를, tail은 마지막 노드를 가리킨다
 
 -    삽입순서 : 값 입력받기(readData) -> 노드추가(newNode) -> head와 tail 각각 노드 가리키기
-## 연결 리스트에서의 데이터 조회
+## 연결 리스트의 데이터 조회
 
 #### 포인터 변수를 통해 가리키는 노드가 이동하는 과정
 ```.c
@@ -123,7 +127,7 @@ else{
 
 -    `cur`은 리스트 안을 돌아다닐 때 사용
 
-## 연결 리스트에서의 데이터 삭제
+## 연결 리스트의 데이터 삭제
 
 #### delNode와 delNextNode를 통한 데이터 삭제 과정
 ```.c
@@ -174,12 +178,39 @@ else{
 -----
 # 04-2. 단순 연결 리스트의 ADT와 구현
 > Single Linked List
+### [학습 흐름]
 
-## 연결 리스트의 ADT
+<1. 리스트 자료구조의 ADT 정의>
 
-이전의 배열 리스트에서 정렬 기능이 추가
--  Void SetSortRule(List * Plist, int (* comp)(LData d1, LData d2));
-> 리스트에 정렬릐 기준이 되는 함수를 등록
+-  [04-2-1. 단순 연결 리스트의 ADT](#단순-연결-리스트의-adt)<br>
+
+<2. ADT를 근거로 리스트 자료구조를 활용하는 main 함수 정의>
+> main함수가 배열 기반의 리스트 ListMain.c와 완전히 동일하다<br>
+> 이에따라 자료구조 학습순서에 맞게 진행하지 않는다<br>
+
+<3. ADT를 근거로 리스트 구현>
+
+-  [04-2-2. 더미 노드 기반의 단순 연결 리스트](#더미-노드-기반의-단순-연결-리스트)<br>
+-  [04-2-3. 단순 연결 리스트의 구조체와 헤더파일 정의](#단순-연결-리스트의-구조체와-헤더파일-정의)<br>
+-  [04-2-4. 단순 연결 리스트의 데이터 삽입](#단순-연결-리스트의-데이터-삽입)<br>
+-  [04-2-5. 단순 연결 리스트의 데이터 조회](#단순-연결-리스트의-데이터-조회)<br>
+-  [04-2-6. 단순 연결 리스트의 데이터 삭제](#단순-연결-리스트의-데이터-삽입)<br>
+-  [04-2-7. 단순 연결 리스트 하나로 묶기](#단순-연결-리스트-하나로-묶기)<br>
+
+> main함수가 배열 기반의 리스트 ListMain.c와 완전히 동일하다
+> 이에따라 자료구조 학습순서에 맞게 진행하지 않는다
+
+단순 연결 리스트(Single Linked List)
+
+-  연결의 형태가 한쪽 방향으로 전개되고 시작과 끝이 분명히 존재함
+
+## 단순 연결 리스트의 ADT
+> Single Linked List
+> 앞에서 다룬 연결 리스트 ADT에서 정렬 기능만 추가되었음
+
+Void SetSortRule(List * Plist, int (* comp)(LData d1, LData d2));
+
+-  리스트에 정렬의 기준이 되는 함수를 등록
 
 #### ❔새 노드를 추가할 때 리스트의 head와 tail 중 어디에 저장을 할까
 head
@@ -193,27 +224,29 @@ tail
 > 통상 head에 추가하는 방법을 선호
 > 자료구조는 저장된 순서를 유지해야 하는 자료구조가 아니다
 
-### 더미 노드(Dummy Node) 기반의 단순 연결 리스트
+## 더미 노드 기반의 단순 연결 리스트
+> Dummy Node
 
-> 앞서 보인 LinkedRead.c의 head와 tail이 포인터 변수인 연결 리스트는 아래와 같은 단점이 있다
-> 노드를 추가, 삭제, 조회하는 방법에 있어서 첫 번째 노드와 두 번째 이후의 노드에 차이가 있음
+앞서 보인 LinkedRead.c의 head와 tail이 포인터 변수인 연결 리스트는 아래와 같은 단점이 있다
 
-#### 더미 노드가 추가된 형태의 련결 리스트는 tail이 없다
+-  노드를 추가, 삭제, 조회하는 방법에 있어서 첫 번째 노드와 두 번째 이후의 노드에 차이가 있음
 
-### 정렬 기능이 추가된 연결 리스트의 구조체와 헤더파일의 정의
-[DLinkedList.h]()
-#### 구조체 정의
+#### 더미 노드가 추가된 형태의 연결 리스트는 tail이 없다
+
+## 단순 연결 리스트의 구조체와 헤더파일 정의
+[DLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch04.Linked_List2/File/DLinkedList/DLinkedList.h)
+#### 구조체 정의(node)
 ```.c
-typedef struck _node                     // typedef int LData
+typedef struck _node                     // 위에서 typedef int LData로 정의했음
 {
   LData data;                            //  데이터를 담을 공간
   struct _node * next                    //  연결의 도구
 } Node;
 ```
 
-#### 연결 리스트를 의미하는 구조체 정의
+#### 단순연결 리스트를 의미하는 구조체 정의(LinkedList)
 ```.c
-typedef struck _node                     // typedef int LData
+typedef struct _linkedList               // typedef int LData
 {
   Node * head;                           // 더미 노드를 가리키는 멤버
   Node * cur;                            // 참조 및 삭제를 돕는 멤버
@@ -222,14 +255,22 @@ typedef struck _node                     // typedef int LData
   int (*comp)(LData d1, LData d2);       // 정렬의 기준을 등록하기 위한 멤버
 } LinkedList;
 ```
-> Ch03의 [typedef struck _ node ArrayList]() 와 성격이 동일
-> 위 유형의 포인터 변수들은 main 함수 내에서도 전역변수로도 선언해서는 안된다
-> 프로그램을 구현하는데 다수의 배열이 필요하듯 리스트 자료구조도 다수 사용될 수 있다
-> 전역변수로 선언할 경우 필요 개수만큼 선언을 해주어야 한다
+-  Ch03의 [배열 리스트를 의미하는 ArrayList 구조체 정의](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03.Linked_List/file/ArrayList.h) 와 성격이 동일
 
--  헤더파일은 Ch03의 배열 기반 리스트의 헤더파일에서 SetSortRule 함수의 선언이 추가된 것 뿐
+   > 11:
 
-### 더미 노드 기반의 단순연결 리스트에서의 데이터 삽입
+위 유형의 포인터 변수들을 main 함수 내에서나, 전역변수로 선언해서는 불편함이 있다
+
+-  프로그램을 구현하는데 다수의 배열이 필요하듯 리스트 자료구조도 다수 사용될 수 있다
+
+-  이에따라 전역변수로 선언할 경우 필요 개수만큼 선언을 해주어야 한다
+
+헤더파일은 Ch03의 배열 기반 리스트의 헤더파일에서 SetSortRule 함수의 선언이 추가된 것 뿐
+```.c
+void SetSortRule(List * plist, int (* comp)(LData d1, LData d2));
+```
+
+## 단순 연결 리스트의 데이터 삽입
 ```.c
 typedef struck _node                     // typedef int LData
 {
@@ -283,9 +324,11 @@ void  FInsert(List * plist, LData data){
 
 SInsert 함수는 이후 다시 설명
 
-### 더미 노드 기반의 단순연결 리스트에서의 데이터 조회
+## 단순 연결 리스트의 데이터 조회
 ADT 기준으로 `조회`하면 떠오르는 두 함수 LFirst와 LNext는 배열 리스트와 기능이 동일
-> 더미 노드 기반의 단순 연결 리스트에서 첫번째 노드는 더미 노드 다음의 노드임을 재고
+
+-  더미 노드 기반의 단순 연결 리스트에서 첫번째 노드는 더미 노드 다음의 노드임을 재고
+
 #### LFirst
 ```.c
 int LFirst(List * plist, LData * pdata){
@@ -316,7 +359,7 @@ int LNext(List * plist, LData * pdata){
 ```
 > cur이 가리키던 것을 before가 가리키게 하고 cur은 그 다음 노드를 가리키는 것이 핵심
 
-### 더미 노드 기반의 단순연결 리스트에서의 데이터 삭제
+## 단순 연결 리스트의 데이터 삭제
 > 바로 이전에 호출된 LFirst 혹은 LNext 함수가 반환한 데이터를 삭제한다
 > cur이 가리키는 바구니의 데이터를 삭제하고 before의 도움을 받아 앞으로 한칸 이동한다
 > LFirst 또는 LNext 함수에서 before는 cur바로 왼쪽의 노드를 가리키게 하므로 삭제 과정에서 둘이 가리키는게 같아져도 상관없다
@@ -334,7 +377,7 @@ LData LRemove(List * plist){
     return rdata;                                   // 제거된 노드의 데이터 반환
 }
 ```
- ### 하나로 묶기
+ ## 단순 연결 리스트 하나로 묶기
 [DLinkedList.h]()<br>
 [DLinkedList.c]()<br>
 [DLinkedListMain.c]()<br>
