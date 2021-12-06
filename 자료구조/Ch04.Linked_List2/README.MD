@@ -448,3 +448,5 @@ void  SInsert(List * plist, LData data){
 }
 ```
 <img width="450" alt="스크린샷 2021-12-03 오후 6 11 11" src="https://user-images.githubusercontent.com/87407504/144576487-95002376-1afb-4db3-b06d-bf90d4cf4352.png"><br>
+
+⭐ 2회독 때 while문 중점적으로 
