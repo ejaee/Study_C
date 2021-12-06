@@ -407,7 +407,8 @@ LData LRemove(List * plist){
 ### 연결 리스트에서 정렬기준 설정
 핵심
 ```
-SetSortRule 함수가 호출되면서 정렬의 기준이 리스트의 멤버 comp에 등록되면, SInsert함수 내에서는 comp에 등록된 정렬의 기준을 근거로 데이터를 정렬하여 저장한다
+SetSortRule 함수가 호출되면서 정렬의 기준이 리스트의 멤버 comp에 등록되면, 
+SInsert함수 내에서는 comp에 등록된 정렬의 기준을 근거로 데이터를 정렬하여 저장한다
 ```
 
 #### SetSortRule Func
