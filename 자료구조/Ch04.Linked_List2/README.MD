@@ -410,6 +410,11 @@ LData LRemove(List * plist){
 SetSortRule 함수가 호출되면서 정렬의 기준이 리스트의 멤버 comp에 등록되면, 
 SInsert함수 내에서는 comp에 등록된 정렬의 기준을 근거로 데이터를 정렬하여 저장한다
 ```
+-  연결 리스트의 정렬기준이 되는 함수를 등록하는 SetSortRule 함수
+
+-  SetSortRule 함수를 통해서 전달된 함수 정보를 저장하기 위한 LinkedList 함수의 멤버 comp
+
+-  comp에 등록된 정렬 기준을 근거로 데이터로 저장하는 SInsert 함수
 
 #### SetSortRule Func
 ```.c
