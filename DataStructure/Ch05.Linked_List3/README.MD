@@ -43,7 +43,7 @@
 > 머리를 가리키는 포인터 변수 : tail -> next
 
 ## 변형된 원형 연결 리스트의 헤더파일
-[CLinkedList.h]()<br>
+[CLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedList.h)<br>
 
 연결 리스트의 활용가치를 높이는 대표적인 함수 다음이 있다
 -  LFirst, LNext, LRemove
@@ -63,5 +63,11 @@
 
 초기화 함수
 ```.c
-void ListInit(List * plist){
- 
+void ListInit(List * plist)
+{
+	    plist->tail = NULL;
+    	plist->cur = NULL;
+	    plist->before = NULL;
+	    plist->numOfData = 0;
+}
+```
