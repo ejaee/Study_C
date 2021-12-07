@@ -71,3 +71,40 @@ void ListInit(List * plist)
 	    plist->numOfData = 0;
 }
 ```
+리스트의 멤버들을 NULL 또는 0으로 초기화하면 끝<br>
+
+삽입 함수
+> 새 노드를 꼬리에 추가하는 LInsert 함수
+> 새 노드를 머리에 추가하는 LInsertFront 함수
+```.c
+// 위 두가지 함수는 초기화 상태에서 같은 코드를 가진다
+void LInsert(List * plist, Data data)
+{
+	Node * newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = data;
+
+	if(plist->tail == NULL) 		// 초기화 상태라는 뜻
+	{
+		plist->tail = newNode;		// tail이 노드를 가리키게 하고
+		newNode->next = newNode;	// 노드가 하나뿐이니 자기자신을 가리키게하여
+						// 원형상태 만들기
+	}
+	else 
+	{
+		// 차이발생
+	}
+
+	(plist->numOfData)++;
+}
+```
+두번째 노드 이후의 노드가 추가되는 상황
+Case 1) 머리에 추가
+> tail이 가리키는 노드는 꼬리 노드이므로 머리노드는 tail->Next
+```.c
+	else 
+	{
+		newNode->next = plist->tail->next;	// 새 노드가 가리키는 노드가
+							// tail->next 이다
+		plist->tail->next = newNode;		// tail
+	}
+```
