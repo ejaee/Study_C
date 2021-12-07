@@ -25,13 +25,13 @@
   * 0주차: 11/08~11/14
     * [Day0](#42-스터디) 스터디 개별학습 및 진도 파악
   * 1주차: 11/15~11/21
-    * [DAY1](https://github.com/Ejaeda/42_study/tree/master/자료구조/Ch01_자료구조와%20알고리즘의%20이해) 자료구조와 알고리즘의 이해
-    * [DAY2](https://github.com/Ejaeda/42_study/tree/master/자료구조/Ch02_재귀) 재귀
+    * [DAY1](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch01.Data_Structure) 자료구조와 알고리즘의 이해
+    * [DAY2](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch02.Recursion) 재귀
   * 2주차: 11/22~11/28
-    * [DAY3](https://github.com/Ejaeda/42_study/tree/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List) 연결 리스트1
-    * [DAY4](https://github.com/Ejaeda/42_study/tree/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch04.Linked_List2) 연결 리스트2
+    * [DAY3](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch03.Linked_List) 연결 리스트1
+    * [DAY4](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch04.Linked_List2) 연결 리스트2
   * 3주차: 11/29~12/05
-    * [DAY5] 연결 리스트3
+    * [DAY5](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch05.Linked_List3) 연결 리스트3
     * [DAY6] 스택
   * 4주차: 12/06~12/12
     * [DAY7] 큐
