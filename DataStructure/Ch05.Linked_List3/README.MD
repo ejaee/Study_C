@@ -288,4 +288,19 @@ typedef struct _Employee
 -  [05-2-7. 변형된 원형 연결 리스트 하나로 묶기](변형된-원형-연결-리스트-하나로-묶기)<br>
 
 ## 양방향 연결 리스트의 이해
+> doubly linked list<br>
+> 이중 연결 리스트
+
+노드가 양쪽 방향으로 연결된 구조의 리스트
+<img width="450" alt="스크린샷 2021-12-07 오후 6 53 00" src="https://user-images.githubusercontent.com/87407504/145006857-cc70b6a0-eaec-4d9d-a22e-a4f2ba2d7f37.png"><br>
+
+양방향 연결 리스트의 노드를 표현하는 구조체
+```.c
+typedef struct _node
+{
+	Data data;			// typedef int Data
+	struct _node * next;		// 오른쪽 노드를 가리키는 포인터 변수
+	struct _node * prev;		// 왼쪽 노드를 가리키는 포인터 변수
+}Node;
+```
 
