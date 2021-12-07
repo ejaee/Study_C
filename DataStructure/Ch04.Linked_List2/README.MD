@@ -23,7 +23,7 @@
 
 -  malloc과 free를 통한 동적 메모리 구성
 
-[LinkedRead.c](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch04.Linked_List2/File/LinkedRead.c)<br>
+[LinkedRead.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch04.Linked_List2/File/LinkedRead.c)<br>
 > 해당 예시 main함수는 ArrayRead.c와 비교를 위한 소스코드이다<br>
 > 삽입, 삭제, 조회의 기능이 별도의 함수로 구분되어있지 않아 가져다 쓸 수 있는 형태가 아니다<br>
 > 연결 리스트와 관련된 코드에 익숙해지는데 주안을 두자<br>
@@ -236,7 +236,7 @@ tail
 #### 더미 노드가 추가된 형태의 연결 리스트는 tail이 없다
 
 ## 단순 연결 리스트의 구조체와 헤더파일 정의
-[DLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch04.Linked_List2/File/DLinkedList/DLinkedList.h)
+[DLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch04.Linked_List2/File/DLinkedList/DLinkedList.h)
 #### 구조체 정의(node)
 ```.c
 typedef struck _node                     // 위에서 typedef int LData로 정의했음
@@ -257,7 +257,7 @@ typedef struct _linkedList               // typedef int LData
   int (*comp)(LData d1, LData d2);       // 정렬의 기준을 등록하기 위한 멤버
 } LinkedList;
 ```
--  Ch03의 [배열 리스트를 의미하는 ArrayList 구조체 정의](https://github.com/Ejaeda/42_study/blob/master/자료구조/Ch03.Linked_List/file/ArrayList.h) 와 성격이 동일
+-  Ch03의 [배열 리스트를 의미하는 ArrayList 구조체 정의](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/ArrayList.h) 와 성격이 동일
 
    > 11:
 
