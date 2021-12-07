@@ -12,11 +12,11 @@
 -  [05-1-2. 변형된 원형 연결 리스트](변형된-원형-연결-리스트)<br>
 
 <리스트 구현>
--  [05-1-3. 변형된 원형 연결 리스트의 헤더파일](변형된-원형-연결-리스트의-헤더파일)<br>
--  [05-1-4. 변형된 원형 연결 리스트의 삽입](변형된-원형-연결-리스트의-삽입)<br>
--  [05-1-5. 변형된 원형 연결 리스트의 조회](변형된-원형-연결-리스트의-조회)<br>
--  [05-1-6. 변형된 원형 연결 리스트의 조회](변형된-원형-연결-리스트의-삭제)<br>
--  [05-1-7. 변형된 원형 연결 리스트 하나로 묶기](변형된-원형-연결-리스트-하나로-묶기)<br>
+-  [05-1-3. 원형 연결 리스트의 헤더파일](원형-연결-리스트의-헤더파일)<br>
+-  [05-1-4. 원형 연결 리스트의 삽입](원형-연결-리스트의-삽입)<br>
+-  [05-1-5. 원형 연결 리스트의 조회](원형-연결-리스트의-조회)<br>
+-  [05-1-6. 원형 연결 리스트의 조회](원형-연결-리스트의-삭제)<br>
+-  [05-1-7. 원형 연결 리스트 하나로 묶기](원형-연결-리스트-하나로-묶기)<br>
 
 <리스트 활용>
 -  [문제 05-1. 원형 연결 리스트의 활용](문제 05-1-원형-연결-리스트의-활용)
@@ -41,7 +41,7 @@
 그렇다면 head보다 tail이 있는 것이 더 유용하지 않겠는가?
 > 이를 변형된 원형 연결 리스트로 언급
 
-## 변형된 원형 연결 리스트
+## 원형 연결 리스트
 
 변형된 원형 연결 리스트의 장점
 
@@ -52,7 +52,7 @@
 > 꼬리를 가리키는 포인터 변수 : tail<br>
 > 머리를 가리키는 포인터 변수 : tail -> next
 
-## 변형된 원형 연결 리스트의 헤더파일
+## 원형 연결 리스트의 헤더파일
 [CLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedList.h)<br>
 
 연결 리스트의 활용가치를 높이는 대표적인 함수 다음이 있다
@@ -69,7 +69,7 @@
 
 -  void LInsertFront(List * plist, Data data);   // 머리에 노드를 추가
 ```
-## 변형된 원형 연결 리스트의 삽입
+## 원형 연결 리스트의 삽입
 
 초기화 함수
 ```.c
@@ -133,7 +133,7 @@ Case 2) 꼬리에 추가
 ```
 원형 연결 리스트는 머리와 꼬리의 구분이 의미가 없다
 
-## 변형된 원형 연결 리스트의 조회
+## 원형 연결 리스트의 조회
 > 데이터의 조회를 담당하는 LFirst 함수와 LNext 함수
 
 먼저 CLL구조체 정의를 보자
@@ -182,7 +182,7 @@ int LNext(List * plist, Data * pdata)
 리스트의 끝을 검사하는 코드가 존재하지 않는다
 -  무한반복 호출이 가능
 
-## 변형된 원형 연결 리스트의 삭제
+## 원형 연결 리스트의 삭제
 > 단순 연결 리스트의 삭제 구조와 유사<br>
 단순 연결 리스트 삭제 구조
 -  삭제할 노드의 이전 노드가, 삭제할 노드의 다음 노드를 가리키게 한다
@@ -234,7 +234,7 @@ Data LRemove(List * plist)
 > 원형 연결 리스트에 더미 노드를 만들어 준다면 위 함수가 예외없이 간단해 질 것 같다<br>
 > 그렇지만 이로인해 LNext 함수 구현에 있어 더미노드를 처리해야하는 추가 소요가 발생한다
 
-## 변형된 원형 연결 리스트 하나로 묶기
+## 원형 연결 리스트 하나로 묶기
 [CLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedList.h)<br>
 [CLinkedList.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedList.c)<br>
 [CLinkedListMain.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedListMain.c)<br>
