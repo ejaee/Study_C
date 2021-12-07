@@ -11,7 +11,6 @@ int main(void)
 
 	ListInit(&list);
 
-	/*** 4개의 데이터 저장 ***/
 	ppos = (Point*)malloc(sizeof(Point));
 	SetPointPos(ppos, 2, 1);
 	LInsert(&list, ppos);
@@ -28,8 +27,7 @@ int main(void)
 	SetPointPos(ppos, 3, 2);
 	LInsert(&list, ppos);
 
-	/*** 저장된 데이터의 출력 ***/
-	printf("현재 데이터의 수: %d \n", LCount(&list));
+	printf("DATA's count: %d \n", LCount(&list));
 
 	if(LFirst(&list, &ppos))
 	{
@@ -40,7 +38,6 @@ int main(void)
 	}
 	printf("\n");
 
-	/*** xpos가 2인 모든 데이터 삭제 ***/
 	compPos.xpos=2;
 	compPos.ypos=0;
 
@@ -62,8 +59,7 @@ int main(void)
 		}
 	}
 
-	/*** 삭제 후 남은 데이터 전체 출력 ***/
-	printf("현재 데이터의 수: %d \n", LCount(&list));
+	printf("Now DATA's count: %d \n", LCount(&list));
 
 	if(LFirst(&list, &ppos))
 	{
