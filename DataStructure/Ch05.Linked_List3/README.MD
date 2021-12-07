@@ -8,8 +8,10 @@
 -  [05-1-1. 원형 연결 리스트의 이해](원형-연결-리스트의-이해)<br>
 -  [05-1-2. 변형된 원형 연결 리스트](변형된-원형-연결-리스트)<br>
 -  [05-1-3. 변형된 원형 연결 리스트의 헤더파일](변형된-원형-연결-리스트의-헤더파일)<br>
--  [05-1-4. 변형된 원형 연결 리스트 초기화와 삽입](변형된-원형-연결-리스트-초기화와-삽입)<br>
 -  [05-1-4. 변형된 원형 연결 리스트의 삽입](변형된-원형-연결-리스트의-삽입)<br>
+-  [05-1-5. 변형된 원형 연결 리스트의 조회](변형된-원형-연결-리스트의-조회)<br>
+-  [05-1-6. 변형된 원형 연결 리스트의 조회](변형된-원형-연결-리스트의-삭제)<br>
+-  [05-1-7. 변형된 원형 연결 리스트의 조회](변형된-원형-연결-리스트의-삭제)<br>
 
 > 자료구조를 학습하면서 모든 것들을 보지않고 구현하려는 능력을 최우선과제로 생각하지 말 것<br>
 > 내가 코드의 전체적인 흐름을 이해했고<br>
@@ -104,7 +106,77 @@ Case 1) 머리에 추가
 	else 
 	{
 		newNode->next = plist->tail->next;	// 새 노드가 가리키는 노드가
-							// tail->next 이다
-		plist->tail->next = newNode;		// tail
+						        // tail->next 이다
+						   //(tail이 가리키는 노드가 가리키는 노드
+		plist->tail->next = newNode;		// tail이 가리키고 있는 노드가
+							// 추가된 노드를 가리키도록 한다
 	}
 ```
+Case 2) 꼬리에 추가
+> tail이 가리키는 노드가 꼬리 노드<br>
+> 머리에 추가하는 것과 다른점은 tail이 가리키는 노드가 다르다는 것 뿐이다
+```.c
+	else 
+	{
+		newNode->next = plist->tail->next;	// 위와 같이 진행하고
+		plist->tail->next = newNode;
+		plist->tail = newNode;			// tail이 새 노드를 가리키도록 한다
+	}
+```
+원형 연결 리스트는 머리와 꼬리의 구분이 의미가 없다
+
+## 변형된 원형 연결 리스트의 조회
+> 데이터의 조회를 담당하는 LFirst 함수와 LNext 함수
+
+먼저 CLL구조체 정의를 보자
+```.c
+typedef struct _CLL
+{
+	Node * tail;
+	Node * cur;
+	Node * before;
+	int numOfData;
+} CList;
+```
+단순 연결 리스트와 동일<br>
+-  before을 통해 다음 움직일 노드를 가리키게 하고<br>
+-  bofore보다 하나 앞선 cur을 통해 데이터에 접근한다
+
+int LFirst
+> 해당 함수를 통해 cur(머리)과 before(꼬리)를 초기셋팅한다
+```.c
+int LFirst(List * plist, Data * pdata)
+{
+	if(plist->tail == NULL)    		// 저장된 노드가 없다면
+		return FALSE;
+
+	plist->before = plist->tail;		// before가 꼬리를 가리키게 한다
+	plist->cur = plist->tail->next;		// cur이 머리를 가리키게 한다
+
+	*pdata = plist->cur->data;		// cur이 가리키는 노드의 데이터를 반환
+	return TRUE;
+}
+```
+int Lnext
+```.c
+int LNext(List * plist, Data * pdata)
+{
+	if(plist->tail == NULL) 		// 저장된 노드가 없다면
+		return FALSE;
+
+	plist->before = plist->cur;		// cur위치로 before가 이동
+	plist->cur = plist->cur->next;		// cur 앞의 위치로 한칸 이동
+
+	*pdata = plist->cur->data;		// 다음 데이터를 반환
+	return TRUE;
+}
+```
+리스트의 끝을 검사하는 코드가 존재하지 않는다
+-  무한반복 호출이 가능
+
+## 변형된 원형 연결 리스트의 
+> 단순 연결 리스트의 삭제 구조와 유사<br>
+> 단순~
+
+
+
