@@ -238,7 +238,7 @@ Data LRemove(List * plist)
 [CLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedList.h)<br>
 [CLinkedList.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedList.c)<br>
 [CLinkedListMain.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/CircularLinkedList/CLinkedListMain.c)<br>
-[문제 넘기기](05-2-양방향-연결-리스트)
+[문제 넘기기](#05-2-양방향-연결-리스트)
 ## 문제 05-1. 원형 연결 리스트의 활용
 직원정보 등록((int)사번, 이름)
 -  직원 정보를 담을 구조체를 정의, 대략 네 명의 직원 정볼르 원형 연결 리스트에 저장하기
@@ -436,4 +436,4 @@ int LPrevious(List * plist, Data * pdata)
 [DBLinkedList.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/DublyLinkedList/DBLinkedList.c)<br>
 
 ## 문제 05-2. 더미노드 기반 양방향 연결 리스트의 활용
-[2회독때 하기]
+[2회독때 하기]()
