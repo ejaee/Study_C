@@ -211,7 +211,7 @@ LFirst를 먼저 호출하고 LNext이 이어지는 이유
 ## 배열 리스트의 삽입과 조회
 > 좀더 구체적으로 살펴보자
 
-ListInit(List* Plist)
+void ListInit(List* Plist)
 ```.c
 void	ListInit(List* Plist){
 	(plist -> numOfData) = 0;	    // 리스트에 저장된 데이터의 수는 0
