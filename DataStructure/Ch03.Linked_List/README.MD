@@ -172,7 +172,7 @@ int main(void){
 
 ## ADT를 근거로 리스트 자료구조를 활용하는 main 함수 정의
 > 위에서 언급된 리스트의 ADT를 활용하여 main함수가 어떻게 구성되는지 보자
-[ListMain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ListMain.c)
+[ListMain.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/ListMain.c)
 
 #### main 함수 분석
 > 자세한 세부 설명은 [헤더파일 정의](#adt를-근거로-배열-리스트-구현1-헤더파일-정의)에서 진행
@@ -203,10 +203,10 @@ LFirst를 먼저 호출하고 LNext이 이어지는 이유
 -    1~9를 저장하고 그 합을 계산하여 출력
 -    저장된 값들 중 2, 3의 배수를 모두 삭제
 -    리스트에 저장된 데이터를 순서대로 출력
-답 : [Q1_Listmain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/Q1_ListMain.c)
+답 : [Q1_Listmain.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/Q1_ListMain.c)
 
 ## 배열 리스트의 헤더파일 정의
-[ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.h)
+[ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/ArrayList.h)
 
 ## 배열 리스트의 삽입과 조회
 > 좀더 구체적으로 살펴보자
@@ -326,7 +326,7 @@ LData	LRemove(List * Plist)
 	-	curPosition은 삭제가 되기 전[4]의 값을 인덱스 3을 가리킨 상황에서 가져오는데 [3]이 삭제되었으므로 2를 가리켜야한다 
 
 ## 배열 리스트 하나로 묶기
-[ArrayList.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.c)
+[ArrayList.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/ArrayList.c)
 ### 배열 리스트의 장단점
 
 
@@ -334,7 +334,7 @@ LData	LRemove(List * Plist)
 
 -  배열의 길이가 초기에 결정이 되어야한다<br>
 
-   [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/ArrayList.h)의 8번째줄에서 배열의 길이를 100으로 고정
+   [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/ArrayList.h)의 8번째줄에서 배열의 길이를 100으로 고정
 
 -  삭제 과정에서 데이터 이동이 빈번하게 발생한다
 
@@ -370,11 +370,11 @@ int PointComp(Point * pos1, Point * pos2);		// 두 구조체 변수에 저장된
     * 둘다 같으면 0 반환
     * 모두 다르면 -1 반환
 ```
--    [point.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/Point.h)	// 위 구조체 정의와 구조체 관련 함수들을 모은 헤더파일
+-    [point.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/5.file/Point.h)	// 위 구조체 정의와 구조체 관련 함수들을 모은 헤더파일
 
--    [point.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/Point.c)	// 헤더파일에 선언된 함수들의 정의
+-    [point.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/5.file/Point.c)	// 헤더파일에 선언된 함수들의 정의
 
-2. 1.에 맞게 앞의 ArrayList 코드 변경 [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/ArrayList.h)
+2. 1.에 맞게 앞의 ArrayList 코드 변경 [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/5.file/ArrayList.h)
 
 Point 구조체 변수의 주소값을 저장하기 위해 변경하기
 > 소스파일 .c은 변경하지 않아도 된다
@@ -400,7 +400,7 @@ Typedef 선언변경
 
 -  point 소스파일에 헤더파일을 명시하고 함수들을 정의한다
 
--  위를 바탕으로 새로운 main함수를 만든다 [PointListMain.c](https://github.com/Ejaeda/42_study/blob/master/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/Ch03.Linked_List/file/5.file/PointListMain.c)
+-  위를 바탕으로 새로운 main함수를 만든다 [PointListMain.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/5.file/PointListMain.c)
 
 -  소스파일 3개를 컴파일하면 성공
 
