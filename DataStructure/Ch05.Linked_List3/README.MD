@@ -281,17 +281,25 @@ typedef struct _Employee
 -  [05-2-2. 변형된 원형 연결 리스트](변형된-원형-연결-리스트)<br>
 
 <리스트 구현>
--  [05-2-3. 변형된 원형 연결 리스트의 헤더파일](변형된-원형-연결-리스트의-헤더파일)<br>
--  [05-2-4. 변형된 원형 연결 리스트의 삽입](변형된-원형-연결-리스트의-삽입)<br>
--  [05-2-5. 변형된 원형 연결 리스트의 조회](변형된-원형-연결-리스트의-조회)<br>
--  [05-2-6. 변형된 원형 연결 리스트의 조회](변형된-원형-연결-리스트의-삭제)<br>
--  [05-2-7. 변형된 원형 연결 리스트 하나로 묶기](변형된-원형-연결-리스트-하나로-묶기)<br>
+> 총 두가지 형태로 양방향 련결 리스트를 구현해보자<br>
+> 첫번째 기본모델을 먼저 학습하자<br>
+> 문제 05-2를 통해 더미노드 기반의 양방향 연결 리스트를 학습하자<br>
+-  [05-2-3. 양방향 연결 리스트의 헤더파일](양방향-연결-리스트의-헤더파일)<br>
+-  [05-2-4. 양방향 연결 리스트의 삽입](양방향-연결-리스트의-삽입)<br>
+-  [05-2-5. 양방향 연결 리스트의 조회](양방향-연결-리스트의-조회)<br>
+-  [05-2-6. 양방향 연결 리스트의 조회](양방향-연결-리스트의-삭제)<br>
+-  [05-2-7. 양방향 연결 리스트 하나로 묶기](양방향-연결-리스트-하나로-묶기)<br>
+
+<리스트 활용>
+-  [문제 05-2. 더미노드 기반 양방향 연결 리스트의 활용](문제 05-2-더미노드-기반-양방향-연결-리스트의-활용)
 
 ## 양방향 연결 리스트의 이해
 > doubly linked list<br>
 > 이중 연결 리스트
 
 노드가 양쪽 방향으로 연결된 구조의 리스트
+1. 가장 기본적인 모델
+
 <img width="450" alt="스크린샷 2021-12-07 오후 6 53 00" src="https://user-images.githubusercontent.com/87407504/145006857-cc70b6a0-eaec-4d9d-a22e-a4f2ba2d7f37.png"><br>
 
 양방향 연결 리스트의 노드를 표현하는 구조체
@@ -304,3 +312,128 @@ typedef struct _node
 }Node;
 ```
 
+2. 더미 노드가 추가된 양방향 연결 리스트
+
+<img width="450" alt="스크린샷 2021-12-07 오후 9 45 29" src="https://user-images.githubusercontent.com/87407504/145031452-676108da-b718-4dbd-b5da-daad320ef41a.png"><br>
+
+3. 양방향 연결 리스트이면서 원형 연결 리스트의 구조를 동시에 지니는 리스트
+
+<img width="450" alt="스크린샷 2021-12-07 오후 9 46 23" src="https://user-images.githubusercontent.com/87407504/145031561-1a39389a-d340-4954-a93b-6ffb6f934fc5.png"><br>
+
+### 양방향 연결 리스트가 단순 연결 리스트보다 오히려 쉽게 구현되기도 한다
+
+단순~ 에서는 LNext 함수에서 before와 cur을 함께 사용한다<br>
+양방향~ 에서는 다시 돌아갈 수 있기 때문에 before가 필요없다
+
+## 양방향 연결 리스트의 헤더파일
+> 첫번째 기본 모델 리스트를 구현한다
+
+양방향 연결 리스트에서는 LRemove 함수가 비효율적이다
+-  첫번째, 마지막 노드를 삭제하는 경우가 이외 노드를 삭제하는 경우와 다르다
+
+-  따라서 LRemove 함수를 생략하고 문제를 통한 더미 기반 양방향~ 에서 이를 구현해보자
+
+양방향 연결 리스트에서 int LPrevious 함수를 구현해보자
+-  LNext 함수가 오른쪽 노드로 이동하며 노드 데이터를 참조하는 함수라면<br>
+   LPrevious 함수는 왼쪽 노드로 이동하며 데이터를 참조하는 함수이다
+
+-  LFirst또는 LNext 함수가 호출된 이후에 어디서든 호출이 가능하다
+
+[DBLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/DublyLinkedList/DBLinkedList.h)<br>
+
+## 양방향 연결 리스트의 삽입
+
+구조체 선언
+```.c
+typedef struct _dbLinkedList
+{
+	Node * head;
+	Node * cur;
+	int numOfData;
+} DBLinkedList;
+```
+데이터의 조회를 목적으로 선언된 멤버가 cur 하나이다<br>
+
+초기화 함수
+```.c
+void ListInit(List * plist)
+{
+	plist->head = NULL;
+	plist->numOfData = 0;
+}
+```
+
+삽입 함수
+```.c
+void LInsert(List * plist, Data data)
+{
+	Node * newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = data;
+
+	newNode->next = plist->head;		
+	
+	// 첫 노드라면 
+	// plist->head는 NULL이므로 새 노드의 ->next를 NULL로 초기화 하는 것
+						
+	// 두번째 노드라면
+	// 두개의 노드가 서로 가리키게 해야 하므로 새 노드가 기존 노드를 가리키게 하고
+	if(plist->head != NULL)
+		plist->head->prev = newNode;    // 기존 노드가 새 노드를 가리키게 한다
+
+	newNode->prev = NULL;			// 첫 노드라면 새 노드의 prev를 NULL로 초기화
+	// 두번째 노드여도 끝이므로 NULL을 가리키도록 한다
+	plist->head = newNode;			// head가 새 노드를 가리키도록 한다
+
+	(plist->numOfData)++;
+}
+```
+
+## 양방향 연결 리스트의 조회
+> before가 없어 더욱 단순
+
+첫 조회 함수
+```.c
+int LFirst(List * plist, Data * pdata)
+{
+	if(plist->head == NULL)
+		return FALSE;
+
+	plist->cur = plist->head;
+	*pdata = plist->cur->data;
+
+	return TRUE;
+}
+```
+오른쪽으로 이동 함수
+```.c
+int LNext(List * plist, Data * pdata)
+{
+	if(plist->cur->next == NULL)
+		return FALSE;
+
+	plist->cur = plist->cur->next;
+	*pdata = plist->cur->data;
+
+	return TRUE;
+}
+```
+왼쪽으로 이동 함수
+```.c
+int LPrevious(List * plist, Data * pdata)
+{
+	if(plist->cur->prev == NULL)
+		return FALSE;
+
+	plist->cur = plist->cur->prev;
+	*pdata = plist->cur->data;
+
+	return TRUE;
+}
+```
+
+## 양방향 연결 리스트 하나로 묶기
+[DBLinkedList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/DublyLinkedList/DBLinkedList.h)<br>
+[DBLinkedList.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch05.Linked_List3/File/DublyLinkedList/DBLinkedList.c)<br>
+
+## 문제 05-2. 더미노드 기반 양방향 연결 리스트의 활용
+[2회독때 하기]
