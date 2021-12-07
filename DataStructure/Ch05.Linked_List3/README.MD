@@ -64,3 +64,4 @@
 초기화 함수
 ```.c
 void ListInit(List * plist){
+ 
