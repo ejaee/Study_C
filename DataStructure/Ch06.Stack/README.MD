@@ -21,7 +21,7 @@
 -  스택 생성 후 제일먼저 호출되어야 하는 함수
 
 `int IsEmpty(Stack * pstack)`
--  스택이 빈 경우 1/ 아니면 0을 반환
+-  스택이 빈 경우 1 / 아니면 0을 반환
 
 `void Push(stack * pstack, Data data)`
 -  스택에 데이터를 저장
@@ -46,3 +46,7 @@
 `Pop`
 -  top이 가리키는 data를 반환하고, top을 아래로 한칸 내림
 
+## 배열 기반 스택의 헤더파일
+[ArrayBaseStack.h]()
+
+## 배열 기반 스택의 구현
