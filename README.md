@@ -32,7 +32,7 @@
     * [DAY4](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch04.Linked_List2) 연결 리스트2
   * 3주차: 11/29~12/05
     * [DAY5](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch05.Linked_List3) 연결 리스트3
-    * [DAY6] 스택
+    * [DAY6](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch06.Stack) 스택
   * 4주차: 12/06~12/12
     * [DAY7] 큐
     * [DAY8] 트리
