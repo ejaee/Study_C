@@ -38,10 +38,13 @@ Data QPeek(Queue * pq);
 -  큐가 비어있다면 F와 R이 가리키는 위치가 같다
 
 -  enqueue 연산 시 R이 먼저 한칸 이동하고, 그 자리에 데이터 저장
+<img width="450" alt="스크린샷 2021-12-20 오후 8 25 34" src="https://user-images.githubusercontent.com/87407504/146760172-5efb0966-225f-4f97-b0b2-ff363921b43b.png">
+
+-  큐가 꽉 찼다면 R이 가리키는 위치의 앞을 F이 가리킨다
+<img width="450" alt="스크린샷 2021-12-20 오후 8 25 56" src="https://user-images.githubusercontent.com/87407504/146760222-4f0f3dee-a6b0-420b-9f6c-71d7b2fef106.png">
 
 -  dequeue 연산 시 F이 먼저 한칸 이동하고, F가 가리키는 위치의 저장 데이터를 반환 및 소멸
 
--  큐가 꽉 찼다면 R이 가리키는 위치의 앞을 F이 가리킨다
 
 ### 원형 큐 구현의 구현
 [CircularQueue.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch07.Queue/File/CircularQueue/CircularQueue.h)<br>
