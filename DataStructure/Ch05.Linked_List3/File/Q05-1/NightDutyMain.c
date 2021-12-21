@@ -38,7 +38,7 @@ int main(void)
 	LInsert(&list, pemp);
 
 	// Terry 뒤로 3일 뒤 당직자는? ///////
-	pemp = WhosNightDuty(&list, "Tery", 3);
+	pemp = WhosNightDuty(&list, "Terry", 3);
 	ShowEmployeeInfo(pemp);
 
 	// Sunny 뒤로 15일 뒤 당직자는? ///////
