@@ -34,7 +34,7 @@
     * [DAY5](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch05.Linked_List3) 연결 리스트3
     * [DAY6](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch06.Stack) 스택
   * 4주차: 12/06~12/12
-    * [DAY7] 큐
+    * [DAY7](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch07.Queue/README.md) 큐
     * [DAY8] 트리
   * 5주차: 12/13~12/19
     * [DAY9] 우선순위 큐
