@@ -114,3 +114,11 @@ void MakeRightSubTree(BTreeNode * main, BTreeNode * sub);   // 오른쪽 연결
 [BinaryTreeMain.c]()<br>
 
 ## 이진 트리의 순회(Traversal)
+
+### 세가지 방법 by 루트노드 방문
+-  전위 순회
+
+-  중위 순회
+
+-  후위 순회
+
