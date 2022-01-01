@@ -76,9 +76,9 @@ typedef struct _bTreeNode
 	struct _bTreeNode * right;
 } BTreeNode;
 ```
-노드를 표현하는 구조체만 있고 이진 트리를 표현한 구조체는 정의하지 않는 이유
--  노드가 하나 있으면 공집합 노드 두개가 자식으로 딸려있다고 생각해야한다
--  즉 노드 자체가 이진 트리이다
+노드를 표현하는 구조체는 정의 하지만 이진 트리를 표현한 구조체는 정의하지 않는 이유
+-  노드 자체가 이진 트리이다
+-  노드가 하나 있으면 공집합 노드 두개가 자식으로 딸려있다고 생각하면 된다
 -  `BTreeNode * pnode` == `BTreeNode * ptree`
 
 ### 헤더파일 함수 기능(ADT)
@@ -107,7 +107,7 @@ void MakeRightSubTree(BTreeNode * main, BTreeNode * sub);   // 오른쪽 연결
 ### 이진 트리 구현
 [BinaryTree.c]()<br>
 >  MakeLeft(Right)SubTree 함수 특징
-> - 왼(오른)쪽 서브 트리가 존재한다면 `해당 트리 삭제`하고 `새로운 서브 트리를 연결`한다
+> - 왼(오른)쪽 서브 트리가 존재한다면 `해당 트리 삭제`하고 `새로운 서브 트리를 연결`한다<br>
 > 문제점 : 삭제할 서브 트리가 하나의 노드로 이루어져있지 않을 경우 메모리 누수 발생
 >   - 이럴 경우 모든 노드를 다 free 해주어야 하는데, 이때 `순회`의 방법을 사용한다
 
@@ -115,10 +115,31 @@ void MakeRightSubTree(BTreeNode * main, BTreeNode * sub);   // 오른쪽 연결
 
 ## 이진 트리의 순회(Traversal)
 
-### 세가지 방법 by 루트노드 방문
+### 세가지 방법 by 루트노드 방문 순서에 따라
 -  전위 순회
 
 -  중위 순회
 
 -  후위 순회
 
+### 순회의 재귀적 표현 : 중위 순회
+순회의 순서<br>
+1.  왼쪽 서브 트리의 순회
+
+2.  루트 노드의 방문
+
+3.  오른쪽 서브 트리의 순회
+>  순서를 바꾸면 전위, 후위 순회
+```.c
+void	InorderTraverse(BTreeNode * bt)	// 중위 순회 함수
+{
+	if(bt == NULL)			// bt가 NULL이면 재귀 탈출
+		return;
+
+	InorderTraverse(bt -> left);			// 1. 왼쪽 서브 트리의 순회
+	printf("%d \n", bt -> data);			// 2. 루트 노드의 방문
+	InorderTraverse(bt -> right);			// 3. 오른쪽 서브 트리의 순회
+}
+```
+
+## 수식 트리의 구현
