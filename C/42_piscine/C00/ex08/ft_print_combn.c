@@ -1,33 +1,70 @@
 #include <unistd.h>
 
-void	ft_putchar(char	c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_print_combn(int	n)
+void	ft_putarr(int n, char *arr)
 {
-	int a;
-	int b;
+	int	idx;
 
-	a = 0;
-	while(a <= 10 - n)
+	idx = 0;
+	while (idx < n)
 	{
-		b = a + 1;
-		while(b <= 9)
-		{
-			ft_putchar(a + '0');
-			ft_putchar(b + '0');
-			if(a != 8)
-				write(1, ", ", 2);
-			b++;
-		}
-		a++;
+		ft_putchar(arr[idx] + '0');
+		idx++;
+	}
+	if (arr[0] != 10 - n)
+	{
+		ft_putchar(',');
+		ft_putchar(' ');
 	}
 }
-
-void	main()
+void	ft_upgrade(int n, char *arr)
 {
-	ft_print_combn(22);
-}
+	int	idx;
+	int max;
 
+	idx = n - 1;
+	max = 9;
+	while (arr[idx] == max)
+	{
+		idx--;
+		max--;
+	}
+	arr[idx]++;
+	while (idx < n - 1)
+	{
+		arr[idx + 1] = arr[idx] + 1;
+		idx++;
+	}
+}
+void	ft_print_combn(int	n)
+{
+	char	arr[10];
+	int		idx;
+
+	idx = 0;
+	while(idx < n)
+	{
+		arr[idx] = idx;
+		idx++;
+	}
+	ft_putarr(n, arr);
+	while(arr[n-1] != 9)
+	{
+		arr[n-1]++;
+		ft_putarr(n, arr);
+	}
+	while(arr[0] != 10 - n)
+	{
+		ft_upgrade(n, arr);
+		ft_putarr(n, arr);
+	}
+}
+int	main()
+{
+	ft_print_combn(5);
+	return 0;
+}
