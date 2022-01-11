@@ -1,0 +1,15 @@
+# C02
+
+### [ft_strcpy]()
+### [ft_strncpy]()
+### [ft_str_is_alpha]()
+### [ft_str_is_nummeric]()
+### [ft_str_is_lowercase]()
+### [ft_str_is_uppercase]()
+### [ft_strprintable]()
+### [ft_strupcase]()
+### [ft_strlowcase]()
+### [ft_strcapitalize]()
+### [ft_strstrlcpy]()
+### [ft_putstr_non_printable]()
+### [ft_print_momory]()
