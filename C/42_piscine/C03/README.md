@@ -64,17 +64,24 @@ to_find가 시작되는 문자의 포인터(char* 타입)를 반환<br>
 
 ## ex05 
 ### unsigned int    ft_strlcat(char *dest, char *src, unsigned int size);
-strlcpy와 마찬가지로 strlcat은 대상 버퍼의 전체 크기를 사용하고 공간이 있는 경우 NULL 종료를 보장
--   때문에 세번째 매개변수 size에 NULL을 위한 공간을 포함시켜야 한다
+strlcpy와 마찬가지로 strlcat은 NULL 종료를 보장 하기위한 목적을 가진다<br>
 ```.c
 chat    *ft_strcat(char *dest, char *src);
 // 문자열 dest 뒤에 문자열 src을 이어붙이는, `문자열 연결함수`
 ```
--   strlcat은 문자열 src를 dest의 끝에 추가하는데 최대 `size - strlen(dest) - 1`자를 추가<br> 
--   size가 0이거나 원래 dest 문자열이 size보다 길지 않는 한 NULL 종료<br>
+size의 크기는 NULL 자리가 포함된 크기이다<br>
+-   size = dest_len + src_len + 1(NULL);
 
- strlcpy와 같이 strlcat는 `생성하려는 문자열의 전체 길이를 반환` 
- -  return (src_leng + dest_leng);
+dest 문자열의 길이가 size - 1이 되도록 src를 이어 붙인다<br>
+-   size가 dest_len + NULL 길이보다 클 때부터 src 데이터가 들어간다.
+>   때문에 size에 NULL을 위한 공간을 포함시켜야 한다 
+
+strlcpy와 같이 strlcat는 `생성하려는 문자열의 전체 길이를 반환`(NULL 자리 미포함)  
+-   size > dest_leng 경우 size - 1만큼 src를 붙이고 마지막에 NULL값을 넣어준다
+>   return (src_leng + dest_leng);
+-   size < dest_leng 경우 문자열을 붙이는 과정이 사라진다
+>   return (src_leng + size);
+ 
 
 
 
