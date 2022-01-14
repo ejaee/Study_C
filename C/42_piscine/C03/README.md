@@ -81,7 +81,12 @@ strlcpy와 같이 strlcat는 `생성하려는 문자열의 전체 길이를 반�
 >   return (src_leng + dest_leng);
 -   size < dest_leng 경우 문자열을 붙이는 과정이 사라진다
 >   return (src_leng + size);
- 
+```.c
+*주의 사항*
+
+while(*src && dest_len + cnt < size -1)
+// 반드시 src의 값이 0인지 확인하기
+```
 
 
 
