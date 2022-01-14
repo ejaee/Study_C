@@ -1,18 +1,22 @@
-void	ft_putchar(char c)
-{
-	write (1, &c, 1);
-}
-
 int	ft_atoi(char *str)
 {
 	int sign;
+	int rtn;
 
 	sign = 1;
-	while (*str)
+	rtn = 0;
+	while (*str && ((*str >= 9 && *str <= 13) || *str == 32))
+		str++;
+	while (*str && (*str == '+' || *str == '-'))
 	{
-		if ((*str >= 65 && *str <= 90) || (*str >= 97 && *str <= 122))
-			return 0;
-		if(*str == '-')
+		if (*str == '-')
 			sign *= -1;
-
-
+		str++;
+	}
+	while (*str && (*str >= '0' && *str <= '9'))
+	{
+		rtn = rtn * 10 + (*str - '0');
+		str++;
+	}
+	return (sign * rtn);
+}
