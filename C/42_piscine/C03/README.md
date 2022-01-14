@@ -43,7 +43,7 @@ n의 크기가 두 문자열의 길이 둘중 하나라도 `클 경우` 전체�
 >   Q) while (src[idx_s] && idx_s < nb)로, src[idx_s]를 붙이는 이유 : 
 
 
-## ex04 
+## ex04   // 왜 KO일까
 ### char    *ft_strstr(char *str, char *to_find);
 문자열 str 안에서 문자열 `to_find 를 찾는 함수`<br>
 str에 to_find의 문자열과 일치하는 문자열이 있으면<br>
