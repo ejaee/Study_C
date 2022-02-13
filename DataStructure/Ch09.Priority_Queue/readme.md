@@ -150,9 +150,9 @@ HInsert 함수 수정
 ```
 
 (수정)<br>
-헤더파일로 변수, 함수 선언 : [UsefulHeap.h]()<br>
-함수 정의 : [UsefulHeap.c]()<br>
-메인 함수 : [UsefulHeapMain.c]()<br>
+헤더파일로 변수, 함수 선언 : [UsefulHeap.h](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/UsefulHeap.h)<br>
+함수 정의 : [UsefulHeap.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/UsefulHeap.c)<br>
+메인 함수 : [UsefulHeapMain.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/UsefulHeapMain.c)<br>
 
 ### 완성한 힙을 이용한 우선순위 큐 구현
 
@@ -173,6 +173,6 @@ HInsert 함수 수정
 >   -   본 함수의 호출을 위해서는 데이터가 하나 이상 존재함이 보장되야함
 
 우선순위큐 <br>
-헤더파일 선언 : [PriorityQueue.h]()<br>
-함수 정의 : [PriorityQueue.c]()<br>
-메인 함수 : [PriorityQueueMain.c]()<br>
+헤더파일 선언 : [PriorityQueue.h](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/PriorityQueue.h)<br>
+함수 정의 : [PriorityQueue.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/PriorityQueue.c)<br>
+메인 함수 : [PriorityQueueMain.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/PriorityQueueMain.c)<br>
