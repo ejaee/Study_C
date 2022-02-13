@@ -86,9 +86,9 @@
 -   노드의 고유번호 == 노드가 저장되는 배열의 `인덱스 값`
 -   우선순위를 나타내는 정수 값이 적을수록 높은 우선순위(가정)
 
-헤더파일로 변수, 함수 선언 : [SimpleHeap.h]()<br>
-함수 정의 : [SimpleHeap.c]()<br>
-메인 함수 : [SimpleHeapMain.c]()<br>
+헤더파일로 변수, 함수 선언 : [SimpleHeap.h](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/SimpleHeap.h)<br>
+함수 정의 : [SimpleHeap.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/SimpleHeap.c)<br>
+메인 함수 : [SimpleHeapMain.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/SimpleHeapMain.c)<br>
 
 문제점
 ```.c
