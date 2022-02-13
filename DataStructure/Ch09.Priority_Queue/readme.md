@@ -86,7 +86,93 @@
 -   노드의 고유번호 == 노드가 저장되는 배열의 `인덱스 값`
 -   우선순위를 나타내는 정수 값이 적을수록 높은 우선순위(가정)
 
-헤더파일로 변수, 함수 선언 : [SimpleHeap.h]()
-함수 정의 : [SimpleHeap.c]()
+헤더파일로 변수, 함수 선언 : [SimpleHeap.h]()<br>
+함수 정의 : [SimpleHeap.c]()<br>
+메인 함수 : [SimpleHeapMain.c]()<br>
 
+문제점
+```.c
+typedef struct _heapElem
+{
+    Priority pr;    //  typedef int Priority
+    HData data      //  typedef char HData
+}
 
+void    HInsert(Heap *ph, HData data, Priority pr);
+```
+우선순위를 직접 결정해서 적어야 하는 번거로움이 발생
+
+### 이를 개선한 힙 구현
+프로그래머가 우선순위의 판단 기준을 힙에 설정할 수 있어야 한다
+-   이전의 구조체
+```.c
+    //  데이터와 우선순위를 하나로 묶기위한 구조체
+    typedef struct _heapElem
+    {
+        Priority pr         //  typedef int Priority
+        HData data;         //  typedef char HData
+    } HeapElem;
+
+    typedef struct _heap
+    {
+        int numOfData;
+        HeapElem heapArr[HEAP_LEN];
+    } Heap;
+```
+
+-   개선된 구조체 정의
+```.c
+    typedef struct _heap
+    {
+        // 두개의 데이터 우선순위의 높낮이를 판단하는 함수를 등록하기 위한 포인터 변수
+        PriorityComp *comp; //  typedef int PriorityComp(HData d1, HData d2);
+        int numOfData;
+        HData heapArr[HEAP_LEN];    //  typedef char HData
+    } Heap;
+```
+두개의 데이터 우선순위 높낮이를 판단하는 함수 가이드라인
+-   첫 번째 인자의 우선순위가 높다면, 0보다 큰 값이 반환
+-   두 번째 인자의 우선순위가 높다면, 0보다 작은 값이 반환
+-   두 개의 인자의 우선순위가 같다면, 0이 반환
+
+힙 초기화 함수 수정
+```.c
+    void    HeapInit(Heap *ph, PriorityComp pc)
+    {
+        ph->numOfData = 0;
+        ph->comp = pc;  //  (추가) 우선순위 비교에 사용되는 함수의 등록
+    }
+```
+
+HInsert 함수 수정
+```.c
+    void HInsert(Heap *ph, HData data);
+```
+
+(수정)<br>
+헤더파일로 변수, 함수 선언 : [UsefulHeap.h]()<br>
+함수 정의 : [UsefulHeap.c]()<br>
+메인 함수 : [UsefulHeapMain.c]()<br>
+
+### 완성한 힙을 이용한 우선순위 큐 구현
+
+우선순위 큐 자료구조의 ADT
+-   void    PQueueInit(PQueu *ppq, PriorityComp pc);
+>   -   우선순위 큐 초기화
+>   -   우선순위 큐 생성 후 제일 먼저 호출되어야 하는 함수
+
+-   int     PQIsEmpty(PQueue *ppq);
+>   -   우선순위 큐가 빈 경우 TRUE(1), 아니면 FALSE(0) 반환
+
+-   void PEnqueue(pQueue *ppq, PQData data);
+>   -   우선순위 큐에 데이터 저장, 매개변수 data로 전달된 값 저장
+
+-   PQData PDequeue(PQueue * ppq)
+>   -   우선순위가 가장 높은 데이터 삭제
+>   -   삭제된 데이터는 반환
+>   -   본 함수의 호출을 위해서는 데이터가 하나 이상 존재함이 보장되야함
+
+우선순위큐 <br>
+헤더파일 선언 : [PriorityQueue.h]()<br>
+함수 정의 : [PriorityQueue.c]()<br>
+메인 함수 : [PriorityQueueMain.c]()<br>
