@@ -236,8 +236,6 @@ Data DQGetLast(Deque * pdeq);
 
 [Deque.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch07.Queue/File/Deque/Deque.c)<br>
 [Deque.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch07.Queue/File/Deque/Deque.h)<br>
-<<<<<<< HEAD
 [DequeMain.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch07.Queue/File/Deque/DequeMain.c)<br>
-=======
 [DequeMain.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch07.Queue/File/Deque/DequeMain.c)<br>
->>>>>>> 1c1dc180896a6f1728ff4d597a2dcf2e131a64ca
+
