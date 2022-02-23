@@ -38,7 +38,7 @@
     * [DAY8] 트리
   * 5주차: 12/13~12/19
     * [DAY9](https://github.com/Ejaeda/42_Study/tree/master/DataStructure/Ch09.Priority_Queue) 우선순위 큐
-    * [DAY10] 정렬
+    * [DAY10](https://github.com/Ejaeda/Data_Structure/tree/master/DataStructure/Ch10.Sorting) 정렬
   * 6주차: 12/20~12/26
     * [DAY11] 탐색
     * [DAY12] 탐색2
