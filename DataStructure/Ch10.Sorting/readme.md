@@ -2,6 +2,8 @@
 
 ## 버블정렬(bubble Sort)
 
+![bubble](https://user-images.githubusercontent.com/87407504/155281904-a3dc714f-0771-4002-a63e-bdfacdb2c92a.gif)<br>
+
 ### 이해
 
 인접한 두 개의 데이터를 비교해가면서 오름차순으로 정렬
@@ -55,6 +57,8 @@ by 이동 횟수
 
 ## 선택 정렬(Selection Sort)
 
+![selection](https://user-images.githubusercontent.com/87407504/155281934-f7ad101c-b3cd-4000-a38d-247272a02ad9.gif)<br>
+
 ### 이해
 
 가장 작은 값을 찾아 낮은 값부터 순차적으로 정렬
@@ -107,6 +111,8 @@ by 이동 횟수
 버블이나 선택이나 별차이 없음
 
 ## 삽입 정렬(InsertionSort)
+
+![insertion](https://user-images.githubusercontent.com/87407504/155281959-4fec81fd-2278-469b-91c7-d752409bcc65.gif)<br>
 
 ### 이해
 
