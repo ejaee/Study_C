@@ -2,13 +2,15 @@
 
 ## 트리의 접근
 
--  트리(Tree)는 계층적 관계를 표현하는 자료구조
->  데이터의 저장, 삭제를 용이하도록 만든 구조가 아닌, 무엇인가 표현 하기위한 구조
+-  트리(Tree)는 계층적 관계를 `표현`하는 자료구조
+>  데이터 저장, 삭제, 검색을 용이하도록 만든 구조가 아닌, 무엇인가 표현 하기위한 구조
 
 ### 트리 관련 용어
 
+<img width="450" alt="스크린샷 2022-02-25 오후 6 59 42" src="https://user-images.githubusercontent.com/87407504/155695296-f63a07c4-bdae-4246-917b-e740d74de593.png"><br>
+
 노드 (node)
--  트리의 구성요소에 해당 A, B, C, D, E, F
+-  트리의 구성요소에 해당 A, B, C, D, E, F ...
 
 간선 (edge)
 -  노드와 노드를 연결하는 연결선
@@ -17,21 +19,21 @@
 -  트리 구조에서 최상위에 존재하는 A와 같은 노드
 
 단말 노드 (terminal node)
--  아래로 또 다른 노드가 연결되어 있지 않은 노드 E, F, C, D
+-  아래로 또 다른 노드가 연결되어 있지 않은 노드 C, E, H, I, J, K, L
 
 내부 노드 (internal node)
--  단말 노드를 제외한 모든 노드 A, B
+-  단말 노드를 제외한 모든 노드 A, B, D, F, G
 
 노드간 부모, 자식, 형제의 관계가 성립
--  노드 A는 노드 B, C, D의 부모 노드
+>  노드 A는 노드 B, C, D의 부모 노드
 
--  노드 B, C, D는 노드 A의 자식 노드
+>  노드 B, C, D는 노드 A의 자식 노드
 
--  노드 B, C, D는 부모 노드가 같으므로, 서로가 서로에게 형제 노드
+>  노드 B, C, D는 부모 노드가 같으므로, 서로 형제 노드
 
--  노드 A와 A는 노드 E의 조상 노드
+>  노드 A와 B는 노드 E의 조상 노드
 
--  노드 B, C, D, E, F는 모두 노드 A의 후손 노드
+>  노드 B, C, D, E, F는 모두 노드 A의 후손 노드
 
 레벨 (level)
 -  트리의 각 층별로 매긴 숫자, 루트 노드부터 0 레벨로 시작
@@ -39,35 +41,36 @@
 높이 (height)
 -  트리의 최고 레벨
 
-### 이진 트리(Binary Tree)와 서브 트리(Sub Tree)
+## 이진 트리(Binary Tree)와 서브 트리(Sub Tree)
 
-서브 트리(Sub Tree)
+[서브 트리(Sub Tree)]()<br>
+<img width="450" alt="스크린샷 2022-02-25 오후 7 03 49" src="https://user-images.githubusercontent.com/87407504/155695845-2988ff75-e3a5-4350-9c4c-534766d9e1fd.png"><br>
 
-이진 트리(Binary Tree)
+[이진 트리(Binary Tree)]()<br>
+<img width="450" alt="스크린샷 2022-02-25 오후 7 04 06" src="https://user-images.githubusercontent.com/87407504/155695883-5eb625f1-7562-48f3-b006-f2232e38c8d7.png"><br>
 
--  루트 노드를 중심으로 두 개의 서브 트리로 나누어진다
+이진 트리의 특징<br>
+1.  루트 노드를 중심으로 두 개의 서브 트리로 나누어진다
 
--  나뉘어진 두 서브 트리도 모두 이진 트리이어야 한다
+2.  나뉘어진 두 서브 트리도 모두 이진 트리이어야 한다
+  
+3.  노드가 존재하지 않더라도 그것을 공집합(empty set) 노드로 존재하는 것으로 간주한다
 
--  그 서브트리의 모든 서브 트리도 이진 트리이어야 한다
+## 포화 이진 트리(Full Binary Tree)와 완전 이진 트리(Complete Binary Tree)
 
--  노드가 존재하지 않더라도 그것을 공집합(empty set) 노드로 존재하는 것으로 간주한다
-
-### 포화 이진 트리(Full Binary Tree)와 완전 이진 트리(Complete Binary Tree)
-
-포화 이진 트리(Full Binary Tree)
+[포화 이진 트리(Full Binary Tree)]()<br>
+<img width="450" alt="스크린샷 2022-02-25 오후 7 11 02" src="https://user-images.githubusercontent.com/87407504/155696937-61099dd3-dad4-45e7-beec-6deef298fb20.png"><br>
 -  모든 레벨이 꽉 찬 이진 트리
 
-완전 이진 트리(Complete Binary Tree)
+[완전 이진 트리(Complete Binary Tree)]()<br>
+<img width="450" alt="스크린샷 2022-02-25 오후 7 11 27" src="https://user-images.githubusercontent.com/87407504/155697001-d9bfe940-4565-4337-865a-3ae908f66961.png">
 -  레벨이 꽉 찬 상태는 아니지만, 노드가 위에서 아래로, 왼쪽에서 오른쪽의 순서대로 채워진 상태
 
 ## 이진 트리의 구현 by 연결 리스트 기반
-> 배열 기반으로 구현하는 경우
-> -  완성된 완전 이진 트리를 빈번하게 탐색할 경우
-> -  예 ) 완전 이진트리의 구조를 가지는 힙(heap) 자료구조
 
 ### 헤더파일에 정의된 구조체의 이해
 [BinaryTree.h]()<br>
+<img width="300" alt="스크린샷 2022-02-25 오후 7 24 30" src="https://user-images.githubusercontent.com/87407504/155698884-a44534b1-7816-4e72-83bf-3f12fbd4c558.png">()<br>
 ```.c
 typedef struct _bTreeNode
 {
@@ -83,44 +86,54 @@ typedef struct _bTreeNode
 
 ### 헤더파일 함수 기능(ADT)
 
-노드의 생성, 데이터반환, 저장 기능
+1. 노드의 생성, 데이터 반환, 저장 기능
 ```.c
 BTreeNode * MakeBTreeNode(void);            // 노드의 생성, 그 주소값 반환
 BTData GetData(BTreeNode * bt);             // 노드에 저장된 데이터를 반환
 void SetData(BTreeNode * bt, BTData data);  // 노드에 데이터를 저장, data값 저장
 ```
 
-서브 트리를 가리키기 기능
+2. 서브 트리를 가리키기 기능
 ```.c
 BTreeNode * GetLeftSubTree(BTreeNode * bt); // 왼쪽 서브트리의 주소값을 반환
 BTreeNode * GetRightSubTree(BTreeNode * bt);// 오른쪽 서브트리의 주소값을 반환
 ```
->  서브 트리 주소값을 반환
 
-서브 트리의 연결 기능
+3. 서브 트리의 연결 기능
 ```.c
 void MakeLeftSubTree(BTreeNode * main, BTreeNode * sub);    // 왼쪽 연결
 void MakeRightSubTree(BTreeNode * main, BTreeNode * sub);   // 오른쪽 연결
 ```
->  `sub`로 전달 된 트리 또는 노드를 `main`으로 전달된 노드의 서브 트리로 연결
+>  `sub`로 전달 된 노드를 `main`으로 전달된 노드의 서브 트리로 연결
 
 ### 이진 트리 구현
 [BinaryTree.c]()<br>
->  MakeLeft(Right)SubTree 함수 특징
-> - 왼(오른)쪽 서브 트리가 존재한다면 `해당 트리 삭제`하고 `새로운 서브 트리를 연결`한다<br>
-> 문제점 : 삭제할 서브 트리가 하나의 노드로 이루어져있지 않을 경우 메모리 누수 발생
->   - 이럴 경우 모든 노드를 다 free 해주어야 하는데, 이때 `순회`의 방법을 사용한다
+
+- MakeLeft(Right)SubTree 함수 특징
+> 왼(오른)쪽 서브 트리가 존재한다면 `해당 트리 삭제`하고 `새로운 서브 트리를 연결`한다<br>
+
+- 문제점 : 삭제할 서브 트리가 하나의 노드로 이루어져있지 않을 경우 메모리 누수 발생
+> 이럴 경우 모든 노드를 다 free 해주어야 하는데, 이때 `순회`의 방법을 사용한다
 
 [BinaryTreeMain.c]()<br>
 
 ## 이진 트리의 순회(Traversal)
 
 ### 세가지 방법 by 루트노드 방문 순서에 따라
--  전위 순회
+1. 전위 순회
+<img width="450" alt="스크린샷 2022-02-25 오후 7 56 08" src="https://user-images.githubusercontent.com/87407504/155703471-e8d1f883-dbe2-4c71-9546-d814849cc0be.png">
 
--  중위 순회
+> 루트 -> 왼쪽 -> 오른쪽 순
 
--  후위 순회
+2. 중위 순회
+<img width="450" alt="스크린샷 2022-02-25 오후 7 58 02" src="https://user-images.githubusercontent.com/87407504/155703757-ee741f80-597b-4868-b296-5e72cfc9ccfc.png">
+
+> 왼쪽 -> 루트 -> 오른쪽 순
+
+3. 후위 순회
+<img width="450" alt="스크린샷 2022-02-25 오후 7 58 59" src="https://user-images.githubusercontent.com/87407504/155703883-b9c22c12-2756-4976-b5c2-0aaff18ae48e.png">
+
+> 왼쪽 -> 루트 -> 오른쪽 순
 
 ### 순회의 재귀적 표현 : 중위 순회
 순회의 순서<br>
