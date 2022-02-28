@@ -45,9 +45,7 @@
   * 7주차: 12/27~01/02
     * [DAY13] 테이블과 해쉬
     * [DAY14] 그래프
-  * 8주차: 01/03~01/09
-    * [DAY15] 보충학습
-    * [DAY16] 보충학습
+
   ### 관련 개인 Repository
   * [ejchoi](https://github.com/Ejaeda)
   * [bochoi](https://github.com/BB-choi)

@@ -155,6 +155,12 @@ void    InsertionSort(int arr[], int n)
 > O(n^2) 앞의 두 정렬과 같다
 
 ## 힙 정렬(Heap Sort)
+![heap](https://user-images.githubusercontent.com/87407504/155310966-13104362-bcf9-4509-b10e-b0db6e927cab.gif)<br>
+
 ## 병합 정렬(Merge Sort)
+![merge](https://user-images.githubusercontent.com/87407504/155310957-eb3243ba-4e84-41bd-be5f-e405e13e4e5b.gif)<br>
+
 ## 퀵 정렬(Quick Sort)
+![quick](https://user-images.githubusercontent.com/87407504/155310936-5e043330-87e9-4886-9cbf-06cabcdb12c2.gif)<br>
+
 ## 기수 정렬(Radix Sort)
