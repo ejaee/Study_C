@@ -35,7 +35,7 @@
     * [DAY6](https://github.com/Ejaeda/42_study/tree/master/DataStructure/Ch06.Stack) 스택
   * 4주차: 12/06~12/12
     * [DAY7](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch07.Queue) 큐
-    * [DAY8] 트리
+    * [DAY8](https://github.com/Ejaeda/Data_Structure/blob/master/DataStructure/Ch08.Tree) 트리
   * 5주차: 12/13~12/19
     * [DAY9](https://github.com/Ejaeda/42_Study/tree/master/DataStructure/Ch09.Priority_Queue) 우선순위 큐
     * [DAY10](https://github.com/Ejaeda/Data_Structure/tree/master/DataStructure/Ch10.Sorting) 정렬
