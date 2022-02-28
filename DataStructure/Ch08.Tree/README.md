@@ -270,4 +270,41 @@ void	DeleteTree(BTreeNode * bt)
 ```
 
 ## 수식 트리의 구현
+수식트리
+- 이진 트리를 이용하여 수식을 표현해 놓은 것
 
+```.c
+int	main()
+{
+	int result = 0;
+	result = 7 + 4 * 2 - 1;
+	
+	...
+	
+```
+컴파일러는 위와 같은 상황에서 어떻게 사칙연산에 의거하여 계산을 해내는가?
+- 수식 트리를 활용
+
+방식
+- 루트 노드에 저장된 연산자의 연산을 하되, 두 개의 자식 노드에 저장된 두 피연산자를 대상으로 연산한다
+
+수식트리 헤더파일<br>
+[expression_tree.h]()
+```c
+#ifndef __EXPRESSION_TREE_H__
+#define __EXPRESSION_TREE_H__
+
+#include "BinaryTree2.h"
+
+BTreeNode * MakeExpTree(char exp[]);	// 수식 트리 구성
+int EvaluateExpTree(BTreeNode * bt);	// 수식 트리 계산
+
+void ShowPrefixTypeExp(BTreeNode * bt); // 전위 표기법 기반 출력
+void ShowInfixTypeExp(BTreeNode * bt);  // 중위 표기법 기반 출력
+void ShowPostfixTypeExp(BTreeNode * bt);// 후위 표기법 기반 출력
+
+#endif
+```
+BTreeNode * MakeExpTree(char exp[]);	// 수식 트리 구성
+- 문자열 형태로 입력받음
+- 이를 기반으로 수식 트리를 구성하고 루트 노드의 주소 값을 반환
