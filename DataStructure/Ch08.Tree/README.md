@@ -189,7 +189,7 @@ void	InorderTraverse(BTreeNode * bt)	// 중위 순회 함수
 
 <img width="450" alt="스크린샷 2022-02-25 오후 7 58 59" src="https://user-images.githubusercontent.com/87407504/155703883-b9c22c12-2756-4976-b5c2-0aaff18ae48e.png">
 
-> 왼쪽 -> 루트 -> 오른쪽 순
+> 왼쪽 -> 오른쪽 -> 루트 순
 
 ```.c
 void	PostorderTraverse(BTreeNode * bt)
