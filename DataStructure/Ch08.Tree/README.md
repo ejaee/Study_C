@@ -47,6 +47,7 @@
 <img width="450" alt="스크린샷 2022-02-25 오후 7 03 49" src="https://user-images.githubusercontent.com/87407504/155695845-2988ff75-e3a5-4350-9c4c-534766d9e1fd.png"><br>
 
 이진 트리(Binary Tree)
+
 <img width="450" alt="스크린샷 2022-02-25 오후 7 04 06" src="https://user-images.githubusercontent.com/87407504/155695883-5eb625f1-7562-48f3-b006-f2232e38c8d7.png"><br>
 
 이진 트리의 특징
