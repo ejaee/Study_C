@@ -183,3 +183,42 @@ int main()
 ```
 
 -----
+
+# [N과M 4](https://www.acmicpc.net/problem/15652) 
+
+### :point_right: [15652](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/02_15652.c)
+
+- 핵심
+```.c
+15649 문제 + 오름차순 조건 + 중복 가능
+15650 문제 + 15661문제
+```
+
+- 문제접근
+```.c
+백트래킹 연습
+```
+
+- 코드 구현
+```.c
+    else
+    {
+        input = 0;
+        while (++input <= N)
+        {
+        //    if (check[input] == 0 && max < input)
+            if (max <= input) // 비내림차순 조건
+            {    
+        //      check[input] = 1;
+                rst[count] = input;
+                DFS(count+1, input);      
+        //      check[input] = 0;  
+			}                      
+		}
+	}
+}
+```
+
+-  새로 안 사실
+
+-----
