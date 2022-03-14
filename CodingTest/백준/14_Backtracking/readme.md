@@ -88,3 +88,98 @@ int main()
 check를 통해 input 값을 컨트롤 할 수 있다
 
 -----
+
+# [N과M 2](https://www.acmicpc.net/problem/15650) 
+
+### :point_right: [15650](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/02_15650.c)
+
+- 핵심
+```.c
+15649 문제 + 오름차순 조건
+재귀 시 사용한 숫자를 max로 설정해 max보다 크게 적히도록 추가
+```
+
+- 문제접근
+```.c
+백트래킹 연습
+```
+
+- 코드 구현
+```.c
+#include <stdio.h>
+
+int N, M;                   // 입력받을 두 변수
+int rst[1000] = {0, };      // 출력할 내용들을 담을 배열
+int check[1000] = {0, };    // 사용한 숫자인지 내용 0과 1로 판단하는 배열
+
+void    DFS(int count, int max)      // input값을 rst배열에 적고 해당 수를 max로 설정하기
+{                           
+    int input;
+    int idx;
+    
+    if (count == M)         // depth 도달
+    {
+        idx = -1;
+        while (++idx < M)
+            printf("%d ", rst[idx]);
+        printf("\n");
+    }
+    else
+    {
+        input = 0;
+        while (++input <= N)
+        {
+            if (check[input] == 0 && max < input)   // 오름차순 조건
+            {    
+                check[input] = 1;
+                rst[count] = input;
+                DFS(count+1, input);      
+                check[input] = 0;  
+			}                      
+		}
+	}
+}
+
+int main()
+{
+    scanf("%d %d", &N, &M);
+    DFS(0, 0);
+    return 0;
+}
+```
+
+-  새로 안 사실
+
+1.
+백트래킹에 추가적인 조건이 생길 경우 파라미터를 추가한다
+
+-----
+
+# [N과M 3](https://www.acmicpc.net/problem/15651) 
+
+### :point_right: [15651](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/03_15651.c)
+
+- 핵심
+```.c
+1. 15649와 달리 중복 조건을 해제
+```
+
+- 문제접근
+```.c
+백트래킹 연습
+```
+
+- 코드 구현
+```.c
+        //    if (check[input] == 0)
+        //    {    
+        //        check[input] = 1;
+                rst[count] = input;
+                DFS(count+1);
+        //        check[input] = 0;
+		//	}                    
+		
+/*  15649 조건 중 중복 확인 조건을 없애준다  */
+```
+
+-----
