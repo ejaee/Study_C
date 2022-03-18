@@ -38,10 +38,10 @@ void	BFS(int V, int N)
 		{
 			if (graph[pop][idx] && !use_BFS[idx])
 			{
+				use_BFS[idx] = 1;
 				printf("%d ", idx);
 				queue[rear] = idx;
 				rear++;
-				use_BFS[idx] = 1;
 			}
 		}
 	}
