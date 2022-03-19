@@ -430,3 +430,158 @@ void    BFS(int N, int V)
 >   위 문제의 경우 z x y순이어야 한다
 
 -----
+
+# [숨바꼭질](https://www.acmicpc.net/problem/1697) 
+
+### :point_right: [1697](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/08_1697.c)
+
+- 핵심
+```.c
+0. 수빈이는 걸을 수 있고(+1 ,-1) 순간이동 할 수 있다(*2)
+1. N에서 시작하여 위 세가지 방법을 통해 K에 도달 해야한다
+2. 상하좌우는 경우의 수가 4가지 이므로 idx = 0 ; idx < 4 ; idx++
+3. 경우의 수가 3가지로 만들면 된다
+4. 출력값을 어떻게 할 지 생각해야한다 
+
+```
+
+- 문제접근
+```.c
+3. 나는 걸을경우 순간이동 할 경우 따로 했는데 그럴 필요는 없다
+>   if (idx == 0) wp = pop + 1;
+>   else if (idx == 1) wp = pop - 1;
+>   else if (idx == 2) wp = pop * 2;
+
+4. visit[] 배열을 활용한다
+>   종료 조건은 N == K or visit[pop] 이므로
+> visit[MAX] = {0}로 설정하고 visit[pop]에 값을 더해준다
+```
+
+- 코드 구현
+4. 출력 값 산출
+>   
+```.c
+    while (front < rear)
+    {
+        pop = queue[front];
+        front++;
+
+        idx = -1;
+        while (++idx < 3)
+        {
+            if (idx == 0) np = pop + 1;
+            else if (idx == 0) np = pop - 1;
+            else if (idx == 0) np = pop * 1;
+            
+            if (np >= 0 && np < 100001 && !visit[np])
+            {
+                // 이전 값을 다음 자리에 더해준다!!
+                visit[np] = visit[pop] + 1;
+                queue[rear] = np;
+                rear++;
+            }
+        }
+        // 어짜피 도착점은 K니까
+        return (visit[K])
+
+    }
+```
+
+-  새로 안 사실
+
+💡 반복문의 갯수를 저장하고 출력하고 싶을 경우
+>   visit[idx]로 출력을 할 수 있다
+
+-----
+
+# [숨바꼭질2](https://www.acmicpc.net/problem/12851) 
+
+### :point_right: [12851](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/08_2_12851.c)
+
+- 핵심
+```.c
+1. 도달 최단거리 뿐만 아니라 경우의 수를 구해야한다
+```
+
+- 문제접근
+```.c
+0. 이전 문제에서는 최단 거리만 구해야 했으므로 중복을 일체 허용하지 않았다
+1. 1이 4까지 도달하기 위해
+>   +1, *2 방법과
+>   *2, *2 방법이 있으므로 2가지 모두 pop 되어야한다
+
+2. 경우의 수 카운팅이 필요하다
+```
+
+- 코드 구현
+1. 숨바꼭질 문제 코드는 push하는 곳에 v[np] = v[pop] +1 한다
+> 따라서 중복되는 경우의 수가 !v[np]에서 걸린다
+-   해결방안
+> pop하는 곳에서 v[np] = v[pop] + 1 한다
+> pop을 한다는 것은 이미 한 cycle이 더 돌았음을 의미한다
+> 때문에 중복되는 경로지만 pop가 다르다는 것은 각자 최단 거리가 다름을 의미한다
+
+2. 경우의 수 카운팅은 pop할때 배열로 카운팅한다
+> !visit[np]하지 않지만 중복될 경우 카운팅을 해줘야한다
+> cnt[np] += cnt[pop]; // cnt[np] += 1 아니다!
+> BFS의 특정에 유의하자
+
+```.c
+    queue[rear] = N;
+    rear++;
+    cnt[N] = 1;  // 경우의 수니까 1로 출발
+    check[N] = 1; // pop에서 방문 표시
+    while (front < rear)
+    {
+        pop = queue[front];
+        front++;
+
+        idx = -1;
+        while (++idx < 3)
+        {
+            if (idx == 0) np = pop + 1;
+            else if (idx == 0) np = pop - 1;
+            else if (idx == 0) np = pop * 1;
+            
+            if (np >= 0 && np < MAX)
+            {
+                if(!check[np])
+                {
+                    queue[rear] = np;
+                    rear++;
+
+                    check[np] = 1; // pop에서 방문 표시
+                    result[np] = result[pop] + 1;
+
+                    // count는 중복안된 경로이므로 같은 경로임
+                    cnt[np] = cnt[pop]
+                }           
+                // 중복 경우의 수 처리
+                else if(result[np] == result[pop] + 1)
+                {
+                    // 중복되기까지 경우의 수들은 다르므로
+                    cnt[np] += cnt[pop];
+                }
+            }
+        }
+        ...
+
+    }
+```
+
+-  새로 안 사실
+
+💡 push에 방문 처리하는 것과 pop에 방문 처리 하는것의 차리
+>   push에 방문처리 
+>   -> 다음 출발지를 queue에 저장 하자마자 초기화
+>   => 중복이 불가해진다
+
+>   pop에 방문처리 
+>   -> 같은 pop단계 에서는 push가 진행 되더라도 초기화 안됨
+>   => 같은 pop 단계에서 얼마든지 중복이 가능
+
+💡 방문과 최단거리가 확실하게 역활이 생기므로 하나의 배열로는 부족
+>   처음에 숨바꼭질1 문제처럼 1개의 배열로 방문체크까지 하려했음
+>   각각의 역할이 분명하기 때문에 2개의 배열이 필요하다
+
+-----
