@@ -117,7 +117,7 @@ void    BFS(int N, int V)
 
 -----
 
-# [미로 탐색]](https://www.acmicpc.net/problem/2178) 
+# [미로 탐색](https://www.acmicpc.net/problem/2178) 
 
 ### :point_right: [2178](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/05_2178.c)
 
@@ -241,39 +241,45 @@ void    BFS(int N, int V)
 
 -----
 
-# [미로 탐색]](https://www.acmicpc.net/problem/2178) 
+# [토마토](https://www.acmicpc.net/problem/7576) 
 
-### :point_right: [2178](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/05_2178.c)
+### :point_right: [7576](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/06_7576.c)
 
 - 핵심
 ```.c
+0. 반복문이 돌면서 시작점이 바로바로 바뀐다 -> BFS
 1. 각 정점을 최단 경로로 방문하는 BFS를 활용
 ```
 
 - 문제접근
 ```.c
-1. graph를 배열로 표현
+1. graph를 2차원 배열로 표현
 2. BFS 함수
 
-* 어떻게 이동 시킬 것인가?
-
-* 각각의 수들은 붙어서 입력 -> "%1d", graph[idx][jdx]
+* 어떻게 이동 시킬 것인가
 ```
 
 - 코드 구현
 1. graph를 배열로 표현
+>   토마토가 익은 경우 -> 출발지점이므로 enqueue
+>   토마토가 익지 않은 경우 -> 익어야 하는 갯수 이므로 cnt++;
 ```.c
-    // (1,1)부터 출발하므로 graph[1][1] 부터 입력받기
-
-    scanf("%d %d", &N, &M);
-
-    idx = 0
-    while (++idx <= N)
+    idx = -1;
+    while (++idx < M)
     {
-        jdx = 0;
-        while (++jdx <= M)
+        jdx = -1;
+        while (++jdx < N)
         {
-            printf("%1d", &graph[idx][jdx]);
+            scanf("%d" &graph[idx][jdx]);
+            if (!graph[idx][jdx])
+                cnt++;
+            else if (graph[idx][jdx] == 1)
+            {
+                // (x, y) 좌표 전달
+                queue[rear][0] = idx;
+                queue[rear][1] = jdx;
+                rear++;
+            }
         }
     }
 ```
@@ -287,8 +293,9 @@ void    BFS(int N, int V)
 
     // 1. while 문을 돌리면서 동 서 남 북으로 이동 시키기
     // 2. 만약 이동한 지점이 범위를 벗어나거나
-    //    이동한 지점이 1이 아닌 경우는 그냥 넘기기
-    // 3. 위 조건을 모두 충족 한다면 이동 + count++;
+    //    이동한 지점이 -1인 경우 그냥 넘기기
+    // 3. 이동한 지점이 0인 경우 다음 출발점이므로 enqueue
+    // 4. 위 조건을 모두 충족 한다면 이동 + count++;
 
     // BFS는 queue를 활용
     // 1. queue에 시작 점을 담고
@@ -302,9 +309,7 @@ void    BFS(int N, int V)
         int move_x, move_y;
 
         front = rear = 0;
-        queue[rear][0] = 1; (x = 1) // (1,1)에서 출발
-        queue[rear][1] = 1; (y = 1)
-        rear++;
+        // main함수에서 이미 시작점이 queue에 저장된 상태
 
         while (front < rear)
         {
@@ -314,53 +319,114 @@ void    BFS(int N, int V)
             front++;
 
             idx = -1;
-            while (++idx < N)
+            while (++idx < 4)
             {
                 move_x = pop_x + dx[idx];
                 move_y = pop_y + dy[idx];
             
-                // 영역 이탈
-                if (move_x < 1 || move_y < 1 
-                || move_x > N || move_y > M)
-                    continue;
-
-                // 영역 내용이 1
-                if (graph[move_x][move_y] != 1)
-                    continue;
-
-                // 이동한 좌표가 가능하다면 해당 영역에 +1
-                // 마지막 도착점인 [N][M]의 값을 출력하면 되니까
-                graph[move_x][move_y] = graph[pop_x][pop_y] + 1;
-                queue[rear][0] = move_x;
-                queue[rear][1] = move_y;
-                rear++;
+                // -1은 토마토가 없는 구역이므로 0 또는 1
+                if (move_x >= 0 || move_y >= 0 
+                || move_x < M || move_y < N)
+                {
+                    if (!graph[move_x][move_y])
+                    {
+                        // 마지막 출력값이 되므로
+                        graph[move_x][move_y] = graph[pop_x][pop_y] + 1;
+                        queue[rear][0] = move_x;
+                        queue[rear][1] = move_y;
+                        rear++;
+                        cnt--; // 0이 익어 1로 변경해줘야 하므로
+                    }
+                }
             }
         }
-        return (graph[N][M]);
+        if  (!cnt)
+        // 마지막 도착 지점은 dx, dy 이동하지 않으므로
+        // (pop_x, pop_y) 이다
+        // -1을 해주는 이유
+        // 처음 시작을 1 토마토 시작점에서 하므로 그 값을 뺀다
+            return (graph[pop_x][pop_y] -1);
+        
+        // cnt가 0이 아니라는 것은 토마토가 모두 익지 않았다는 것
+        return (-1);
     }
 
 ```
 -  새로 안 사실
 
-💡 붙어서 하나씩 입력받고 싶을 때
+💡 여러 시작점에서 BFS가 시작이 되어도 결과는 똑같다
 
-    -   printf("%1d", &arr[][]);
->   %1d를 쓰면 입력받은 정수도 문자 단위로 나누어서 처리가 가능하다
+    -   main함수에서 시작점들을 queue에 담으니까 다를게 없다
 
-💡 BFS
+💡 BFS의 출력값에 집중하자
 
-    -   front = 0, rear = 0,
->   front == rear 는 queue가 비었음을 의미
-    -   queue에 시작점을 rear로 저장하고 rear++;
-    -   queue에 저장값을 front로 빼고 front++; 
->   뺀 값은pop에 저장
-    -   시작점에서 동 서 남 북 이동 후 가능한 영역에 +1을 해야하므로
->   dx[4] = {1, -1, 0, 0};  dy[4] = {0, 0, -1, 1}; 사용
-    -   pop + dx, dy 이동 값을 move_x, move_y 변수에 저장
+    -   모든 토마토가 익는데 몇일이 걸리는가?
+    -   먼저 익어햐는 토마토의 갯수를 cnt++;
+    -   dx, dy가 조건에 맞게 통과할 경우 cnt--; 
+    -   dx, dy 이동된 자리마다 시작 점의 값 + 1
+>   반복문이 도는 갯수만큼 더해지므로
     
 💡 DFS 와 BFS
 
     -   DFS 는 재귀를 사용한다
     -   BFS 는 queue를 사용한다
+
+-----
+
+# [3d 토마토](https://www.acmicpc.net/problem/7569) 
+
+### :point_right: [7569](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/07_7569.c)
+
+- 핵심
+```.c
+0. 06 문제 + 3d
+1. z축이 생겼다
+```
+
+- 문제접근
+```.c
+1. graph를 3차원 배열로 표현
+> 어떻게 입력할 것인가
+```
+
+- 코드 구현
+1. graph를 3차원 배열로 표현
+>   x, z 고정한 상태로 y값을 입력받는다
+>   x, y 모두 다 입력받아야 z값이 ++된다
+>   반복문의 구조는 y -> x -> z
+```.c
+    scanf("%d %d %d", &M, &N, &H);
+    z = -1;
+    while (++z < H)
+    {
+        x = -1;
+        while (++x < N)
+        {
+            y = -1;
+            while (++y < M)
+            {
+
+                // z x y 순으로 반복하지만
+                // 입력값은 x y z 순이여도 상관없음!
+                // [0][y][0] 상태로 입력 받는거니까!
+                scanf("%d", &graph[x][y][z]);
+                if (!graph[x][y][z])
+                    cnt++;
+                else if(graph[x][y][z] == 1)
+                {
+                    queue[rear][0] = x;
+                    queue[rear][1] = y;
+                    queue[rear][2] = z;
+                    rear++;
+                }
+            }
+        }
+    }
+```
+
+-  새로 안 사실
+
+💡 x, y, z 축을 입력 받을때는 입력값에 따라 구성이 다르다
+>   위 문제의 경우 z x y순이어야 한다
 
 -----
