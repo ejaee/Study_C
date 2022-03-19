@@ -116,3 +116,251 @@ void    BFS(int N, int V)
     -   BFS 는 queue를 사용한다
 
 -----
+
+# [미로 탐색]](https://www.acmicpc.net/problem/2178) 
+
+### :point_right: [2178](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/05_2178.c)
+
+- 핵심
+```.c
+1. 각 정점을 최단 경로로 방문하는 BFS를 활용
+```
+
+- 문제접근
+```.c
+1. graph를 배열로 표현
+2. BFS 함수
+
+* 어떻게 이동 시킬 것인가?
+
+* 각각의 수들은 붙어서 입력 -> "%1d", graph[idx][jdx]
+```
+
+- 코드 구현
+1. graph를 배열로 표현
+```.c
+    // (1,1)부터 출발하므로 graph[1][1] 부터 입력받기
+
+    scanf("%d %d", &N, &M);
+
+    idx = 0
+    while (++idx <= N)
+    {
+        jdx = 0;
+        while (++jdx <= M)
+        {
+            printf("%1d", &graph[idx][jdx]);
+        }
+    }
+```
+
+2. BFS
+```.c
+    // 어떻게 이동 시킬 것인가?
+    //          동  서  남  북
+    int dx[4] = {1, -1, 0, 0};
+    int dy[4] = {0, 0, -1, 1};
+
+    // 1. while 문을 돌리면서 동 서 남 북으로 이동 시키기
+    // 2. 만약 이동한 지점이 범위를 벗어나거나
+    //    이동한 지점이 1이 아닌 경우는 그냥 넘기기
+    // 3. 위 조건을 모두 충족 한다면 이동 + count++;
+
+    // BFS는 queue를 활용
+    // 1. queue에 시작 점을 담고
+    // 2. 담을 때마다 rear++;
+    // 3. pop에 queue[front] 주고 
+    // 4. 줄 때마다front++;
+
+    int BFS()
+    {
+        int front, rear, pop_x, pop_y;
+        int move_x, move_y;
+
+        front = rear = 0;
+        queue[rear][0] = 1; (x = 1) // (1,1)에서 출발
+        queue[rear][1] = 1; (y = 1)
+        rear++;
+
+        while (front < rear)
+        {
+            // 반복문마다 동 서 남 북 이동
+            pop_x = queue[front][0];
+            pop_y = queue[front][1];
+            front++;
+
+            idx = -1;
+            while (++idx < N)
+            {
+                move_x = pop_x + dx[idx];
+                move_y = pop_y + dy[idx];
+            
+                // 영역 이탈
+                if (move_x < 1 || move_y < 1 
+                || move_x > N || move_y > M)
+                    continue;
+
+                // 영역 내용이 1
+                if (graph[move_x][move_y] != 1)
+                    continue;
+
+                // 이동한 좌표가 가능하다면 해당 영역에 +1
+                // 마지막 도착점인 [N][M]의 값을 출력하면 되니까
+                graph[move_x][move_y] = graph[pop_x][pop_y] + 1;
+                queue[rear][0] = move_x;
+                queue[rear][1] = move_y;
+                rear++;
+            }
+        }
+        return (graph[N][M]);
+    }
+
+```
+-  새로 안 사실
+
+💡 붙어서 하나씩 입력받고 싶을 때
+
+    -   printf("%1d", &arr[][]);
+>   %1d를 쓰면 입력받은 정수도 문자 단위로 나누어서 처리가 가능하다
+
+💡 BFS
+
+    -   front = 0, rear = 0,
+>   front == rear 는 queue가 비었음을 의미
+    -   queue에 시작점을 rear로 저장하고 rear++;
+    -   queue에 저장값을 front로 빼고 front++; 
+>   뺀 값은pop에 저장
+    -   시작점에서 동 서 남 북 이동 후 가능한 영역에 +1을 해야하므로
+>   dx[4] = {1, -1, 0, 0};  dy[4] = {0, 0, -1, 1}; 사용
+    -   pop + dx, dy 이동 값을 move_x, move_y 변수에 저장
+
+💡 DFS 와 BFS
+
+    -   DFS 는 재귀를 사용한다
+    -   BFS 는 queue를 사용한다
+
+-----
+
+# [미로 탐색]](https://www.acmicpc.net/problem/2178) 
+
+### :point_right: [2178](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/05_2178.c)
+
+- 핵심
+```.c
+1. 각 정점을 최단 경로로 방문하는 BFS를 활용
+```
+
+- 문제접근
+```.c
+1. graph를 배열로 표현
+2. BFS 함수
+
+* 어떻게 이동 시킬 것인가?
+
+* 각각의 수들은 붙어서 입력 -> "%1d", graph[idx][jdx]
+```
+
+- 코드 구현
+1. graph를 배열로 표현
+```.c
+    // (1,1)부터 출발하므로 graph[1][1] 부터 입력받기
+
+    scanf("%d %d", &N, &M);
+
+    idx = 0
+    while (++idx <= N)
+    {
+        jdx = 0;
+        while (++jdx <= M)
+        {
+            printf("%1d", &graph[idx][jdx]);
+        }
+    }
+```
+
+2. BFS
+```.c
+    // 어떻게 이동 시킬 것인가?
+    //          동  서  남  북
+    int dx[4] = {1, -1, 0, 0};
+    int dy[4] = {0, 0, -1, 1};
+
+    // 1. while 문을 돌리면서 동 서 남 북으로 이동 시키기
+    // 2. 만약 이동한 지점이 범위를 벗어나거나
+    //    이동한 지점이 1이 아닌 경우는 그냥 넘기기
+    // 3. 위 조건을 모두 충족 한다면 이동 + count++;
+
+    // BFS는 queue를 활용
+    // 1. queue에 시작 점을 담고
+    // 2. 담을 때마다 rear++;
+    // 3. pop에 queue[front] 주고 
+    // 4. 줄 때마다front++;
+
+    int BFS()
+    {
+        int front, rear, pop_x, pop_y;
+        int move_x, move_y;
+
+        front = rear = 0;
+        queue[rear][0] = 1; (x = 1) // (1,1)에서 출발
+        queue[rear][1] = 1; (y = 1)
+        rear++;
+
+        while (front < rear)
+        {
+            // 반복문마다 동 서 남 북 이동
+            pop_x = queue[front][0];
+            pop_y = queue[front][1];
+            front++;
+
+            idx = -1;
+            while (++idx < N)
+            {
+                move_x = pop_x + dx[idx];
+                move_y = pop_y + dy[idx];
+            
+                // 영역 이탈
+                if (move_x < 1 || move_y < 1 
+                || move_x > N || move_y > M)
+                    continue;
+
+                // 영역 내용이 1
+                if (graph[move_x][move_y] != 1)
+                    continue;
+
+                // 이동한 좌표가 가능하다면 해당 영역에 +1
+                // 마지막 도착점인 [N][M]의 값을 출력하면 되니까
+                graph[move_x][move_y] = graph[pop_x][pop_y] + 1;
+                queue[rear][0] = move_x;
+                queue[rear][1] = move_y;
+                rear++;
+            }
+        }
+        return (graph[N][M]);
+    }
+
+```
+-  새로 안 사실
+
+💡 붙어서 하나씩 입력받고 싶을 때
+
+    -   printf("%1d", &arr[][]);
+>   %1d를 쓰면 입력받은 정수도 문자 단위로 나누어서 처리가 가능하다
+
+💡 BFS
+
+    -   front = 0, rear = 0,
+>   front == rear 는 queue가 비었음을 의미
+    -   queue에 시작점을 rear로 저장하고 rear++;
+    -   queue에 저장값을 front로 빼고 front++; 
+>   뺀 값은pop에 저장
+    -   시작점에서 동 서 남 북 이동 후 가능한 영역에 +1을 해야하므로
+>   dx[4] = {1, -1, 0, 0};  dy[4] = {0, 0, -1, 1}; 사용
+    -   pop + dx, dy 이동 값을 move_x, move_y 변수에 저장
+    
+💡 DFS 와 BFS
+
+    -   DFS 는 재귀를 사용한다
+    -   BFS 는 queue를 사용한다
+
+-----
