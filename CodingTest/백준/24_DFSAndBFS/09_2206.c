@@ -44,7 +44,7 @@ int		BFS()
 				{
 					queue[rear][0] = ny;
 					queue[rear][1] = nx;
-					queue[rear][2] = 0;
+					queue[rear][2] = popb - 1;
 					rear++;
 
 					visit[ny][nx][popb-1] = visit[popy][popx][popb] + 1;
@@ -54,6 +54,7 @@ int		BFS()
 				{
 					queue[rear][0] = ny;
 					queue[rear][1] = nx;
+					queue[rear][2] = popb;
 					rear++;
 
 					visit[ny][nx][popb] = visit[popy][popx][popb] + 1;
