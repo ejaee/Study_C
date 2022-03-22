@@ -2,10 +2,10 @@
 
 #define MAX 1001
 
-int map[MAX][MAX] = {0};
+char map[MAX][MAX] = {0};
 int	N, M;
 
-int queue[MAX*MAX][3] = {0};
+int queue[MAX*MAX*2][3] = {0};
 // visit[][][1] -> 아직 벽을 뚫지 않았다
 // visit[][][0] -> 이미 벽을 뚫었다
 int visit[MAX][MAX][2] = {0};
@@ -40,7 +40,7 @@ int		BFS()
 			if (nx >= 1 && ny >= 1 && nx <= M && ny <= N)
 			{
 				// 1이지만 block 가능한가
-				if (map[ny][nx] == 1 && popb)
+				if (map[ny][nx] == '1' && popb)
 				{
 					queue[rear][0] = ny;
 					queue[rear][1] = nx;
@@ -50,7 +50,7 @@ int		BFS()
 					visit[ny][nx][popb-1] = visit[popy][popx][popb] + 1;
 				}
 				// 0 이고 방문한 적이 없는가
-				else if (!map[ny][nx] && !visit[ny][nx][popb])
+				else if (map[ny][nx] == '0' && !visit[ny][nx][popb])
 				{
 					queue[rear][0] = ny;
 					queue[rear][1] = nx;
@@ -73,9 +73,7 @@ int main()
 	idx = 0;
 	while (++idx <= N)
 	{
-		jdx = 0;
-		while (++jdx <= M)
-			scanf("%1d", &map[idx][jdx]);
+			scanf("%s", &map[idx][1]);
 	}
 	printf("%d", BFS());
 	return 0;

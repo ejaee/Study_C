@@ -538,18 +538,172 @@ void    BFS(int N, int V)
 -  새로 안 사실
 
 💡 가능하면 void    BFS() 하자
->   쓸데없는 시간이 너무많이 걸렸다...
->   초반 pop할때 종료 조건을 부여하고 printf하자
+>   쓸데없는 시간이 너무많이 걸렸다...<br>
+>   초반 pop할때 종료 조건을 부여하고 printf하자<br>
 
 💡 내가아는 그래프 좌표로 값을 받으면 배열은 반대다
 >   (x, y) -> chess[y][x];
 
 💡 벡터 값들을 2차원으로 유지해보자
->   익숙해질 필요 있음
+>   익숙해질 필요 있음<br>
 
 💡 최단거리의 값을 구할때는 출력값을 아래와 같이 생각하자
->   chess[ny][nx] = chess[popy][popx] + 1;
->   ...
->   return chess[popy][popx];
+>   chess[ny][nx] = chess[popy][popx] + 1;<br>
+>   ...<br>
+>   return chess[popy][popx];<br>
+
+-----
+
+
+# [연구소](https://www.acmicpc.net/problem/14502) 
+
+### :point_right: [14502](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/14502.c)
+
+- 핵심
+```.c
+1. 0(비었음), 1(벽) ,2(바이러스) 를 입력
+2. 바이러스는 0에게 상하좌우로 퍼지고 1(벽)을 이동할 수 없음
+3. 벽을 3개 추가 했을 때 바이러스가 퍼지고 0의 영역의 최대개수는?
+```
+
+- 문제접근
+```.c
+0. 최초 입력받은 graph는 게속 사용되므로 유지되어야 한다
+> 모든 0이 1이 되어봐야 하며 1이 3개가 추가되었을 때 바이러스가 퍼져야한다
+1. 1이 3개 추가될 때까지 벽을 세우는 함수는 DFS를 사용한다
+2. 벽을 세우고 바이러스를 퍼트리는 함수는 BFS를 사용한다
+4. 각각의 0의 갯수 중 가장 큰 0의 갯수를 printf 한다
+```
+
+- 코드 구현
+0. 총 3개의 2차배열이 필요하다
+>   map[][] = 입력을 받는 그래프<br>
+>   temp[][] = 벽을 세우는 그래프<br>
+>   spread_map[][] = 바이러스를 퍼트리는 그래프<br>
+2차배열을 복사하자
+>   map -> temp<br>
+>   temp -> spread_map<br>
+```.c
+    void    copy_Map(int (*src)[MAX], int (*dest)[MAX])
+    {
+        idx = -1;
+        while (++idx < N)
+        {
+            jdx = -1;
+            while (++jdx < M)
+            dest[idx][jdx] = src[idx][jdx];
+        }
+    }
+
+    ...
+
+    copy_Map(temp, spread_map);
+    copy_Map(map, temp);
+```
+
+1. 0을 1로 세번 만들 수 있는 모든 경우의 수를 다루어야 한다
+>   한번도 벽을 세우지 않은 map에서 모든 0마다 벽을 1개 세우고<br>
+>   2번째 벽 세우는 함수로 이동 시키기
+```.c
+    int main()
+    {
+        ...
+
+        idx = -1;
+        while (++idx < N)
+        {
+            jdx = -1;
+            while (++jdx < M)
+            {
+                if (!map[idx][jdx])
+                {
+                    copy_Map(map, temp);
+                    temp[idx][jdx] = 1 // 벽세우기
+                    wall(1) // cnt 갯수 1로 주고 벽세우는 DFS 함수 이동
+                }
+            }
+        }    
+
+        ...
+    }
+    
+```
+
+벽을 세우는 DFS 함수
+```.c
+    void    wall(int cnt)
+    {
+        if (cnt == 3)
+        {
+            spread_v(); // 벽 3개 세워지면 다음 바이러스 뿌리기
+            return 0;   // 반드시 종료 조건 명시
+        }
+
+        ...
+        
+        wall(cnt+1);
+        
+        ...
+
+    }
+```
+
+2. 바이러스를 퍼트리는 함수
+> temp 맵은 map 함수가 0인 위치에서 1로 복제 된 후 벽을 세운다<br>
+> 하나의 벽을 세우고 wall 함수로 전달되므로 같은 DFS 함수들에게 공유된다<br>
+> spread_map 맵은 벽이 3개 세워졌을 때 2를 이통시키는데<br>
+> 이때 temp와 구별되어 사용되지 않으면 다음 벽을 세우는 DFS 함수에 영향을 줄 수 있다
+> 쉽게말해 벽 3개 설치된 맵 따로 저장시키기
+```.c
+    //  제일먼저 바이러스 위치 2 모두 push 해놓기
+    //  이후 상하좌우 움직이며 BFS
+    front = 0;
+    rear = 0;
+    idx = -1;
+    while (++idx < N)
+    {
+        jdx = -1;
+        while (++jdx < M)
+        {
+            if (spread_map[idx][jdx] == 2)
+            {
+                queue[rear][0] = idx;
+                queue[rear][1] = jdx;
+                rear++;
+            }
+        }
+    }
+
+    while (front < rear)
+    {
+        popy = queue[front][0];
+        popx = queue[front][1];
+        front++;
+
+        ...
+
+            if (!spread_map[ny]nx])
+            {
+                push;
+                spread_map[ny][nx] = 2;
+            }
+
+        ...
+
+    }
+
+```
+
+
+-  새로 안 사실
+
+💡 2차원 배열에서 벽을 세개 세우고 싶을 땐
+>    2중 반복문을 돌리며 하나 설정하고 DFS 보내기
+>   보낼때 원문은 보존된 상태에서 돌려야하므로 복제하기
+
+💡 2차원 배열 포인터
+>   int (*a)[8] = arr;
+>   포인터 a는 int형 열이 [8]개인 배열 포인터이다
+>   연결하고 주소를 통해 arr[idx][jdx] 접근할 수 있다 
 
 -----
