@@ -62,8 +62,6 @@ int main()
 
 	scanf("%d", &N);
 
-	min = MAX;
-	max = 0;
 	idx = -1;
 	while (++idx < N)
 	{
@@ -71,14 +69,15 @@ int main()
 		while (++jdx < N)
 		{
 			scanf("%d", &map[idx][jdx]);
-			if (max < map[idx][jdx])
-				max = map[idx][jdx];
-			if (min > map[idx][jdx])
-				min = map[idx][jdx];
+//			if (max < map[idx][jdx])
+//				max = map[idx][jdx];
+//			if (min > map[idx][jdx])
+//				min = map[idx][jdx];
 		}
 	}
-	h = min - 1;
-	while (++h <= max)
+//	h = min - 1;
+	h = -1;
+	while (++h <= 100)
 	{
 		copy_map(map, temp);
 		idx = -1;
