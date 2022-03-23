@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #define MAX 101
 
@@ -8,8 +9,9 @@ int temp[MAX][MAX] = {0};
 int queue[MAX*MAX][2] = {0};
 int move[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 int N, cnt, max_cnt = 0;
+int front, rear;
 
-void	copy_map(int (*src)[N], int (*dest)[N])
+void	copy_map(int (*src)[MAX], int (*dest)[MAX])
 {
 	int idx, jdx;
 
@@ -18,45 +20,21 @@ void	copy_map(int (*src)[N], int (*dest)[N])
 	{
 		jdx = -1;
 		while (++jdx < N)
-		{
 			dest[idx][jdx] = src[idx][jdx];
-		}
 	}
 }
 
 void	BFS()
 {
-	int front, rear, popx, popy, nx, ny;
+	int popx, popy, nx, ny;
 	int idx, jdx;
 
-	front = 0;
-	rear = 0;
-	idx = -1;
-	while (++idx < N)
-	{
-		jdx = -1;
-		while (++jdx < N)
-		{
-			if (!temp[idx][jdx])
-			{
-				queue[rear][0] = idx;
-				queue[rear][1] = jdx;
-				rear++;
-			}
-		}
-	}
-printf("done push values '0'\n");
-	cnt = 0;
 	while (front < rear)
 	{
 		popy = queue[front][0];
 		popx = queue[front][1];
+		front++;
 
-		if (visited[popy][popx])
-			continue;
-
-		cnt++;
-		visited[popy][popx] = cnt;
 		idx = -1;
 		while (++idx < 4)
 		{
@@ -76,9 +54,6 @@ printf("done push values '0'\n");
 			}
 		}
 	}
-	if (max_cnt < cnt)
-		max_cnt = cnt;
-printf("done one cycle max_cnt is %d\n", max_cnt);
 }
 
 int main()
@@ -102,7 +77,6 @@ int main()
 				min = map[idx][jdx];
 		}
 	}
-printf("input map done and setting max %d, min %d\n", max, min);
 	h = min - 1;
 	while (++h <= max)
 	{
@@ -117,8 +91,29 @@ printf("input map done and setting max %d, min %d\n", max, min);
 					temp[idx][jdx] = 0;
 			}
 		}
-printf("BFS!\n");
-		BFS();
+		memset(visited, 0, sizeof(visited));
+		cnt = 0;
+		front = 0;
+		rear = 0;
+		idx = -1;
+		while (++idx < N)
+		{
+			jdx = -1;
+			while (++jdx < N)
+			{
+				if (!temp[idx][jdx] && !visited[idx][jdx])
+				{
+					cnt++;
+					queue[rear][0] = idx;
+					queue[rear][1] = jdx;
+					rear++;
+					visited[idx][jdx] = 1;
+					BFS();
+				}
+			}
+		}
+		if (max_cnt < cnt)
+			max_cnt = cnt;
 	}
 	printf("%d\n", max_cnt);
 }
