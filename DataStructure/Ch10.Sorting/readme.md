@@ -440,7 +440,7 @@ QuickSort는 최선의 경우에 가까운 성능을 평균적으로 보이므�
 -----
 
 ## 기수 정렬(Radix Sort)
-<img width="459" alt="스크린샷 2022-03-24 오후 10 26 54" src="https://user-images.githubusercontent.com/87407504/159930421-51007ad0-73ed-432e-b58f-02b4c8318058.png"><br>
+<img width="600" alt="스크린샷 2022-03-24 오후 10 26 54" src="https://user-images.githubusercontent.com/87407504/159930421-51007ad0-73ed-432e-b58f-02b4c8318058.png"><br>
 
 ### 이해
 
