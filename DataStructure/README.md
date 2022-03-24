@@ -1,25 +1,26 @@
-# 📌 2021
+# 2021
     
-## 📌 CodingTest
+## 42 스터디
 * 코딩 테스트 대비 [백준](https://www.acmicpc.net/step) 코딩테스트 문제풀이
   * [라이벌 제도](https://solved.ac/ranking/rival)를 통한 그룹 라이벌 진도 확인
-  * 최소 1일 1문제 학습 후 [정리](https://github.com/Ejaeda/C_lang/tree/master/CodingTest)
+  * 최소 1일 1문제 학습 후 [정리](https://github.com/Ejaeda/Coding_Test)
   * [class](https://solved.ac/class)에 선별된 문제를 참고하여 학습
-
-## 📌 DataStructure
 * 윤성우의 열혈 자료구조 책을 통한 자료구조 학습
   * 2인 1개조 동료평가 진행(1주 2파트 진행)
   * 깃허브 개념 정리
 * 개인과제 계획 및 실천 후 깃허브 기록
   * 깃허브 꾸준히 관리하기
   * 깃에 익숙해지기
-### 스터디 방법 및 규칙
+## 스터디 방법 및 규칙
 * 학습 방법
   * 1주마다 자료구조 동료평가 2회 진행
+    * 자료구조 학습 완료 목표 : 2달('21.11.15.~'22.01.09.)
   * 1일마다 코딩테스트 문제풀이 최소 1회 진행
   * 개인 학습 내용은 각자 정리 후 README에 업데이트
-  
-### 스터디 일정('21.11.07.~)
+    * 관련 URL/ 정리 블로그 URL/ 질문/ 내용정리 등(공용 README 고려 중)
+* 벌금제
+  * 차후 검토 중
+## 스터디 일정('21.11.07.~)
 * 자료구조
   * 0주차: 11/08~11/14
     * [Day0](#42-스터디) 스터디 개별학습 및 진도 파악
@@ -51,10 +52,4 @@
   * [juji](https://github.com/ji-junhyuk)
   * [ichoi](https://github.com/ICCHOI)
   * [jnam](https://github.com/namzisun)
-
-
-## 📌 Pointer
-*  공동환의 [열혈강의 C 포인터](https://freelec.co.kr/lecture/%EC%97%B4%ED%98%88%EA%B0%95%EC%9D%98-c-%ED%8F%AC%EC%9D%B8%ED%84%B0/)
-    * 포인터 익숙해지기
-    * 코드 따라하면서 내용 [정리하기](https://github.com/Ejaeda/C_lang/tree/master/Pointer)
-  
+  * [junbaek]

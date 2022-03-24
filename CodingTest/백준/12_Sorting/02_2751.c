@@ -58,7 +58,7 @@ void MergeSort(int arr[], int left, int right)
 int main(void)
 {
     int N, idx;
-    int arr[1000000] = {0};
+    int arr[1000001] = {0};
 
     scanf("%d", &N);
 
