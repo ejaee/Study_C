@@ -38,7 +38,7 @@
 
 ### 구현
 
-[BubbleSort.c]()<br>
+[BubbleSort.c](https://github.com/Ejaeda/C_lang/blob/master/DataStructure/Ch10.Sorting/BubbleSort.c)<br>
 ```.c
 void    BubbleSort(int arr[], int n)
 {
@@ -94,7 +94,7 @@ by 이동 횟수
 
 ### 구현
 
-[SelectionSort.c]()<br>
+[SelectionSort.c](https://github.com/Ejaeda/C_lang/blob/master/DataStructure/Ch10.Sorting/SelectionSort.c)<br>
 ```.c
 void    SelectionSort(int arr[], int n)
 {
@@ -152,7 +152,7 @@ by 이동 횟수
 
 ### 구현
 
-[InsertionSort.c]()<br>
+[InsertionSort.c](https://github.com/Ejaeda/C_lang/blob/master/DataStructure/Ch10.Sorting/InsertionSort.c)<br>
 ```.c
 void    InsertionSort(int arr[], int n)
 {
@@ -197,7 +197,7 @@ void    InsertionSort(int arr[], int n)
 
 ### 구현
 
-[HeapSort.c]()<br>
+[HeapSort.c](https://github.com/Ejaeda/C_lang/tree/master/DataStructure/Ch10.Sorting/HeapSort)<br>
 ```.c
 #include <stdio.h>
 #include "UsefulHeap.h"
@@ -261,7 +261,7 @@ int main()
 데이터가 1개가 남을때까지 분할한다
 ### 구현
 
-[MergeSort.c]()<br>
+[MergeSort.c](https://github.com/Ejaeda/C_lang/blob/master/DataStructure/Ch10.Sorting/MergeSort.c)<br>
 ```.c
 #include <stdio.h>
 #include <stdlib.h>
@@ -378,7 +378,7 @@ mergeSort(arr, 0, sizeof(arr)/sizeof(int)-1);
 
 ### 구현
 
-[QuickSort.c]()<br>
+[QuickSort.c](https://github.com/Ejaeda/C_lang/blob/master/DataStructure/Ch10.Sorting/QuickSort.c)<br>
 ```.c
 #include <stdio.h>
 
@@ -509,9 +509,7 @@ MSD(Most Significant Digit)
 > MSD라고 해서 더 성능이 뛰어난 것이 아니다
 
 ### 구현
-[ListBaseQueue.c]()<br>
-[ListBaseQueue.h]()<br>
-[RadixSort.c]()<br>
+[RadixSort.c](https://github.com/Ejaeda/C_lang/tree/master/DataStructure/Ch10.Sorting/RadixSort)<br>
 ```.c
 #include <stdio.h>
 #include "ListBaseQueue.h"
