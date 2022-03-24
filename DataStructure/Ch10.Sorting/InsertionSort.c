@@ -1,36 +1,37 @@
 #include <stdio.h>
 
-void    InsertionSort(int arr[], int n)
+void InserSort(int arr[], int n)
 {
-    int idx;
-    int jdx;
-    int target;
+	int i, j;
+	int insData;
 
-    for (idx = 1; idx < n; idx++)
-    {
-        target = arr[idx];
+	for(i=1; i<n; i++)
+	{
+		insData = arr[i];   // Á¤·Ä ´ë»óÀ» insData¿¡ ÀúÀå
 
-        for (jdx = idx - 1; jdx >= 0; jdx--)
-        {
-            if (arr[jdx] > target)
-                arr[jdx + 1] = arr[jdx];	// ë¹„êµëŒ€ìƒ í•œ ì¹¸ ë’¤ë¡œ ë°€ê¸°
+		for(j=i-1; j>=0 ; j--)
+		{
+			if(arr[j] > insData) 
+				arr[j+1] = arr[j];    // ºñ±³ ´ë»ó ÇÑ Ä­ µÚ·Î ¹Ð±â
 			else
-				break;	// ì‚½ìž…ìœ„ì¹˜ ì°¾ì•˜ìœ¼ë‹ˆ ì¢…ë£Œ
-        }
-            arr[jdx + 1] = target;
-    }
+				break;   // »ðÀÔ À§Ä¡ Ã£¾ÒÀ¸´Ï Å»Ãâ!
+		}
+
+		arr[j+1] = insData;  // Ã£Àº À§Ä¡¿¡ Á¤·Ä ´ë»ó »ðÀÔ!
+	}
 }
 
-int main()
+
+int main(void)
 {
-    int arr[4] = {30, 20, 50, 10};
-    int idx;
+	int arr[5] = {5, 3, 2, 4, 1};
+	int i;
 
-    InsertionSort(arr, sizeof(arr) / sizeof(int));
+	InserSort(arr, sizeof(arr)/sizeof(int));
 
-    for(idx = 0; idx < 4; idx++)
-        printf ("%d ", arr[idx]);
+	for(i=0; i<5; i++)
+		printf("%d ", arr[i]);
 
-    printf("\n");
-    return (0);
+	printf("\n");
+	return 0;
 }

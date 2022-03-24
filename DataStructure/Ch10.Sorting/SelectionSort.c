@@ -1,37 +1,39 @@
 #include <stdio.h>
 
-void    SelectionSort(int arr[], int n)
+void SelSort(int arr[], int n)
 {
-    int idx;
-    int jdx;
-	int min;
-    int temp;
+	int i, j;
+	int maxIdx;
+	int temp;
 
-    for (idx = 0; idx < n; idx++)
-    {
-		min = idx;
+	for(i=0; i<n-1; i++)
+	{
+		maxIdx = i;    // Á¤·Ä ¼ø¼­»ó °¡Àå ¾Õ¼­´Â µ¥ÀÌÅÍÀÇ index
 
-        for (jdx = idx + 1; jdx < n; jdx++)	// ìµœì†Ÿê°’ íƒìƒ‰
-        {
-            if (arr[jdx] < arr[min])
-				min = jdx;
-        }
-            temp = arr[idx];
-            arr[idx] = arr[min];
-            arr[min] = temp;
-    }
+		for(j=i+1; j<n; j++)   // ÃÖ¼Ò°ª Å½»ö
+		{
+			if(arr[j] < arr[maxIdx])
+				maxIdx = j;
+		}
+
+		/* ±³È¯ */
+		temp = arr[i];
+		arr[i] = arr[maxIdx];
+		arr[maxIdx] = temp;
+	}
 }
 
-int main()
+
+int main(void)
 {
-    int arr[4] = {30, 20, 50, 10};
-    int idx;
+	int arr[4] = {3, 4, 2, 1};
+	int i;
 
-    SelectionSort(arr, sizeof(arr) / sizeof(int));
+	SelSort(arr, sizeof(arr)/sizeof(int));
 
-    for(idx = 0; idx < 4; idx++)
-        printf ("%d ", arr[idx]);
+	for(i=0; i<4; i++)
+		printf("%d ", arr[i]);
 
-    printf("\n");
-    return (0);
+	printf("\n");
+	return 0;
 }

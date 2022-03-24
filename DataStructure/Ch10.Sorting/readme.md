@@ -1,6 +1,31 @@
-# 단순 정렬(Sorting)
+# Sorting
 
-## 버블정렬(bubble Sort)
+## 단순한 정렬 
+> O(N^2)
+
+### 1. [버블 정렬(bubble Sort)](#1-버블-정렬)
+### 2. [선택 정렬(Selection Sort)](#2-선택-정렬)
+### 3. [삽입 정렬(InsertionSort)](#3-삽입-정렬)
+
+-----
+
+## 복잡한 정렬 
+> O(N * logN)
+
+### 4. [힙 정렬(Heap Sort)](#4-힙-정렬)
+### 5. [병합 정렬(Merge Sort)](#5-병합-정렬)
+### 6. [퀵 정렬(Quick Sort)](#6-퀵-정렬)
+
+-----
+
+## 더 빠른 정렬
+> O(N)
+
+### 7. [기수 정렬(Radix Sort)](#7-기수-정렬)
+
+-----
+
+# 1. 버블 정렬
 
 ![bubble](https://user-images.githubusercontent.com/87407504/155281904-a3dc714f-0771-4002-a63e-bdfacdb2c92a.gif)<br>
 
@@ -57,7 +82,7 @@ by 이동 횟수
 
 -----
 
-## 선택 정렬(Selection Sort)
+# 2. 선택 정렬
 
 ![selection](https://user-images.githubusercontent.com/87407504/155281934-f7ad101c-b3cd-4000-a38d-247272a02ad9.gif)<br>
 
@@ -114,7 +139,7 @@ by 이동 횟수
 
 -----
 
-## 삽입 정렬(InsertionSort)
+# 3. 삽입 정렬
 
 ![insertion](https://user-images.githubusercontent.com/87407504/155281959-4fec81fd-2278-469b-91c7-d752409bcc65.gif)<br>
 
@@ -160,7 +185,7 @@ void    InsertionSort(int arr[], int n)
 
 -----
 
-## 힙 정렬(Heap Sort)
+# 4. 힙 정렬
 ![heap](https://user-images.githubusercontent.com/87407504/155310966-13104362-bcf9-4509-b10e-b0db6e927cab.gif)<br>
 
 ### 이해
@@ -222,7 +247,7 @@ int main()
 
 -----
 
-## 병합 정렬(Merge Sort)
+# 5. 병합 정렬
 ![merge](https://user-images.githubusercontent.com/87407504/155310957-eb3243ba-4e84-41bd-be5f-e405e13e4e5b.gif)<br>
 
 ### 이해
@@ -327,7 +352,7 @@ mergeSort(arr, 0, sizeof(arr)/sizeof(int)-1);
 
 -----
 
-## 퀵 정렬(Quick Sort)
+# 6. 퀵 정렬
 ![quick](https://user-images.githubusercontent.com/87407504/155310936-5e043330-87e9-4886-9cbf-06cabcdb12c2.gif)<br>
 
 
@@ -439,7 +464,7 @@ QuickSort는 최선의 경우에 가까운 성능을 평균적으로 보이므�
 
 -----
 
-## 기수 정렬(Radix Sort)
+# 7. 기수 정렬
 
 <img width="600" alt="스크린샷 2022-03-24 오후 10 26 54" src="https://user-images.githubusercontent.com/87407504/159930772-9d10b958-7727-4c79-a74b-d41823e050e7.png"><br>
 

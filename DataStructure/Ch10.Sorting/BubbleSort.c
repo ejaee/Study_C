@@ -1,35 +1,35 @@
 #include <stdio.h>
 
-void	BubbleSort(int arr[], int n)
+void BubbleSort(int arr[], int n)
 {
-	int idx;
-	int jdx;
+	int i, j;
 	int temp;
 
-	for (idx = 0; idx < n - 1; idx++)
+	for(i=0; i<n-1; i++)
 	{
-		for (jdx = 0; jdx < (n - idx) - 1; jdx++)
+		for(j=0; j<(n-i)-1; j++)
 		{
-			if (arr[jdx] > arr[jdx + 1])
+			if(arr[j] > arr[j+1])
 			{
-				temp = arr[jdx];
-				arr[jdx] = arr[jdx + 1];
-				arr[jdx + 1] = temp;
+				temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
 			}
 		}
 	}
 }
 
-int main()
+
+int main(void)
 {
-	int arr[4] = {30, 20, 50, 10};
-	int idx;
+	int arr[4] = {3, 2, 4, 1};
+	int i;
 
-	BubbleSort(arr, sizeof(arr) / sizeof(int));
+	BubbleSort(arr, sizeof(arr)/sizeof(int));
 
-	for(idx = 0; idx < 4; idx++)
-		printf ("%d ", arr[idx]);
+	for(i=0; i<4; i++)
+		printf("%d ", arr[i]);
 
 	printf("\n");
-	return (0);
+	return 0;
 }
