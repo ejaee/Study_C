@@ -707,3 +707,98 @@ void    BFS(int N, int V)
 >   연결하고 주소를 통해 arr[idx][jdx] 접근할 수 있다 
 
 -----
+
+# [안전영역](https://www.acmicpc.net/problem/2468) 
+
+### :point_right: [2468](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/24_DFSAndBFS/2468.c)
+
+- 핵심
+```.c
+1. 지역의 높이를 value로 가진 2차원 map을 input
+2. 비의 강수량에 따라 value가 잠기는데 비에 잠기지 않은 상하좌우로 연결된 안전 영역의 최대갯수를 구하라
+```
+
+- 문제접근
+```.c
+0. 잘못 했던 부분
+> 최초 가장 높이가 낮은 value 밑으로는 강수량을 측정할 필요가 없다고 생각했다
+> 어짜피 같을거니까
+> error!
+> 비가 내리지 않을 수 있음!
+1. 먼저 map setting
+2. h 별로 다른 map이 필요하므로 copy_map(map, temp);
+3. cnt 초기화 부분과 cnt++의 위치가 중요
+```
+
+- 코드 구현
+0. 강수량이 없을 경우도 고려해야하므로 최소 강수량 값을 적용하면 안된다
+```.c
+```
+
+2. h의 큰 반복문 속에
+3. cnt 위치 잘넣고
+4. max_cnt로 바꿔주기
+```.c
+// 강수량 별로 temp 만들어서 돌리기
+    h = -1;
+    while (++h <= 100)
+    {
+        copy_map(map, temp);
+        idx = -1;
+        while (++idx < N)
+        {
+            jdx = -1;
+            while (++jdx < N)
+            {
+                if (temp[idx][jdx] > h)
+                    temp[idx][jdx] = 0;
+            }
+        }
+        memset(visited, 0, sizeof(visited));
+// setting이 완료된 시점에 cnt 초기화
+        cnt = 0;
+        front = 0;
+        rear = 0;
+        idx = -1;
+        while (++idx < N)
+        {
+            jdx = -1;
+            while (++jdx < N)
+            {
+                if (!temp[idx][jdx] && !visited[idx][jdx])
+                {
+// push 되는 상황에서는 BFS를 새로 들어가야한다는 이야기니 cnt++;
+                    cnt++;
+                    queue[rear][0] = idx;
+                    queue[rear][1] = jdx;
+                    rear++;
+                    visited[idx][jdx] = 1;
+                    BFS();
+                }
+            }
+        }
+// h가 끝나는 지점에서 비교
+        if (max_cnt < cnt)
+            max_cnt = cnt;
+    }
+    printf("%d\n", max_cnt);
+}
+```
+
+
+-  새로 안 사실
+
+💡 2차원 배열을 복사할때 반드시 전체 size를 고려해야한다
+>   int* arr[101][101] 크기를 int (* a)[N]으로 포인터 연결 시키는 실수를 범했다
+
+💡 비가 오지 않을 수 있다는 예외사항을 잘 숙지하자
+> 정확하게 말하면 비가 최소높이보다 덜 올 수 있는데 이때 반례가 발생한다
+> 반례
+```.c
+    2
+    2   2
+    2   2
+``` 
+>   비가 1이 올 경우 안전한 지역은 1이 되는데 최소 강수량이 2가 되면서 0이 나온다
+
+-----
