@@ -16,19 +16,11 @@ int Partition(int arr[], int left, int right)
 
 	while(low <= high)    // 교차되지 않을 때까지 반복
 	{	
-		while(pivot > arr[low])
-			low++;
-
-		while(pivot < arr[high])
-			high--;
-		
-		/*
 		while(pivot >= arr[low] && low <= right)
 			low++;
 
 		while(pivot <= arr[high] && high >= (left+1))
 			high--;
-		*/
 
 		if(low <= high)    // 교차되지 않은 상태라면 Swap 실행
 			Swap(arr, low, high);    // low와 high가 가리키는 대상 교환
@@ -50,7 +42,7 @@ void QuickSort(int arr[], int left, int right)
 
 int main(void)
 {
-//	int arr[7] = {3, 2, 4, 1, 7, 6, 5};
+	//	int arr[7] = {3, 2, 4, 1, 7, 6, 5};
 	int arr[3] = {3, 3, 3};
 
 	int len = sizeof(arr) / sizeof(int);
