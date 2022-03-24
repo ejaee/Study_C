@@ -73,7 +73,7 @@
 >  이진 트리를 빈번하게 탐색하는 경우 배열 기반으로 구현한다
 
 ### 헤더파일에 정의된 구조체의 이해
-[BinaryTree.h]()<br>
+[BinaryTree.h](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch08.Tree/File/BinaryTree/BinaryTree.h)<br>
 <img width="300" alt="스크린샷 2022-02-25 오후 7 24 30" src="https://user-images.githubusercontent.com/87407504/155698884-a44534b1-7816-4e72-83bf-3f12fbd4c558.png">()<br>
 ```.c
 typedef struct _bTreeNode
@@ -129,7 +129,7 @@ void MakeRightSubTree(BTreeNode * main, BTreeNode * sub)
 >  `sub`로 전달 된 노드를 `main`으로 전달된 노드의 서브 트리로 연결
 
 ## 이진 트리 구현
-[BinaryTree.c]()<br>
+[BinaryTree.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch08.Tree/File/BinaryTree/BinaryTree.c)<br>
 
 - MakeLeft(Right)SubTree 함수 특징
 > 왼(오른)쪽 서브 트리가 존재한다면 `해당 트리 삭제`하고 `새로운 서브 트리를 연결`한다<br>
@@ -138,7 +138,7 @@ void MakeRightSubTree(BTreeNode * main, BTreeNode * sub)
 > 이럴 경우 모든 노드를 다 free 해주어야 하는데, 이때 `순회`의 방법을 사용한다
 
 
-[BinaryTreeMain.c]()<br>
+[BinaryTreeMain.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch08.Tree/File/BinaryTree/BinaryTreeTraverseMain.c)<br>
 MakeLeft(Right)SubTree 함수 특징
 - 왼(오른)쪽 서브 트리가 존재한다면 `해당 트리 삭제`하고 `새로운 서브 트리를 연결`한다
 
@@ -233,9 +233,9 @@ void	InorderTraverse(BTreeNode *bt, VisitFuncPtr action)
 void	PostorderTraverse(BTreeNode * bt)
 ```
 < 순회 + 함수포인터를 적용한 이진트리 ><br>
-[BinaryTree.h]()<br>
-[BinaryTree.c]()<br>
-[BinaryTreeMain.c]()<br>
+[BinaryTree.h](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch08.Tree/File/BinaryTreeTraversalAdded/BinaryTree2.h)<br>
+[BinaryTree.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch08.Tree/File/BinaryTreeTraversalAdded/BinaryTree2.c)<br>
+[BinaryTreeMain.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch08.Tree/File/BinaryTreeTraversalAdded/BinaryTreeMain2.c)<br>
 
 ## 이진 트리 소멸
 
@@ -289,7 +289,7 @@ int	main()
 - 루트 노드에 저장된 연산자의 연산을 하되, 두 개의 자식 노드에 저장된 두 피연산자를 대상으로 연산한다
 
 수식트리 헤더파일<br>
-[expression_tree.h]()
+[expression_tree.h](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch08.Tree/File/ExpressionTree/ExpressionTree.h)
 ```c
 #ifndef __EXPRESSION_TREE_H__
 #define __EXPRESSION_TREE_H__
