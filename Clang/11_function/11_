@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+char    *SetRev(char *arr){
+    int idx = 0;
+    int rev = strlen(arr)-1;
+    char *dest;
+
+	dest = malloc(sizeof(char)*strlen(arr)+1);
+	while (rev >= 0){
+        dest[idx] = arr[rev];
+		idx++;
+        rev--;
+    }
+    dest[idx] = '\0';
+	return (dest);
+}
+
+int main(){
+    char *arr = "set rev";
+
+    printf("%s\n", arr);
+    arr = SetRev(arr);
+    printf("%s\n", arr);
+    return 0;
+}
