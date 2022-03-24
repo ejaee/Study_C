@@ -1,6 +1,6 @@
-# 우선순위 큐(Priority Queue)
+# 📌 우선순위 큐(Priority Queue)
 
-## 우선순위 큐 이해
+## 📌 우선순위 큐 이해
 
 -   우선순위 큐는 들어간 순서에 상관없이 우선순위가 높은 데이터가 먼저 나온다
 >   cf) 큐(Queue)는 먼저 들어간 데이터가 먼저 나온다
@@ -18,7 +18,7 @@
 >   단점 : 최악의 경우 모든 데이터와 우선순위의 비교를 진행
 -   힙(heap) 이용 방법 ⭕️
 
-### 힙(Heap)
+### 📌 힙(Heap)
 무엇인가를 차곡차곡 쌓아 올린 더미라는 뜻
 -   이진트리이되 `완전이진트리` 이다
 -   모든 노드에 `저장된 값`은 자식 노드에 저장된 값보다 `크거나 같`아야한다
@@ -86,9 +86,9 @@
 -   노드의 고유번호 == 노드가 저장되는 배열의 `인덱스 값`
 -   우선순위를 나타내는 정수 값이 적을수록 높은 우선순위(가정)
 
-헤더파일로 변수, 함수 선언 : [SimpleHeap.h](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/SimpleHeap.h)<br>
-함수 정의 : [SimpleHeap.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/SimpleHeap.c)<br>
-메인 함수 : [SimpleHeapMain.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/SimpleHeapMain.c)<br>
+헤더파일로 변수, 함수 선언 : [SimpleHeap.h](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/SimpleHeap.h)<br>
+함수 정의 : [SimpleHeap.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/SimpleHeap.c)<br>
+메인 함수 : [SimpleHeapMain.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/SimpleHeapMain.c)<br>
 
 문제점
 ```.c
@@ -102,7 +102,7 @@ void    HInsert(Heap *ph, HData data, Priority pr);
 ```
 우선순위를 직접 결정해서 적어야 하는 번거로움이 발생
 
-### 이를 개선한 힙 구현
+### 📌 이를 개선한 힙 구현
 프로그래머가 우선순위의 판단 기준을 힙에 설정할 수 있어야 한다
 -   이전의 구조체
 ```.c
@@ -150,11 +150,11 @@ HInsert 함수 수정
 ```
 
 (수정)<br>
-헤더파일로 변수, 함수 선언 : [UsefulHeap.h](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/UsefulHeap.h)<br>
-함수 정의 : [UsefulHeap.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/UsefulHeap.c)<br>
-메인 함수 : [UsefulHeapMain.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/UsefulHeapMain.c)<br>
+헤더파일로 변수, 함수 선언 : [UsefulHeap.h](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/UsefulHeap.h)<br>
+함수 정의 : [UsefulHeap.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/UsefulHeap.c)<br>
+메인 함수 : [UsefulHeapMain.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/UsefulHeapMain.c)<br>
 
-### 완성한 힙을 이용한 우선순위 큐 구현
+### 📌 완성한 힙을 이용한 우선순위 큐 구현
 
 우선순위 큐 자료구조의 ADT
 -   void    PQueueInit(PQueu *ppq, PriorityComp pc);
@@ -173,6 +173,6 @@ HInsert 함수 수정
 >   -   본 함수의 호출을 위해서는 데이터가 하나 이상 존재함이 보장되야함
 
 우선순위큐 <br>
-헤더파일 선언 : [PriorityQueue.h](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/PriorityQueue.h)<br>
-함수 정의 : [PriorityQueue.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/PriorityQueue.c)<br>
-메인 함수 : [PriorityQueueMain.c](https://github.com/Ejaeda/42_Study/blob/master/DataStructure/Ch09.Priority_Queue/PriorityQueueMain.c)<br>
+헤더파일 선언 : [PriorityQueue.h](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/PriorityQueue.h)<br>
+함수 정의 : [PriorityQueue.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/PriorityQueue.c)<br>
+메인 함수 : [PriorityQueueMain.c](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch09.Priority_Queue/File/PriorityQueueMain.c)<br>
