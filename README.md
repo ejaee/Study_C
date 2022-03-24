@@ -1,13 +1,13 @@
 # 📌 2021
     
 ## 📌 CodingTest
-* 코딩 테스트 대비 [백준](https://www.acmicpc.net/step) 코딩테스트 문제풀이
+*  📖 사이트 : [백준](https://www.acmicpc.net/step)
   * [라이벌 제도](https://solved.ac/ranking/rival)를 통한 그룹 라이벌 진도 확인
   * 최소 1일 1문제 학습 후 [정리](https://github.com/Ejaeda/C_lang/tree/master/CodingTest)
   * [class](https://solved.ac/class)에 선별된 문제를 참고하여 학습
 
 ## 📌 DataStructure
-* 윤성우의 열혈 자료구조 책을 통한 자료구조 학습
+*  📖 교재 : [윤성우의 열혈 자료구조](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788996094067)
   * 2인 1개조 동료평가 진행(1주 2파트 진행)
   * 깃허브 개념 정리
 * 개인과제 계획 및 실천 후 깃허브 기록
@@ -54,7 +54,11 @@
 
 
 ## 📌 Pointer
-*  공동환의 [열혈강의 C 포인터](https://freelec.co.kr/lecture/%EC%97%B4%ED%98%88%EA%B0%95%EC%9D%98-c-%ED%8F%AC%EC%9D%B8%ED%84%B0/)
+* 📖 교재 : [공동환의 열혈강의 C 포인터](https://freelec.co.kr/lecture/%EC%97%B4%ED%98%88%EA%B0%95%EC%9D%98-c-%ED%8F%AC%EC%9D%B8%ED%84%B0/)
     * 포인터 익숙해지기
     * 코드 따라하면서 내용 [정리하기](https://github.com/Ejaeda/C_lang/tree/master/Pointer)
-  
+
+## 📌 C-lang
+* 📖 교재 : [열혈강의 최호성의 C 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400172&orderClick=LAG&Kc=)
+    * 빠르게 여러번 학습하기
+    * 코드 따라하면서 내용 [정리하기](https://github.com/Ejaeda/C_lang/tree/master/C-lang)
