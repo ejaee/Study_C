@@ -467,3 +467,66 @@ main함수에서 정의한 int rst를 DFS에서 더해주고 연결 지으려면
 > 값을 더해주어야 하므로
 
 -----
+
+# 추가문제
+
+# [로또](https://www.acmicpc.net/problem/6603) 
+
+### :point_right: [6603](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/6603.c)
+
+- 핵심
+```.c
+DFS 문제
+```
+
+- 문제접근
+```.c
+
+1.  49개 숫자 중 6개를 출력하는데
+2.  임의의 k개를 뽑아 집합 s를 만들고
+3.  k개 중 6개를 뽑아 출력한다 
+4.  이때 숫자 반복 불가, 숫자 오름차순 출력
+```
+
+- 코드 구현
+ 
+```.c
+void    DFS(int input, int idx)
+{
+    // 출력 조건 == 총 6개가 선택되어야 한다
+    if (input == 6)
+    {
+        ...
+    }
+
+    // 6개를 뽑는 과정
+    // 이전 DFS 과정에서 사용한 숫자보다 높은 숫자를 선택하기위해
+    // 인자(idx)로 이어준다
+    idx--;
+    while (++idx < k)
+    {
+        // 중복이 불가하므로
+        if (!visit[idx])
+        {
+            // 사용 표시
+            visit[idx] = 1;
+            // index번째 출력 칸에 idx번째 숫자를 넣는다
+            res[index] = num[idx];
+            DFS(index+1, idx+1);
+            // 다음에 다시 숫자를 사용할 수 있도록 사용 표시 제거
+            // 1 2 ... 이후 2 3 에 2를 사용하기 위해
+            visit[idx] = 0;
+        }
+}
+```
+
+-  새로 안 사실 🚨
+DFS를 더 정형화시켜 공부할 필요가 있다
+
+1. 숫자를 반복시키고 싶지 않다면
+> visit[]를 활용한다
+
+2. 오름차순으로 값을 쌓고 싶다면
+> 매개변수로 값을 주고 받기
+
+-----
