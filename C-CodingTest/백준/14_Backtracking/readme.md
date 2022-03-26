@@ -530,3 +530,61 @@ DFS를 더 정형화시켜 공부할 필요가 있다
 > 매개변수로 값을 주고 받기
 
 -----
+
+# [부분수열의 합](https://www.acmicpc.net/problem/1182) 
+
+### :point_right: [1182](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/1182.c)
+
+- 핵심
+```.c
+DFS 문제
+```
+
+- 문제접근
+```.c
+
+1.  N개 수의 부분 합이 S가 되는 경우의 수 구하기
+2.  숫자 반복 불가
+3.  반복 제거 => 오름차순
+```
+
+- 코드 구현
+ 
+```.c
+// 오름차순 선택을 위한 input
+// 결과 초기화를 위한 res
+void    DFS(int input, res)
+{
+    // 출력 조건 == 합이 S
+    if (res = S)
+    {
+        cnt
+    }
+
+    // N개 이하로 뽑아야 함
+    idx = input-1;
+    while (++idx < N)
+    {
+        // 중복이 불가하므로
+        if (!visit[idx])
+        {
+            // 사용 표시
+            visit[idx] = 1;
+            // res 원본을 살려놔야 다음 반복문에서 돌릴 수 있다
+            DFS(idx+1, res + num[idx]);
+            // 다음에 다시 숫자를 사용할 수 있도록 사용 표시 제거
+            visit[idx] = 0;
+        }
+    }
+}
+```
+예외처리 -> cnt를 0으로 셋팅하므로 S가 0일경우 -1 해준다
+
+-  새로 안 사실 🚨
+게속 더해지는 res는 원본이 보존되어야 다양하게 depth를 내릴 수 있다
+
+1. 매개변수를 선언하는 조건
+> 반복이 되지 않게끔 순서상 오름차순으로 숫자를 뽑고싶을 경우
+> 원본을 보존하면서 결과값에 변화를 주는 경우
+
+-----
