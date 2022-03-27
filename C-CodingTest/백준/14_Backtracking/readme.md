@@ -588,3 +588,111 @@ void    DFS(int input, res)
 > 원본을 보존하면서 결과값에 변화를 주는 경우
 
 -----
+
+
+# 추가문제
+
+# [로또](https://www.acmicpc.net/problem/6603) 
+
+### :point_right: [6603](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/6603.c)
+
+- 핵심
+```.c
+DFS 문제
+```
+
+- 문제접근
+```.c
+
+1.  49개 숫자 중 6개를 출력하는데
+2.  임의의 k개를 뽑아 집합 s를 만들고
+3.  k개 중 6개를 뽑아 출력한다 
+4.  이때 숫자 반복 불가, 숫자 오름차순 출력
+```
+
+- 코드 구현
+ 
+```.c
+void    DFS(int input, int idx)
+{
+    // 출력 조건 == 총 6개가 선택되어야 한다
+    if (input == 6)
+    {
+        ...
+    }
+
+    // 6개를 뽑는 과정
+    // 이전 DFS 과정에서 사용한 숫자보다 높은 숫자를 선택하기위해
+    // 인자(idx)로 이어준다
+    idx--;
+    while (++idx < k)
+    {
+        // 중복이 불가하므로
+        if (!visit[idx])
+        {
+            // 사용 표시
+            visit[idx] = 1;
+            // index번째 출력 칸에 idx번째 숫자를 넣는다
+            res[index] = num[idx];
+            DFS(index+1, idx+1);
+            // 다음에 다시 숫자를 사용할 수 있도록 사용 표시 제거
+            // 1 2 ... 이후 2 3 에 2를 사용하기 위해
+            visit[idx] = 0;
+        }
+}
+```
+
+-  새로 안 사실 🚨
+DFS를 더 정형화시켜 공부할 필요가 있다
+
+1. 숫자를 반복시키고 싶지 않다면
+> visit[]를 활용한다
+
+2. 오름차순으로 값을 쌓고 싶다면
+> 매개변수로 값을 주고 받기
+
+-----
+
+# [차이를 최대로](https://www.acmicpc.net/problem/10819) 
+
+### :point_right: [10819](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/10819.c)
+
+- 핵심
+```.c
+DFS 문제
+```
+
+- 문제접근
+```.c
+1.  |A[0] - A[1]| + |A[1] - A[2]| + ... + |A[N-2] - A[N-1]| 의 최대값 구하기
+```
+
+- 실수
+문제에서 식을 제시하는 경우
+1. 임의의 배열에 숫자를 배치
+2. 완성된 배열을 계산하는 함수를 따로 만들기
+3. 문제에서 주어지는 함수를 반복문 내의 식으로 사용하기
+> 이 모든것을 DFS에서 다 해결하려고 하니 문제가 발생했다
+
+
+- 코드 구현
+ 
+```.c
+void    cal()
+{
+    int idx;
+
+    res = 0;
+    idx = -1;
+    while (++idx < N-1)
+        res += abs(temp[idx] - temp[idx+1]);
+    if (max < res)
+        max = res;
+}
+```
+예외처리 -> cnt를 0으로 셋팅하므로 S가 0일경우 -1 해준다
+
+-  새로 안 사실 🚨
+처음보는 식이 주어질 경우 배열 배치 + 계산 이분화 하는게 더 단순하다
+
+-----
