@@ -1,6 +1,8 @@
-# [N과M 1](https://www.acmicpc.net/problem/15649) 
+# 📌 Backtracking
 
-### :point_right: [15649](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/01_15649.c)
+## 📌 [N과M 1](https://www.acmicpc.net/problem/15649) 
+
+### [15649](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/01_15649.c)
 
 - 핵심
 ```.c
@@ -89,9 +91,9 @@ check를 통해 input 값을 컨트롤 할 수 있다
 
 -----
 
-# [N과M 2](https://www.acmicpc.net/problem/15650) 
+## 📌 [N과M 2](https://www.acmicpc.net/problem/15650) 
 
-### :point_right: [15650](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/02_15650.c)
+### [15650](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/02_15650.c)
 
 - 핵심
 ```.c
@@ -155,9 +157,9 @@ int main()
 
 -----
 
-# [N과M 3](https://www.acmicpc.net/problem/15651) 
+## 📌 [N과M 3](https://www.acmicpc.net/problem/15651) 
 
-### :point_right: [15651](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/03_15651.c)
+### [15651](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/03_15651.c)
 
 - 핵심
 ```.c
@@ -184,9 +186,9 @@ int main()
 
 -----
 
-# [N과M 4](https://www.acmicpc.net/problem/15652) 
+## 📌 [N과M 4](https://www.acmicpc.net/problem/15652) 
 
-### :point_right: [15652](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/02_15652.c)
+### [15652](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/02_15652.c)
 
 - 핵심
 ```.c
@@ -310,75 +312,9 @@ check를 통해 input 값을 컨트롤 할 수 있다
 
 -----
 
-# [N과M 2](https://www.acmicpc.net/problem/15650) 
+## 📌 [N과M 3](https://www.acmicpc.net/problem/15651) 
 
-### :point_right: [15650](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/02_15650.c)
-
-- 핵심
-```.c
-15649 문제 + 오름차순 조건
-재귀 시 사용한 숫자를 max로 설정해 max보다 크게 적히도록 추가
-```
-
-- 문제접근
-```.c
-백트래킹 연습
-```
-
-- 코드 구현
-```.c
-#include <stdio.h>
-
-int N, M;                   // 입력받을 두 변수
-int rst[1000] = {0, };      // 출력할 내용들을 담을 배열
-int check[1000] = {0, };    // 사용한 숫자인지 내용 0과 1로 판단하는 배열
-
-void    DFS(int count, int max)      // input값을 rst배열에 적고 해당 수를 max로 설정하기
-{                           
-    int input;
-    int idx;
-    
-    if (count == M)         // depth 도달
-    {
-        idx = -1;
-        while (++idx < M)
-            printf("%d ", rst[idx]);
-        printf("\n");
-    }
-    else
-    {
-        input = 0;
-        while (++input <= N)
-        {
-            if (check[input] == 0 && max < input)   // 오름차순 조건
-            {    
-                check[input] = 1;
-                rst[count] = input;
-                DFS(count+1, input);      
-                check[input] = 0;  
-			}                      
-		}
-	}
-}
-
-int main()
-{
-    scanf("%d %d", &N, &M);
-    DFS(0, 0);
-    return 0;
-}
-```
-
--  새로 안 사실
-
-1.
-백트래킹에 추가적인 조건이 생길 경우 파라미터를 추가한다
-
------
-
-# [N과M 3](https://www.acmicpc.net/problem/15651) 
-
-### :point_right: [15651](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/03_15651.c)
+### [15651](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/03_15651.c)
 
 - 핵심
 ```.c
@@ -405,9 +341,9 @@ int main()
 
 -----
 
-# [N-Queen](https://www.acmicpc.net/problem/9663) 
+# 📌 [N-Queen](https://www.acmicpc.net/problem/9663) 
 
-### :point_right: [9663](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/05_9663.c)
+### [9663](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/05_9663.c)
 
 - 핵심
 ```.c
@@ -468,11 +404,62 @@ main함수에서 정의한 int rst를 DFS에서 더해주고 연결 지으려면
 
 -----
 
+## 📌 [스도쿠](https://www.acmicpc.net/problem/2580) 
+
+### [2580](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/06_2580.c)
+
+- 핵심
+```.c
+스도쿠 결과를 1개 출력하기
+```
+
+- 문제접근
+```.c
+
+스도쿠 조건
+
+1.  row, col, square 모두 하나의 숫자를 사용하여 채우기
+2.  DFS 사용
+```
+
+- 🚨🚨🚨🚨🚨🚨 코드 구현 + 새로 안 사실 🚨🚨🚨🚨🚨🚨
+
+자리와 숫자 사용 현황을 2차원 배열로 한번에 체크할 수 있다
+> check_row[row][map[idx][jdx]];<br>
+> check_col[col][map[idx][jdx]];<br>
+> check_sq[(col/3)*3 + (row/3)][map[idx][jdx]];
+
+1. 스도쿠의 작은 네모 9칸을 0~9라고 했을 떄
+> `(col/3)*3 + (row/3)` 로 접근할 수 있다
+
+2. 스도쿠에서 DFS가 넘어가는 조건은 해당 칸이 숫자로 채워졌고 다음 숫자를 적을 칸으로 이동한다는 뜻
+> col이 8이면 row를 +1해야 하므로<br>
+
+`col == 8 ? DFS(row + 1, 0) : DFS(row, col + 1);`<br>
+> 🚨 삼항연산자를 사용하면 단순해진다!
+
+3. 숫자를 부여한 후 해당칸에 다른 숫자도 넣기 위해 초기화 필요
+```.c
+    map[y][x] = num;
+    row[y][num] = 1;
+    col[x][num] = 1;
+    square[((y/3)*3) + (x/3)][num] = 1;
+
+    x == 8 ? DFS(y + 1, 0) : DFS(y, x + 1);
+
+    map[y][x] = 0;
+    row[y][num] = 0;
+    col[x][num] = 0;
+    square[((y/3)*3) + (x/3)][num] = 0;
+```
+
+-----
+
 # 추가문제
 
-# [로또](https://www.acmicpc.net/problem/6603) 
+## 📌 [로또](https://www.acmicpc.net/problem/6603) 
 
-### :point_right: [6603](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/6603.c)
+### [6603](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/6603.c)
 
 - 핵심
 ```.c
@@ -531,9 +518,9 @@ DFS를 더 정형화시켜 공부할 필요가 있다
 
 -----
 
-# [부분수열의 합](https://www.acmicpc.net/problem/1182) 
+## 📌 [부분수열의 합](https://www.acmicpc.net/problem/1182) 
 
-### :point_right: [1182](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/1182.c)
+### [1182](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/1182.c)
 
 - 핵심
 ```.c
@@ -589,73 +576,9 @@ void    DFS(int input, res)
 
 -----
 
+## 📌 [차이를 최대로](https://www.acmicpc.net/problem/10819) 
 
-# 추가문제
-
-# [로또](https://www.acmicpc.net/problem/6603) 
-
-### :point_right: [6603](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/6603.c)
-
-- 핵심
-```.c
-DFS 문제
-```
-
-- 문제접근
-```.c
-
-1.  49개 숫자 중 6개를 출력하는데
-2.  임의의 k개를 뽑아 집합 s를 만들고
-3.  k개 중 6개를 뽑아 출력한다 
-4.  이때 숫자 반복 불가, 숫자 오름차순 출력
-```
-
-- 코드 구현
- 
-```.c
-void    DFS(int input, int idx)
-{
-    // 출력 조건 == 총 6개가 선택되어야 한다
-    if (input == 6)
-    {
-        ...
-    }
-
-    // 6개를 뽑는 과정
-    // 이전 DFS 과정에서 사용한 숫자보다 높은 숫자를 선택하기위해
-    // 인자(idx)로 이어준다
-    idx--;
-    while (++idx < k)
-    {
-        // 중복이 불가하므로
-        if (!visit[idx])
-        {
-            // 사용 표시
-            visit[idx] = 1;
-            // index번째 출력 칸에 idx번째 숫자를 넣는다
-            res[index] = num[idx];
-            DFS(index+1, idx+1);
-            // 다음에 다시 숫자를 사용할 수 있도록 사용 표시 제거
-            // 1 2 ... 이후 2 3 에 2를 사용하기 위해
-            visit[idx] = 0;
-        }
-}
-```
-
--  새로 안 사실 🚨
-DFS를 더 정형화시켜 공부할 필요가 있다
-
-1. 숫자를 반복시키고 싶지 않다면
-> visit[]를 활용한다
-
-2. 오름차순으로 값을 쌓고 싶다면
-> 매개변수로 값을 주고 받기
-
------
-
-# [차이를 최대로](https://www.acmicpc.net/problem/10819) 
-
-### :point_right: [10819](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/10819.c)
+### [10819](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/14_Backtracking/10819.c)
 
 - 핵심
 ```.c
