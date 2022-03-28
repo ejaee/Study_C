@@ -52,11 +52,22 @@
 
 * 최초 pust 시에 오류 발생
 
-```.vim
+```vim
   error: src refspec master does not match any.
   error: failed to push some refs to 'https://github.com/id/repos. name.git'
 ```
 >  아무 파일이나 생성해 commit한 후 pust 하면 해결
+
+* git add . -> commit -> untrack file 의 경우
+```vim
+
+ git add -A
+ 
+```
+> 작업 디렉토리 상에 어디에 위치하든 모든 변경 내용을 스테이징으로 넘긴다<br>
+> `git add .`는 명령어를 실행한 디렉 이하에서 발생한 변경 내용만 포함<br>
+> 해당 디렉 기준 상위 디렉토리의 변경 내용을 포함하지 않는다<br>
+> 최상위 디렉에서 `git add .` 하는것과 같다
 
 * git push 충돌 발생시
 
