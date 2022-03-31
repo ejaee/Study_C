@@ -69,6 +69,18 @@
 > 해당 디렉 기준 상위 디렉토리의 변경 내용을 포함하지 않는다<br>
 > 최상위 디렉에서 `git add .` 하는것과 같다
 
+* Pulling is not possible because you have unmerged files.
+  git pull 하니까 발생한 에러
+  > 충돌로 인해 merge 했음에도 에러 발생
+
+ 알고보니 로컬과 원격 둘다 같은 파일이 있는데 로컬에서 아직 merge가 잘 안됐다고 인식
+```.c
+ git commit -am '커밋메시지'
+```
+하니 잘 돌아감
+
+[도움](https://velog.io/@2ujin/%EA%B9%83-Pull-is-not-possible-because-you-have-unmerged-files-%EC%97%90%EB%9F%AC)<br>
+
 * git push 충돌 발생시
 
 ```
