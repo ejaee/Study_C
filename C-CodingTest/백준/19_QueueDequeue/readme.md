@@ -1,4 +1,77 @@
-# [요세푸스 문제0](https://www.acmicpc.net/problem/11866) 
+# 📌 Queue
+
+## 📌 01.[큐2](https://www.acmicpc.net/problem/18258) 
+
+### [18258](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/19_QueueDequeue/01_18258.c)
+
+- 핵심
+```.c
+1. queue 문제
+2. 직접 구현
+```
+
+- 문제접근
+```.c
+strcmp로 명령어 확인 후 작동
+```
+
+- 코드 구현
+```.c
+    // queue에서 중요한 예외처리
+
+    if (front == rear)
+        return -1;
+    //  print를 요구하는 모든 함수 -1을 출력
+```
+
+-  새로 안 사실
+
+💡 `strcmp` in #include `string.h`
+
+💡 출력이 불가할 때는 -1을 출력 
+
+-----
+
+## 📌 02.[카드2](https://www.acmicpc.net/problem/2164) 
+
+### [2164](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/19_QueueDequeue/02_2164.c)
+
+- 핵심
+```.c
+1. queue 문제
+2. all push -> pop -> push(pop)
+```
+
+- 문제접근
+```.c
+push(pop)아이디어 활용
+```
+
+- 코드 구현
+```.c
+    while (1)
+    {
+        if (rear == front + 1)
+        {
+            printf ("%d\n", Queue[front]);
+            return 0;
+        }
+        front++;
+        Queue[rear] = Queue[front];
+        rear++;
+        front++;
+    }
+```
+
+-  새로 안 사실
+
+💡 큐에 들어있는 맨 앞 수를 맨 뒤로 넣고 싶다면?
+
+    -   push(pop)
+
+-----
+
+# 03. [요세푸스 문제0](https://www.acmicpc.net/problem/11866) 
 
 ### :point_right: [11866](https://github.com/Ejaeda/Data_Structure/blob/master/CodingTest/%EB%B0%B1%EC%A4%80/19_QueueDequeue/03_11866.c)
 
