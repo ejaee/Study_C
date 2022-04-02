@@ -9,6 +9,7 @@
 선택정렬을 이용한 입력받은 숫자 오름차순 정리 출력
 ```
 > [선택정렬](https://github.com/Ejaeda/42_study/tree/master/C/%5BSorting_Algorithms_in_C%5D)
+
 * 선택정렬코드
 ```.c
 void    check(int arr[], int N){
@@ -29,6 +30,42 @@ void    check(int arr[], int N){
     }
 }
 ```
+-----
+
+## 📌 [좌표 정렬하기](https://www.acmicpc.net/problem/11650) 
+
+### [11650]()
+
+* 핵심
+```
+시간제한 1초는 mergesort 라고 생각하자
+```
+> [병합정렬](https://github.com/Ejaeda/C_lang/blob/master/C-DataStructure/Ch10.Sorting/File/MergeSort.c)
+
+* 병합정렬( + 구조체)코드
+```.c
+    while(fIdx<=mid && rIdx<=right)
+    {
+        if(p[fIdx].x < p[rIdx].x)
+            sortArr[sIdx] = p[fIdx++];
+        else if(p[fIdx].x > p[rIdx].x)
+            sortArr[sIdx] = p[rIdx++];
+        else
+        {
+            if(p[fIdx].y < p[rIdx].y)
+                sortArr[sIdx] = p[fIdx++];
+            else if(p[fIdx].y > p[rIdx].y)
+                sortArr[sIdx] = p[rIdx++];
+        }
+        sIdx++;
+    }
+```
+- 📌 새로 안 사실
+
+1.  구조체 병합정렬
+
+> 구조체의 멤버가 2개일때 이를 비교하는 코드
+
 -----
 
 ## 📌 [나이순 정렬](https://www.acmicpc.net/problem/10814) 
