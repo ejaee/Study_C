@@ -32,6 +32,76 @@ void    check(int arr[], int N){
 ```
 -----
 
+## 📌 [수 정렬하기3](https://www.acmicpc.net/problem/10989) 
+
+### [10989]()
+
+* 핵심
+```
+counting sort
+```
+> [counting sort](https://bowbowbow.tistory.com/8)
+
+1. 위 페이지대로 하나씩 구현하니 메모리 초과 및 시간 초과 발생
+
+    누적 카운팅에 따른 결과를 배열에 저장하고 출력하였음
+
+2. 배열은 카운팅 count[]만 남기고 나머지는ㄴ 간단한 변수로 대체
+
+    - 숫자를 변수로 입력받아 해당 인덱스를 찾아 count[입력 값]을 증가
+
+    - cnt 값이 0이 아닐 때, cnt 값 만큼 출력
+
+- 📌 새로 안 사실
+
+1.  counting sort
+
+    원래 일반적인 코드
+    > [amination](https://www.cs.miami.edu/home/burt/learning/Csc517.091/workbook/countingsort.html)
+```c
+#include <stdio.h>
+
+#define max 10001
+
+int main()
+{
+    int N;
+    int num[1000001] = {0};
+    int visit[1000001] = {0};
+    int count[max] = {0};
+    int count_sum[max] = {0};
+
+    scanf("%d", &N);
+
+    int idx = 0;
+    while (++idx <= N)
+    {
+        scanf("%d", &num[idx]);
+        count[num[idx]]++;
+    }
+    count_sum[0] = count[0];
+    idx = 0;
+    while (++idx < max)
+        count_sum[idx] = count_sum[idx - 1] + count[idx];
+
+    idx = N+1;
+    while (--idx >= 1)
+    {
+        visit[count_sum[num[idx]]] = num[idx];
+        count_sum[num[idx]]--;
+    }
+
+    idx = 0;
+    while (++idx <= N)
+        printf("%d\n", visit[idx]);
+}
+```
+- 카운팅 소트는 수가 얼만큼 나왔는지를 세고 그만큼 순서대로 출력
+
+    단순 10000개의 숫자를 출력하므로 메모리 크기가 8MB 만으로도 가능!
+    
+-----
+
 ## 📌 [좌표 정렬하기](https://www.acmicpc.net/problem/11650) 
 
 ### [11650]()
