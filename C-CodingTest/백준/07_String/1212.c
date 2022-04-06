@@ -11,6 +11,11 @@ int	main()
 
 	scanf("%s", str);
 	len = strlen(str);
+	if (str[0] == '0')
+	{
+		printf("0");
+		return (0);
+	}
 
 	printf("%s", first[str[0] - '0']);
 
