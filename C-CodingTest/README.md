@@ -50,7 +50,7 @@
 
 ## 📌 git push 오류 모음<br>
 
-* 최초 pust 시에 오류 발생
+📌 최초 pust 시에 오류 발생
 
 ```vim
   error: src refspec master does not match any.
@@ -58,34 +58,54 @@
 ```
 >  아무 파일이나 생성해 commit한 후 pust 하면 해결
 
-* git add . -> commit -> untrack file 의 경우
+-----
+
+📌 문제
+```.vim
+git add . -> commit -> untrack file 의 경우
+```
+`git add .`는 명령어를 실행한 디렉 이하에서 발생한 변경 내용만 포함한다
+
+📌 해결
 ```vim
 
  git add -A
  
 ```
-> 작업 디렉토리 상에 어디에 위치하든 모든 변경 내용을 스테이징으로 넘긴다<br>
-> `git add .`는 명령어를 실행한 디렉 이하에서 발생한 변경 내용만 포함<br>
-> 해당 디렉 기준 상위 디렉토리의 변경 내용을 포함하지 않는다<br>
-> 최상위 디렉에서 `git add .` 하는것과 같다
+ -  -A 옵션은 작업 디렉토리 상에 어디에 위치하든 모든 변경 내용을 스테이징으로 넘긴다
+ -  최상위 디렉에서 `git add .` 하는것과 같다
 
-* Pulling is not possible because you have unmerged files.
-  git pull 하니까 발생한 에러
-  > 충돌로 인해 merge 했음에도 에러 발생
+-----
+📌 문제
+```.vim
+Pulling is not possible because you have unmerged files.
+Committing is not possible because you have unmerged files.
+```
+git pull 하니까 발생한 에러
+- 충돌로 인해 merge 했음에도 에러 발생
 
- 알고보니 로컬과 원격 둘다 같은 파일이 있는데 로컬에서 아직 merge가 잘 안됐다고 인식
-```.c
+알고보니 로컬과 원격 둘다 같은 파일이 있는데 로컬에서 아직 merge가 잘 안됐다고 인식
+📌 해결
+```.vim
  git commit -am '커밋메시지'
 ```
 하니 잘 돌아감
 
 [도움](https://velog.io/@2ujin/%EA%B9%83-Pull-is-not-possible-because-you-have-unmerged-files-%EC%97%90%EB%9F%AC)<br>
 
-* git push 충돌 발생시
+-----
 
-```
+📌 문제
+```.vim
+git push 충돌 발생시
 ```
 
+📌 해결
+```.vim
+git push -> git pull
+```
+
+-----
 ### 기타
   
 -u 옵션
