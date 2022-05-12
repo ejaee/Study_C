@@ -44,8 +44,10 @@
    
    
 [씹어먹는 C 2.pdf](https://github.com/nawooo/C_lang/files/8678654/C.2.pdf)
+![씹어먹는 C 2](https://user-images.githubusercontent.com/87407504/168067244-308ab3eb-e948-49e4-a8b3-6a52346c003f.jpg)
 
 [씹어먹는 C 3.pdf](https://github.com/nawooo/C_lang/files/8678657/C.3.pdf)
+![씹어먹는 C 3](https://user-images.githubusercontent.com/87407504/168067434-36799040-a3e2-47e5-9670-1ab865cedaec.jpg)
 
 [씹어먹는 C 4.pdf](https://github.com/nawooo/C_lang/files/8678658/C.4.pdf)
 
