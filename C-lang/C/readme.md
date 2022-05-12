@@ -47,8 +47,56 @@
    ```
    
    
+[씹어먹는 C 2.pdf](https://github.com/nawooo/C_lang/files/8678654/C.2.pdf)
 
+[씹어먹는 C 3.pdf](https://github.com/nawooo/C_lang/files/8678657/C.3.pdf)
 
+[씹어먹는 C 4.pdf](https://github.com/nawooo/C_lang/files/8678658/C.4.pdf)
 
+[씹어먹는 C 5.pdf](https://github.com/nawooo/C_lang/files/8678659/C.5.pdf)
+
+[씹어먹는 C 6.pdf](https://github.com/nawooo/C_lang/files/8678660/C.6.pdf)
+
+[씹어먹는 C 7.pdf](https://github.com/nawooo/C_lang/files/8678661/C.7.pdf)
+
+[씹어먹는 C 8.pdf](https://github.com/nawooo/C_lang/files/8678662/C.8.pdf)
+
+[씹어먹는 C 9.pdf](https://github.com/nawooo/C_lang/files/8678663/C.9.pdf)
+
+[씹어먹는 C 10.pdf](https://github.com/nawooo/C_lang/files/8678665/C.10.pdf)
+
+[씹어먹는 C 11.pdf](https://github.com/nawooo/C_lang/files/8678670/C.11.pdf)
+
+[씹어먹는 C 12.pdf](https://github.com/nawooo/C_lang/files/8678671/C.12.pdf)
+
+[씹어먹는 C 13.pdf](https://github.com/nawooo/C_lang/files/8678673/C.13.pdf)
+
+[씹어먹는 C 14.pdf](https://github.com/nawooo/C_lang/files/8678674/C.14.pdf)
+
+[씹어먹는 C 15.pdf](https://github.com/nawooo/C_lang/files/8678675/C.15.pdf)
+
+[씹어먹는 C 16.pdf](https://github.com/nawooo/C_lang/files/8678676/C.16.pdf)
+
+[씹어먹는 C 17.pdf](https://github.com/nawooo/C_lang/files/8678677/C.17.pdf)
+
+[씹어먹는 C 18.pdf](https://github.com/nawooo/C_lang/files/8678678/C.18.pdf)
+
+[씹어먹는 C 19.pdf](https://github.com/nawooo/C_lang/files/8678680/C.19.pdf)
+
+[씹어먹는 C 20.pdf](https://github.com/nawooo/C_lang/files/8678688/C.20.pdf)
+
+[씹어먹는 C 21.pdf](https://github.com/nawooo/C_lang/files/8678690/C.21.pdf)
+
+[씹어먹는 C 22.pdf](https://github.com/nawooo/C_lang/files/8678691/C.22.pdf)
+
+[씹어먹는 C 23.pdf](https://github.com/nawooo/C_lang/files/8678692/C.23.pdf)
+
+[씹어먹는 C 24.pdf](https://github.com/nawooo/C_lang/files/8678693/C.24.pdf)
+
+[씹어먹는 C 25.pdf](https://github.com/nawooo/C_lang/files/8678696/C.25.pdf)
+
+[씹어먹는 C 26.pdf](https://github.com/nawooo/C_lang/files/8678699/C.26.pdf)
+
+[씹어먹는 C 27.pdf](https://github.com/nawooo/C_lang/files/8678700/C.27.pdf)
 
 
