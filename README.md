@@ -76,3 +76,10 @@
   * [class](https://solved.ac/class)에 선별된 문제를 참고하여 학습
 
 ----
+
+# 🗓 2021
+
+## 📌 [C](https://github.com/nawooo/C_lang/blob/master/C-lang/C/readme.md)
+* 📖 교재 : [모두의 코드](https://modoocode.com/231)
+    * 첫 C언어 학습
+----
