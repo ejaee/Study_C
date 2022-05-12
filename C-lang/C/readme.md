@@ -4,10 +4,6 @@
 [씹어먹는 C.pdf](https://github.com/Ejaeda/C_lang/files/8502450/C.pdf)
 ![0001](https://user-images.githubusercontent.com/87407504/163732171-37ccbe73-d151-4e6f-97ce-84588975984b.jpg)
 
-## 목차
--  [CPU, Register, RAM](#컴퓨터는-계산기다)
-
-
 -----
 
 ### 컴퓨터는 계산기다
