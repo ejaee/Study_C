@@ -23,6 +23,9 @@
   * 1일마다 코딩테스트 문제풀이 최소 1회 진행
   * 개인 학습 내용은 각자 정리 후 README에 업데이트
   
+<details>
+<summary>  스터디 방법 (click 👈)  </summary>
+    
 ### 스터디 일정('21.11.07.~)
 * 자료구조
   * 0주차: 11/08~11/14
@@ -55,6 +58,8 @@
   * [juji](https://github.com/ji-junhyuk)
   * [ichoi](https://github.com/ICCHOI)
   * [jnam](https://github.com/namzisun)
+
+</details>
 
 ----
 
