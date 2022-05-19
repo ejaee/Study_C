@@ -182,7 +182,8 @@ T(n) = K(비교 횟수) + 1
 ```
 
 * n을 1이 될 때 까지 나누고 추가로 1회 연산
-  <br><img width="100" alt="스크린샷 2021-11-17 오후 2 29 47" src="https://user-images.githubusercontent.com/87407504/142140586-64ec34b4-031a-4b7b-b8cd-e7c8739c8d23.png"><br>
+  <br><img width="100" alt="스크린샷 2021-11-17 오후 2 29 47" src="https://user-images.githubusercontent.com/87407504/142140586-64ec34b4-031a-4b7b-b8cd-e7c8739c8d23.png">
+  > T(n) = logN + 1
 * 횟수 k를 기준 
   <br><img width="400" alt="스크린샷 2021-11-17 오후 2 29 53" src="https://user-images.githubusercontent.com/87407504/142140698-0ecb5197-d95f-4aba-a817-64cac012874e.png">
 * 시간복잡도 T(n) 
