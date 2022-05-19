@@ -183,9 +183,9 @@ T(n) = K(비교 횟수) + 1
 
 * n을 1이 될 때 까지 나누고 추가로 1회 연산
   <br><img width="100" alt="스크린샷 2021-11-17 오후 2 29 47" src="https://user-images.githubusercontent.com/87407504/142140586-64ec34b4-031a-4b7b-b8cd-e7c8739c8d23.png">
-  > T(n) = logN + 1
 * 횟수 k를 기준 
   <br><img width="400" alt="스크린샷 2021-11-17 오후 2 29 53" src="https://user-images.githubusercontent.com/87407504/142140698-0ecb5197-d95f-4aba-a817-64cac012874e.png">
+    > T(n) = logN + 1
 * 시간복잡도 T(n) 
   <br><img width="178" alt="스크린샷 2021-11-17 오후 4 38 23" src="https://user-images.githubusercontent.com/87407504/142156558-016dc91e-b217-41fa-a524-ae2f887085b8.png">
 > T(n)는 수의 증가에 따른 연산횟수의 변화 정도에 주목하므로 추가 1회 연산 + 1은 의미가 없다
