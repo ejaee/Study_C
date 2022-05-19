@@ -208,10 +208,12 @@ T(n) = K(비교 횟수) + 1
  <br><img width="402" alt="스크린샷 2021-11-17 오후 2 40 56" src="https://user-images.githubusercontent.com/87407504/142141526-d59dc73e-463a-4bd3-93f0-9148a1281593.png">
  * 빅-오의 크기순서
  <br><img width="507" alt="스크린샷 2021-11-17 오후 2 44 06" src="https://user-images.githubusercontent.com/87407504/142141814-e94f1996-b7a8-49e1-9c32-adb38992fcf9.png">
+  
   ```
   n^n에 가까울수록(그래프가 위로 올라갈수록) 성능은 떨어진다
   1에 가까울수록(그래프가 내려갈수록)성능은 올라간다
   ```
+  
 ### :pencil2: 빅-오에 대한 수학적 접근<br>
 ![KakaoTalk_Photo_2021-11-17-17-57-26](https://user-images.githubusercontent.com/87407504/142169066-777572b1-160a-484a-87c3-95fcd27e2a32.jpeg)
 
