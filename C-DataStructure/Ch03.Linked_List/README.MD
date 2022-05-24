@@ -297,7 +297,7 @@ int LNext(List * plist, LData * pdata) {
 
 -    LNext에서 (plist->curPosition)++;
 
-     ☑️  urPosition 값을 증가시켜 순서대로 데이터를 참조할 수 있도록 한다
+     ☑️  curPosition 값을 증가시켜 순서대로 데이터를 참조할 수 있도록 한다
 
 ## 배열 리스트의 삭제
 
