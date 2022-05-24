@@ -349,6 +349,8 @@ LData	LRemove(List * Plist)
 	-	예로 arr[3]의 값을 지웠다면 arr[4]이후의 값은 [3]부터 저장될 것이다
 	-	curPosition은 삭제가 되기 전[4]의 값을 인덱스 3을 가리킨 상황에서 가져오는데 [3]이 삭제되었으므로 2를 가리켜야한다 
 
+----
+
 ## 배열 리스트 하나로 묶기
 [ArrayList.c](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/ArrayList.c)
 ### 배열 리스트의 장단점
@@ -356,7 +358,7 @@ LData	LRemove(List * Plist)
 
 단점
 
--  배열의 길이가 초기에 결정이 되어야한다<br>
+-  배열의 길이가 초기에 결정이 되어야한다
 
    [ArrayList.h](https://github.com/Ejaeda/42_study/blob/master/DataStructure/Ch03.Linked_List/file/ArrayList.h)의 8번째줄에서 배열의 길이를 100으로 고정
 
@@ -366,6 +368,7 @@ LData	LRemove(List * Plist)
 
 -  인덱스 값을 기준으로 어디든 한 번에 참조가 가능해 데이터의 참조가 쉽다
 
+----
 
 ## 리스트에 구조체 변수 저장하기 
 > 앞의 설명에서는 리스트에 단순히 정수가 저장되었다
