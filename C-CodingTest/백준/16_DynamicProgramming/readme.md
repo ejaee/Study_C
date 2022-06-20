@@ -1,5 +1,18 @@
 # :book: Dynamic Programming
 
+DP의 특징
+
+```
+답을 여러 번 계산하지 않고 한번 만 계산한다
+
+이미 한번 계산 했다면, 해당 값을 저장해두고 이후에 재활용한다
+
+>> 메모이제이션(memoization) 
+```
+
+<details>
+<summary> Algorithm (click 👈)  </summary>
+
 ## 조건
 
 1. 문제가 세부 문제로 쪼개질 때
@@ -79,3 +92,63 @@
 - 가장 작은 문제부터(`fibo(1)`) array에 저장 (for loop)
 - O(1)
 - Top-down 방식에서 큰 수의 문제를 해결할 수 있음
+
+</details>
+
+----
+
+### :point_right: [02_24416](https://www.acmicpc.net/problem/9184)
+
+- 핵심
+
+```.py
+1. 일반적인 recursion은 input 값이 클 경우 시간이 많이 걸린다
+2. 이에대한 문제를 dp으로 해결한다
+3. 메모이제이션(memoization)을 통해 이미 계산한 값을 재활용한다
+```
+
+-  새로 안 사실
+
+메모이제이션 로직
+
+```.py
+메모이제이션(memoization)을 위해 전역 배열을 선언(1), 저장(3), 사용(2)
+
+1.
+python에서 3차원 배열을 정의할 때는 다음과 같이한다
+
+세 값 중 하나라도 20이 넘으면 w(20, 20, 20)을 리턴하므로 max index 21
+
+dp = [[[0 for col in range(21)] for row in range(21)] for depth in range(21)]
+
+2.
+만약 값이 있다면 recursion하지 않고 배열에 담긴 값을 그대로 return
+
+if dp[a][b][c]:
+    return dp[a][b][c]
+
+
+1. 
+이 외에 나머지는 값이 없는 것으로, 계산함과 동시에 값을 전역 배열에 저장
+
+elif a < b and b < c:
+    dp[a][b][c] =  w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c)
+    return dp[a][b][c]
+else:
+    dp[a][b][c] =  w(a-1, b, c) + w(a-1, b-1, c) + w(a-1, b, c-1) - w(a-1, b-1, c-1)
+    return dp[a][b][c]
+```
+
+입력 여러개 받기
+
+```.py
+a, b, c = map(int, input().split())
+```
+
+출력 여러개 하기
+
+```.py
+print("w({}, {}, {}) = {}".format(a,b,c,w(a,b,c)))
+```
+
+----
