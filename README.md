@@ -2,11 +2,17 @@
     
 ----
 
-## 📌 CodingTest
-*  📖 사이트 : [백준](https://www.acmicpc.net/step)
-  * [라이벌 제도](https://solved.ac/ranking/rival)를 통한 그룹 라이벌 진도 확인
-  * 최소 1일 1문제 학습 후 [정리](https://github.com/Ejaeda/C_lang/tree/master/CodingTest)
-  * [class](https://solved.ac/class)에 선별된 문제를 참고하여 학습
+## 📌 C 기본개념학습
+* 📖 교재 : [열혈강의 최호성의 C 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400172&orderClick=LAG&Kc=)
+    * 빠르게 여러번 학습하기
+    * 코드 따라하면서 내용 [정리하기](https://github.com/Ejaeda/C_lang/tree/master/C-lang)
+
+----
+
+## 📌 Pointer
+* 📖 교재 : [공동환의 열혈강의 C 포인터](https://freelec.co.kr/lecture/%EC%97%B4%ED%98%88%EA%B0%95%EC%9D%98-c-%ED%8F%AC%EC%9D%B8%ED%84%B0/)
+    * 포인터 익숙해지기
+    * 코드 따라하면서 내용 [정리하기](https://github.com/Ejaeda/C_lang/tree/master/Pointer)
 
 ----
 
@@ -15,15 +21,18 @@
   * 2인 1개조 동료평가 진행(1주 2파트 진행)
   * 깃허브 개념 정리
 * 개인과제 계획 및 실천 후 깃허브 기록
-  * 깃허브 꾸준히 관리하기
-  * 깃에 익숙해지기
+
+  
+<details>
+<summary>  스터디 방법 (click 👈)  </summary>
+
 ### 스터디 방법 및 규칙
 * 학습 방법
   * 1주마다 자료구조 동료평가 2회 진행
   * 1일마다 코딩테스트 문제풀이 최소 1회 진행
   * 개인 학습 내용은 각자 정리 후 README에 업데이트
-  
-### 스터디 일정('21.11.07.~)
+    
+### 스터디 일정('21.11.07.~)('22.05.15.~)
 * 자료구조
   * 0주차: 11/08~11/14
     * [Day0](#42-스터디) 스터디 개별학습 및 진도 파악
@@ -56,16 +65,21 @@
   * [ichoi](https://github.com/ICCHOI)
   * [jnam](https://github.com/namzisun)
 
-----
-
-## 📌 Pointer
-* 📖 교재 : [공동환의 열혈강의 C 포인터](https://freelec.co.kr/lecture/%EC%97%B4%ED%98%88%EA%B0%95%EC%9D%98-c-%ED%8F%AC%EC%9D%B8%ED%84%B0/)
-    * 포인터 익숙해지기
-    * 코드 따라하면서 내용 [정리하기](https://github.com/Ejaeda/C_lang/tree/master/Pointer)
+</details>
 
 ----
 
-## 📌 C-lang
-* 📖 교재 : [열혈강의 최호성의 C 프로그래밍](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788965400172&orderClick=LAG&Kc=)
-    * 빠르게 여러번 학습하기
-    * 코드 따라하면서 내용 [정리하기](https://github.com/Ejaeda/C_lang/tree/master/C-lang)
+## 📌 CodingTest
+*  📖 사이트 : [백준](https://www.acmicpc.net/step)
+  * [라이벌 제도](https://solved.ac/ranking/rival)를 통한 그룹 라이벌 진도 확인
+  * 최소 1일 1문제 학습 후 [정리](https://github.com/Ejaeda/C_lang/tree/master/CodingTest)
+  * [class](https://solved.ac/class)에 선별된 문제를 참고하여 학습
+
+----
+
+# 🗓 2021
+
+## 📌 [C 기본개념학습](https://github.com/nawooo/C_lang/blob/master/C-lang/C/readme.md)
+* 📖 교재 : [모두의 코드](https://modoocode.com/231)
+    * 첫 C언어 학습
+----
