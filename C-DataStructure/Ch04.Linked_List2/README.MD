@@ -353,7 +353,7 @@ int LFirst(List * plist, LData * pdata){
 #### LNext
 ```.c
 int LNext(List * plist, LData * pdata){
-    if(plist -> head -> next == NULL)              // cur이 NULL을 가리킨다면,
+    if(plist -> cur -> next == NULL)              // cur이 NULL을 가리킨다면,
         return FALSE;                              // 반환할 데이터 없음
     
     plist -> before = plist -> cur;                // cur이 가리키던 것을 before가 가리키게 함
