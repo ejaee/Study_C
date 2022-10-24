@@ -1,3 +1,5 @@
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fejaee%2FStudy_C%2Ftree%2Fmaster%2FC-DataStructure&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 ## 📌 DataStructure
 *  📖 교재 : [윤성우의 열혈 자료구조](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788996094067)
   * 2인 1개조 동료평가 진행(1주 2파트 진행)
@@ -6,15 +8,11 @@
   * 깃허브 꾸준히 관리하기
   * 깃에 익숙해지기
 
------
-
 ### 📌 스터디 방법 및 규칙
 * 학습 방법
   * 1주마다 자료구조 동료평가 2회 진행
   * 1일마다 코딩테스트 문제풀이 최소 1회 진행
   * 개인 학습 내용은 각자 정리 후 README에 업데이트
-  
-----
 
 ### 📌 스터디 일정('21.11.07.~)
 * 자료구조
